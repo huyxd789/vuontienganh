@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E9EFFC">
-<meta name="description" content="Vườn từ — học tiếng Anh cho người Việt. 100 chủ đề, 5 cấp độ Pre-A1 đến B2, thuật toán lặp lại ngắt quãng FSRS.">
+<meta name="description" content="Vườn từ — học tiếng Anh cho người Việt. 100 chủ đề, 5 cấp độ Pre-A1 đến B2, hơn 2300 từ, nhiều dạng bài tập và trò chơi, thuật toán lặp lại ngắt quãng FSRS.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Vườn từ">
 <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22V%C6%B0%E1%BB%9Dn%20t%E1%BB%AB%20%E2%80%94%20H%E1%BB%8Dc%20ti%E1%BA%BFng%20Anh%22%2C%22short_name%22%3A%22V%C6%B0%E1%BB%9Dn%20t%E1%BB%AB%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23E9EFFC%22%2C%22theme_color%22%3A%22%23E9EFFC%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/svg%2Bxml%2C%253Csvg%20xmlns%3D%2527http%3A//www.w3.org/2000/svg%2527%20viewBox%3D%25270%200%20100%20100%2527%253E%253Crect%20width%3D%2527100%2527%20height%3D%2527100%2527%20rx%3D%252722%2527%20fill%3D%2527%252317255A%2527/%253E%253Ctext%20y%3D%252772%2527%20x%3D%252750%2527%20font-size%3D%252760%2527%20text-anchor%3D%2527middle%2527%253E%25F0%259F%258C%25B1%253C/text%253E%253C/svg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image/svg%2Bxml%22%7D%5D%7D">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%2780%27 font-size=%2790%27%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%%3Csvg xmlns=%%27http://www.w3.org/2000/svg%%27 viewBox=%%270 0 100 100%%27%%3E%%3Ctext y=%%2780%%27 font-size=%%2790%%27%%3E%%F0%%9F%%8C%%B1%%3C/text%%3E%%3C/svg%%3E">
 <title>Vườn từ — Học tiếng Anh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -224,25 +224,46 @@ td{padding:8px 10px;border-top:1px solid var(--line)}
   .tile-name{font-size:14px}
 }
 
+/* ===== Bài tập mở rộng ===== */
+/* Điền chỗ trống trong đoạn văn */
+.para-cloze{background:var(--sky);border-radius:14px;padding:14px;margin:12px 0;font-size:15px;line-height:2.1}
+.para-blank{display:inline-block;min-width:64px;text-align:center;border-bottom:2px solid var(--ink2);padding:1px 8px;margin:0 2px;font-weight:600;font-family:var(--display)}
+.para-blank.filled{background:#fff;border-radius:6px;border-bottom-color:var(--ink)}
+.para-blank.right{background:#E8F8F0;border-radius:6px;border-bottom-color:var(--leaf);color:#12784E}
+.para-blank.wrong{background:#FDECEF;border-radius:6px;border-bottom-color:var(--lychee);color:#A82C46}
+.para-choices{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.para-num{font-family:var(--display);font-weight:700;color:var(--ink2);min-width:18px}
+.chip{font-family:var(--body);font-weight:500;font-size:14px;padding:7px 12px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* Nghe hội thoại */
+.dlg-play{text-align:center;margin:12px 0}
+.dlg-script{background:var(--sky);border-radius:12px;padding:12px;margin:10px 0;font-size:13.5px;line-height:1.7}
+.dlg-script div{margin-bottom:3px}
+.dlg-q{font-family:var(--display);font-weight:700;font-size:15px;margin:14px 0 6px}
+
+/* Chính tả */
+.dict-input{margin-top:14px;width:100%;max-width:320px;text-align:center;font-family:var(--display);font-weight:700;font-size:22px;border:2px solid var(--line);border-radius:14px;padding:12px;color:var(--ink);outline-color:var(--mango)}
+.dict-input:disabled{background:var(--sky)}
+
+/* Xếp chữ cái */
+.scramble-slots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:18px 0}
+.slot{width:34px;height:42px;border-bottom:3px solid var(--ink2);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px;color:var(--ink)}
+.slot.right{border-bottom-color:var(--leaf);color:#12784E}
+.slot.wrong{border-bottom-color:var(--lychee);color:#A82C46}
+.scramble-bank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.tile-letter{width:42px;height:48px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);font-family:var(--display);font-weight:800;font-size:22px;cursor:pointer;box-shadow:0 3px 0 var(--shadow)}
+.tile-letter:active:not(.used){transform:translateY(2px);box-shadow:0 1px 0 var(--shadow)}
+.tile-letter.used{background:var(--sky);color:transparent;box-shadow:none;border-style:dashed}
+.mini-clear{display:block;margin:0 auto;border:none;background:transparent;color:var(--ink2);font-family:var(--body);font-size:13px;cursor:pointer;text-decoration:underline}
+
 </style>
 </head>
 <body>
 <main id="app"></main>
 <nav id="nav" aria-label="Điều hướng chính"></nav>
 <div id="toast" role="status" aria-live="polite"></div>
-
 <script>
-/* ============================================================
-   VƯỜN TỪ — BẢN TRIỂN KHAI WEB
-   Một file duy nhất. Không thư viện. Không server. Không build.
-   Tiến độ lưu tại localStorage trên máy người học.
-
-   • 100 chủ đề · 5 cấp (Pre-A1 → B2, khung CEFR)
-   • 500 từ · 36 điểm ngữ pháp · 60 bài đọc (180 câu hỏi)
-   • Engine FSRS-lite (lặp lại ngắt quãng)
-   • 3 trò chơi: phát âm theo hình · ô chữ tự sinh · lật thẻ
-   Nội dung tự soạn. Không sao chép BBC / Lingokids / Duolingo.
-   ============================================================ */
 /* ---------- DỮ LIỆU (trích từ vuon-tu-v2.jsx & readings-full.js) ---------- */
 const T = (id, level, name, emoji, words) => ({ id, level, name, emoji, words });
 const G = (level, point, q, opts, a, why) => ({ level, point, q, opts, a, why });
@@ -358,6 +379,112 @@ const TOPICS = [
   T(99, 5, "Thành ngữ thông dụng", "🎭", [["break the ice", "phá tan không khí ngại ngùng"], ["on the same page", "cùng quan điểm"], ["cut corners", "làm ẩu cho nhanh"], ["a grey area", "vùng xám / chưa rõ ràng"], ["get the ball rolling", "khởi động công việc"]]),
   T(100, 5, "Phỏng vấn học bổng", "🏅", [["motivation letter", "thư động lực"], ["achievement", "thành tích"], ["contribution", "đóng góp"], ["long-term vision", "tầm nhìn dài hạn"], ["commitment", "cam kết"]]),
 ];
+
+/* ---- Ghép 20 từ mở rộng vào mỗi chủ đề (sau 5 từ gốc) ---- */
+/* Bộ từ vựng mở rộng ×5 (đã khử trùng với từ gốc). Ghép SAU từ gốc, ID cũ giữ nguyên. */
+const EXTRA_WORDS = {
+1:[["good morning","chào buổi sáng"],["good afternoon","chào buổi chiều"],["good evening","chào buổi tối"],["good night","chúc ngủ ngon"],["how are you?","bạn khoẻ không?"],["I'm fine","tôi khoẻ"],["see you later","hẹn gặp lại"],["welcome","chào mừng"],["my name is Lan","tên tôi là Lan"],["what's your name?","bạn tên gì?"],["nice to see you","rất vui được gặp"],["good luck","chúc may mắn"],["have a nice day","chúc một ngày tốt lành"],["take care","giữ gìn sức khoẻ"],["see you soon","sớm gặp lại"],["hello everyone","chào mọi người"],["goodbye teacher","tạm biệt cô giáo"],["come in","mời vào"],["sit down","ngồi xuống"],["stand up","đứng lên"]],
+2:[["E is for egg","E là quả trứng"],["F is for fish","F là con cá"],["G is for goat","G là con dê"],["H is for hat","H là cái mũ"],["I is for ice cream","I là que kem"],["J is for juice","J là nước ép"],["K is for kite","K là cái diều"],["L is for lion","L là sư tử"],["M is for moon","M là mặt trăng"],["N is for nose","N là cái mũi"],["O is for orange","O là quả cam"],["P is for pig","P là con lợn"],["Q is for queen","Q là nữ hoàng"],["R is for rabbit","R là con thỏ"],["S is for sun","S là mặt trời"],["T is for tiger","T là con hổ"],["U is for umbrella","U là cái ô"],["V is for van","V là xe tải nhỏ"],["W is for water","W là nước"],["Z is for zoo","Z là sở thú"]],
+3:[["two","hai"],["four","bốn"],["six","sáu"],["seven","bảy"],["nine","chín"],["zero","số không"],["count","đếm"],["how many?","bao nhiêu?"],["number","con số"],["first","thứ nhất"],["second","thứ nhì"],["third","thứ ba"],["last","cuối cùng"],["one apple","một quả táo"],["two hands","hai bàn tay"],["five fingers","năm ngón tay"],["ten toes","mười ngón chân"],["add","cộng thêm"],["take away","bớt đi"],["all together","tất cả cộng lại"]],
+4:[["white","màu trắng"],["pink","màu hồng"],["purple","màu tím"],["brown","màu nâu"],["grey","màu xám"],["gold","màu vàng kim"],["silver","màu bạc"],["light blue","xanh da trời"],["dark green","xanh lá đậm"],["colorful","nhiều màu sắc"],["rainbow","cầu vồng"],["bright","tươi sáng"],["dark","tối màu"],["paint","sơn màu"],["crayon","bút sáp màu"],["mix colors","pha màu"],["favorite color","màu yêu thích"],["what color is it?","nó màu gì?"],["a red rose","một bông hồng đỏ"],["the sky is blue","bầu trời màu xanh"]],
+5:[["rectangle","hình chữ nhật"],["oval","hình bầu dục"],["diamond","hình thoi"],["line","đường kẻ"],["dot","dấu chấm"],["big","to lớn"],["small","nhỏ bé"],["round","tròn trịa"],["flat","phẳng"],["edge","mép cạnh"],["side","cạnh bên"],["cube","khối lập phương"],["half","một nửa"],["whole","nguyên vẹn"],["same","giống nhau"],["different","khác nhau"],["pattern","hoạ tiết"],["draw a circle","vẽ hình tròn"],["a square box","chiếc hộp vuông"],["trace the shape","đồ theo hình"]],
+6:[["grandfather","ông"],["grandmother","bà"],["aunt","cô dì"],["uncle","chú bác"],["cousin","anh chị em họ"],["parents","bố mẹ"],["son","con trai"],["daughter","con gái"],["twin","sinh đôi"],["family photo","ảnh gia đình"],["love","yêu thương"],["hug","cái ôm"],["kiss","nụ hôn"],["home","mái ấm"],["together","cùng nhau"],["older brother","anh trai"],["younger sister","em gái"],["grandchild","cháu"],["visit grandma","thăm bà"],["family dinner","bữa cơm gia đình"]],
+7:[["ear","cái tai"],["mouth","cái miệng"],["hair","mái tóc"],["arm","cánh tay"],["leg","cái chân"],["finger","ngón tay"],["toe","ngón chân"],["tooth","cái răng"],["tongue","cái lưỡi"],["shoulder","bờ vai"],["knee","đầu gối"],["tummy","cái bụng"],["back","cái lưng"],["face","khuôn mặt"],["neck","cái cổ"],["elbow","khuỷu tay"],["clap your hands","vỗ tay"],["touch your nose","chạm vào mũi"],["wash your face","rửa mặt"],["strong body","cơ thể khoẻ mạnh"]],
+8:[["hamster","chuột hamster"],["turtle","con rùa"],["puppy","chó con"],["kitten","mèo con"],["goldfish","cá vàng"],["parrot","con vẹt"],["feed the dog","cho chó ăn"],["pet food","thức ăn thú cưng"],["cage","cái lồng"],["tail","cái đuôi"],["paw","bàn chân thú"],["fur","bộ lông"],["bark","tiếng sủa"],["meow","tiếng meo meo"],["take a walk","dắt đi dạo"],["vet","bác sĩ thú y"],["bowl","cái bát"],["collar","vòng cổ"],["gentle","hiền lành"],["my pet","thú cưng của tôi"]],
+9:[["horse","con ngựa"],["goat","con dê"],["sheep","con cừu"],["hen","gà mái"],["rooster","gà trống"],["chick","gà con"],["farm","nông trại"],["barn","chuồng trại"],["field","cánh đồng"],["grass","bãi cỏ"],["hay","rơm khô"],["milk the cow","vắt sữa bò"],["lay eggs","đẻ trứng"],["tractor","máy kéo"],["scarecrow","bù nhìn rơm"],["pond","cái ao"],["mud","bùn đất"],["oink","tiếng ụt ịt"],["quack","tiếng cạc cạc"],["feed the chickens","cho gà ăn"]],
+10:[["giraffe","hươu cao cổ"],["zebra","ngựa vằn"],["hippo","hà mã"],["crocodile","cá sấu"],["snake","con rắn"],["wolf","chó sói"],["fox","con cáo"],["deer","con nai"],["panda","gấu trúc"],["kangaroo","chuột túi"],["jungle","rừng rậm"],["roar","tiếng gầm"],["wild","hoang dã"],["dangerous","nguy hiểm"],["fast","nhanh"],["slow","chậm"],["hunt","săn mồi"],["hide","ẩn nấp"],["zoo","sở thú"],["safari","chuyến xem thú hoang"]],
+11:[["watermelon","dưa hấu"],["pineapple","quả dứa"],["papaya","đu đủ"],["coconut","quả dừa"],["dragon fruit","thanh long"],["lychee","quả vải"],["longan","quả nhãn"],["durian","sầu riêng"],["jackfruit","quả mít"],["guava","quả ổi"],["strawberry","dâu tây"],["peach","quả đào"],["pear","quả lê"],["plum","quả mận"],["ripe","chín"],["sweet","ngọt"],["sour","chua"],["juicy","mọng nước"],["peel","gọt vỏ"],["fruit salad","hoa quả dầm"]],
+12:[["cucumber","dưa chuột"],["pumpkin","bí đỏ"],["corn","bắp ngô"],["mushroom","cây nấm"],["morning glory","rau muống"],["garlic","củ tỏi"],["ginger","củ gừng"],["chili","quả ớt"],["lettuce","rau xà lách"],["bean","hạt đậu"],["pea","đậu Hà Lan"],["sweet potato","khoai lang"],["radish","củ cải"],["eggplant","cà tím"],["broccoli","súp lơ xanh"],["fresh","tươi"],["vegetable garden","vườn rau"],["plant","trồng cây"],["water the plants","tưới cây"],["healthy food","đồ ăn lành mạnh"]],
+13:[["noodles","sợi mì"],["soup","món canh"],["fish sauce","nước mắm"],["juice","nước ép trái cây"],["tea","trà"],["hot chocolate","ca cao nóng"],["cake","bánh ngọt"],["candy","kẹo"],["ice cream","kem"],["yogurt","sữa chua"],["cheese","phô mai"],["butter","bơ"],["honey","mật ong"],["snack","đồ ăn vặt"],["breakfast","bữa sáng"],["lunch","bữa trưa"],["dinner","bữa tối"],["hungry","đói bụng"],["thirsty","khát nước"],["yummy","ngon quá"]],
+14:[["trousers","quần dài"],["shorts","quần đùi"],["skirt","chân váy"],["jacket","áo khoác"],["sweater","áo len"],["T-shirt","áo phông"],["pyjamas","đồ ngủ"],["raincoat","áo mưa"],["gloves","găng tay"],["scarf","khăn quàng"],["belt","thắt lưng"],["button","cúc áo"],["pocket","túi áo"],["zip","khoá kéo"],["sandals","dép quai hậu"],["boots","đôi ủng"],["put on","mặc vào"],["take off","cởi ra"],["new clothes","quần áo mới"],["get dressed","mặc quần áo"]],
+15:[["teddy bear","gấu bông"],["robot","người máy"],["puzzle","tranh ghép hình"],["balloon","bóng bay"],["toy train","tàu hoả đồ chơi"],["yo-yo","con quay yo-yo"],["marbles","bi ve"],["skipping rope","dây nhảy"],["slide","cầu trượt"],["swing","xích đu"],["seesaw","bập bênh"],["sandbox","hố cát chơi"],["scooter","xe scooter"],["toy plane","máy bay đồ chơi"],["play house","chơi đồ hàng"],["hide and seek","trốn tìm"],["share toys","chia sẻ đồ chơi"],["my turn","đến lượt tôi"],["let's play","cùng chơi nào"],["tidy up toys","dọn đồ chơi"]],
+16:[["kitchen","nhà bếp"],["bathroom","phòng tắm"],["bedroom","phòng ngủ"],["living room","phòng khách"],["stairs","cầu thang"],["roof","mái nhà"],["wall","bức tường"],["floor","sàn nhà"],["lamp","đèn bàn"],["mirror","cái gương"],["clock","đồng hồ treo tường"],["fridge","tủ lạnh"],["television","ti vi"],["fan","quạt máy"],["pillow","cái gối"],["blanket","cái chăn"],["cup","cái cốc"],["plate","cái đĩa"],["spoon","cái thìa"],["key","chìa khoá"]],
+17:[["car","ô tô"],["motorbike","xe máy"],["taxi","xe taxi"],["ship","tàu thuỷ"],["helicopter","trực thăng"],["fire truck","xe cứu hoả"],["ambulance","xe cứu thương"],["police car","xe cảnh sát"],["ride a bike","đạp xe"],["drive","lái xe"],["wheel","bánh xe"],["road","con đường"],["traffic light","đèn giao thông"],["stop","dừng lại"],["go","đi tới"],["slow down","đi chậm lại"],["helmet","mũ bảo hiểm"],["seat belt","dây an toàn"],["cross the street","qua đường"],["wait","chờ đợi"]],
+18:[["cloudy","trời nhiều mây"],["snowy","trời có tuyết"],["stormy","trời dông bão"],["warm","ấm áp"],["cool","mát mẻ"],["cloud","đám mây"],["rain","cơn mưa"],["snow","tuyết"],["wind","cơn gió"],["sunshine","ánh nắng"],["sky","bầu trời"],["moon","mặt trăng"],["thunder","tiếng sấm"],["lightning","tia chớp"],["foggy","có sương mù"],["wet","ướt"],["dry","khô ráo"],["temperature","nhiệt độ"],["what's the weather like?","thời tiết thế nào?"],["stay inside","ở trong nhà"]],
+19:[["excited","hào hứng"],["bored","chán"],["surprised","ngạc nhiên"],["shy","nhút nhát"],["proud","tự hào"],["worried","lo lắng"],["sleepy","buồn ngủ"],["laugh","cười to"],["cry","khóc"],["smile","mỉm cười"],["like","thích"],["don't like","không thích"],["feel good","thấy vui khoẻ"],["feel sick","thấy mệt"],["calm","bình tĩnh"],["brave","dũng cảm"],["friendly","thân thiện"],["funny","hài hước"],["miss you","nhớ bạn"],["I'm happy","tôi vui lắm"]],
+20:[["may I?","tôi có thể không?"],["here you are","của bạn đây"],["after you","mời bạn trước"],["well done","làm tốt lắm"],["congratulations","chúc mừng"],["happy birthday","chúc mừng sinh nhật"],["get well soon","mau khoẻ nhé"],["no problem","không sao"],["of course","tất nhiên rồi"],["that's OK","không sao đâu"],["can you help me?","bạn giúp tôi được không?"],["wait a moment","chờ một chút"],["be careful","cẩn thận nhé"],["good job","giỏi lắm"],["you first","bạn trước đi"],["thank you so much","cảm ơn rất nhiều"],["you're so kind","bạn thật tốt bụng"],["may I come in?","tôi vào được không?"],["let me help","để tôi giúp"],["nice words","lời nói dễ nghe"]],
+21:[["lesson","bài học"],["subject","môn học"],["English","môn tiếng Anh"],["math","môn toán"],["music class","lớp nhạc"],["art","môn mỹ thuật"],["PE","môn thể dục"],["break time","giờ ra chơi"],["bell","tiếng chuông"],["uniform","đồng phục"],["blackboard","bảng đen"],["desk","bàn học"],["timetable","thời khoá biểu"],["exam","bài kiểm tra"],["grade","điểm số"],["classmate","bạn cùng lớp"],["principal","hiệu trưởng"],["raise your hand","giơ tay phát biểu"],["listen to the teacher","nghe cô giảng"],["do homework","làm bài về nhà"]],
+22:[["pen","bút mực"],["marker","bút dạ"],["scissors","cái kéo"],["glue","hồ dán"],["sharpener","gọt bút chì"],["pencil case","hộp bút"],["paper","tờ giấy"],["folder","tập tài liệu"],["calculator","máy tính bỏ túi"],["dictionary","từ điển"],["textbook","sách giáo khoa"],["worksheet","phiếu bài tập"],["paint brush","cọ vẽ"],["sticky note","giấy nhớ"],["stapler","dập ghim"],["tape","băng dính"],["chalk","viên phấn"],["whiteboard","bảng trắng"],["highlighter","bút nhớ dòng"],["bookmark","kẹp đánh dấu sách"]],
+23:[["twelve","mười hai"],["thirteen","mười ba"],["fourteen","mười bốn"],["fifteen","mười lăm"],["sixteen","mười sáu"],["seventeen","mười bảy"],["eighteen","mười tám"],["nineteen","mười chín"],["thirty","ba mươi"],["forty","bốn mươi"],["sixty","sáu mươi"],["seventy","bảy mươi"],["eighty","tám mươi"],["count by tens","đếm theo chục"],["plus","phép cộng"],["minus","phép trừ"],["equals","bằng"],["double","gấp đôi"],["a dozen","một tá"],["hundreds","hàng trăm"]],
+24:[["Tuesday","thứ Ba"],["Thursday","thứ Năm"],["Saturday","thứ Bảy"],["Sunday","Chủ nhật"],["tomorrow","ngày mai"],["yesterday","hôm qua"],["every day","mỗi ngày"],["week","tuần lễ"],["next week","tuần sau"],["this week","tuần này"],["day off","ngày nghỉ"],["calendar","tờ lịch"],["date","ngày tháng"],["what day is it?","hôm nay thứ mấy?"],["on Monday","vào thứ Hai"],["at the weekend","vào cuối tuần"],["school day","ngày đi học"],["busy day","ngày bận rộn"],["a long week","một tuần dài"],["see you on Friday","hẹn gặp thứ Sáu"]],
+25:[["February","tháng Hai"],["March","tháng Ba"],["April","tháng Tư"],["May","tháng Năm"],["June","tháng Sáu"],["August","tháng Tám"],["September","tháng Chín"],["October","tháng Mười"],["November","tháng Mười Một"],["December","tháng Mười Hai"],["summer","mùa hè"],["winter","mùa đông"],["rainy season","mùa mưa"],["dry season","mùa khô"],["New Year","năm mới"],["month","tháng"],["year","năm"],["leap year","năm nhuận"],["in July","vào tháng Bảy"],["my birthday month","tháng sinh nhật của tôi"]],
+26:[["hour","tiếng đồng hồ"],["minute","phút"],["midnight","nửa đêm"],["noon","buổi trưa"],["early","sớm"],["late","muộn"],["on time","đúng giờ"],["watch","đồng hồ đeo tay"],["alarm clock","đồng hồ báo thức"],["what time is it?","mấy giờ rồi?"],["at seven thirty","lúc bảy giờ rưỡi"],["in the evening","vào buổi tối"],["before dinner","trước bữa tối"],["after school","sau giờ học"],["hurry up","nhanh lên"],["wait for me","đợi tôi với"],["five minutes","năm phút"],["half an hour","nửa tiếng"],["all day","cả ngày"],["time for bed","đến giờ đi ngủ"]],
+27:[["take a shower","tắm vòi sen"],["get up","ra khỏi giường"],["comb hair","chải tóc"],["put on shoes","đi giày"],["eat lunch","ăn cơm trưa"],["take a nap","chợp mắt buổi trưa"],["morning exercise","thể dục buổi sáng"],["go home","về nhà"],["watch TV","xem ti vi"],["play games","chơi trò chơi"],["read a story","đọc truyện"],["feed the cat","cho mèo ăn"],["help mom","giúp mẹ"],["set the table","dọn bàn ăn"],["wash hands","rửa tay"],["pack my bag","soạn cặp sách"],["say goodnight","chào đi ngủ"],["turn off the light","tắt đèn"],["wake up early","dậy sớm"],["have a bath","tắm bồn"]],
+28:[["take photos","chụp ảnh"],["play chess","chơi cờ"],["cooking","việc nấu nướng"],["gardening","làm vườn"],["fishing","câu cá"],["camping","cắm trại"],["hiking","đi bộ leo núi"],["painting","vẽ tranh"],["watch movies","xem phim"],["listen to music","nghe nhạc"],["video games","trò chơi điện tử"],["make crafts","làm đồ thủ công"],["origami","gấp giấy"],["collect stamps","sưu tầm tem"],["bake cakes","nướng bánh"],["write stories","viết truyện"],["learn English","học tiếng Anh"],["travelling","đi du lịch"],["free time","thời gian rảnh"],["my hobby","sở thích của tôi"]],
+29:[["basketball","bóng rổ"],["volleyball","bóng chuyền"],["tennis","quần vợt"],["table tennis","bóng bàn"],["jump","nhảy"],["throw","ném"],["catch","bắt bóng"],["kick","đá bóng"],["score a goal","ghi bàn"],["win","thắng"],["lose","thua"],["player","cầu thủ"],["coach","huấn luyện viên"],["match","trận đấu"],["stadium","sân vận động"],["medal","huy chương"],["champion","nhà vô địch"],["practice","luyện tập"],["warm up","khởi động"],["cheer","cổ vũ"]],
+30:[["trumpet","kèn trumpet"],["harmonica","kèn harmonica"],["xylophone","đàn mộc cầm"],["keyboard","đàn phím điện"],["monochord","đàn bầu"],["zither","đàn tranh"],["strings","dây đàn"],["play the piano","chơi đàn piano"],["sing a song","hát một bài"],["song","bài hát"],["loud","to tiếng"],["quiet","nhỏ nhẹ"],["band","ban nhạc"],["concert","buổi hoà nhạc"],["keep the beat","giữ nhịp"],["practice the guitar","tập đàn ghi-ta"],["music teacher","cô giáo dạy nhạc"],["my favorite song","bài hát yêu thích"],["drum kit","bộ trống"],["violin bow","vĩ kéo đàn"]],
+31:[["police officer","cảnh sát"],["firefighter","lính cứu hoả"],["dentist","nha sĩ"],["singer","ca sĩ"],["dancer","vũ công"],["painter","hoạ sĩ"],["writer","nhà văn"],["postman","người đưa thư"],["builder","thợ xây"],["carpenter","thợ mộc"],["tailor","thợ may"],["barber","thợ cắt tóc"],["salesperson","nhân viên bán hàng"],["office worker","nhân viên văn phòng"],["soldier","bộ đội"],["scientist","nhà khoa học"],["architect","kiến trúc sư"],["accountant","kế toán"],["lawyer","luật sư"],["what do you do?","bạn làm nghề gì?"]],
+32:[["supermarket","siêu thị"],["bakery","tiệm bánh"],["pharmacy","hiệu thuốc"],["post office","bưu điện"],["police station","đồn công an"],["bus stop","trạm xe buýt"],["train station","nhà ga"],["museum","bảo tàng"],["cinema","rạp chiếu phim"],["temple","ngôi chùa"],["church","nhà thờ"],["fountain","đài phun nước"],["skyscraper","toà nhà chọc trời"],["crosswalk","vạch qua đường"],["sidewalk","vỉa hè"],["downtown","trung tâm thành phố"],["noisy","ồn ào"],["crowded","đông đúc"],["lost","bị lạc"],["map","bản đồ"]],
+33:[["pay","trả tiền"],["cash","tiền mặt"],["change","tiền thừa"],["wallet","ví tiền"],["sale","đợt giảm giá"],["try on","mặc thử"],["size","kích cỡ"],["too big","quá rộng"],["too small","quá chật"],["fit","vừa vặn"],["customer","khách hàng"],["shopkeeper","chủ cửa hàng"],["open","mở cửa"],["closed","đóng cửa"],["how much is it?","cái này bao nhiêu?"],["it's too expensive","đắt quá"],["can I get a discount?","bớt chút được không?"],["shopping list","danh sách mua sắm"],["plastic bag","túi ni lông"],["bring your own bag","mang túi riêng"]],
+34:[["chopsticks","đôi đũa"],["fork","cái dĩa"],["knife","con dao"],["napkin","khăn ăn"],["glass","cốc thuỷ tinh"],["starter","món khai vị"],["main course","món chính"],["dessert","món tráng miệng"],["drink","đồ uống"],["tasty","ngon miệng"],["salty","mặn"],["bland","nhạt vị"],["hot food","đồ ăn nóng"],["takeaway","mang về"],["book a table","đặt bàn"],["the bill, please","cho xin hoá đơn"],["tip","tiền boa"],["chef","bếp trưởng"],["full","no bụng"],["enjoy your meal","chúc ngon miệng"]],
+35:[["best friend","bạn thân"],["neighbor","hàng xóm"],["invite","mời"],["team up","lập nhóm"],["secret","bí mật"],["promise","lời hứa"],["forgive","tha thứ"],["wave","vẫy tay"],["high five","đập tay"],["write a letter","viết thư"],["birthday party","tiệc sinh nhật"],["play date","hẹn đi chơi"],["joke","câu chuyện đùa"],["laugh together","cười cùng nhau"],["make friends","kết bạn"],["honest","thật thà"],["polite","lễ phép"],["helpful","hay giúp đỡ"],["miss my friend","nhớ bạn của tôi"],["pen pal","bạn qua thư"]],
+36:[["short hair","tóc ngắn"],["curly hair","tóc xoăn"],["straight hair","tóc thẳng"],["blonde","tóc vàng hoe"],["beard","râu quai nón"],["glasses","cặp kính"],["cute","dễ thương"],["handsome","đẹp trai"],["beautiful","xinh đẹp"],["slim","mảnh mai"],["chubby","mũm mĩm"],["freckles","tàn nhang"],["dimple","lúm đồng tiền"],["bright eyes","đôi mắt sáng"],["medium height","cao vừa phải"],["look like","trông giống"],["ponytail","tóc đuôi ngựa"],["fringe","tóc mái"],["neat","gọn gàng"],["younger","trẻ hơn"]],
+37:[["waterfall","thác nước"],["cave","hang động"],["hill","ngọn đồi"],["valley","thung lũng"],["lake","hồ nước"],["stream","con suối"],["rock","tảng đá"],["soil","đất trồng"],["leaf","chiếc lá"],["branch","cành cây"],["root","rễ cây"],["seed","hạt giống"],["moss","đám rêu"],["bamboo","cây tre"],["pine tree","cây thông"],["sunrise","bình minh"],["sunset","hoàng hôn"],["fresh air","không khí trong lành"],["picnic","buổi dã ngoại"],["protect nature","bảo vệ thiên nhiên"]],
+38:[["dragonfly","chuồn chuồn"],["ladybug","bọ rùa"],["grasshopper","châu chấu"],["cricket","con dế"],["beetle","bọ cánh cứng"],["worm","con giun"],["snail","con ốc sên"],["fly","con ruồi"],["moth","con ngài"],["caterpillar","con sâu bướm"],["cocoon","cái kén"],["wing","cánh côn trùng"],["antenna","cái râu"],["buzz","tiếng vo ve"],["sting","đốt / chích"],["crawl","bò"],["insect net","vợt bắt côn trùng"],["tiny","bé xíu"],["busy bee","chú ong chăm chỉ"],["spider web","mạng nhện"]],
+39:[["ocean","đại dương"],["seashell","vỏ ốc biển"],["seaweed","rong biển"],["coral","san hô"],["dolphin","cá heo"],["whale","cá voi"],["shark","cá mập"],["crab","con cua"],["starfish","sao biển"],["jellyfish","con sứa"],["swim","bơi lội"],["dive","lặn"],["surf","lướt sóng"],["boat trip","chuyến đi thuyền"],["lighthouse","ngọn hải đăng"],["tide","thuỷ triều"],["salty water","nước mặn"],["sunbathe","tắm nắng"],["build a sandcastle","xây lâu đài cát"],["deep sea","biển sâu"]],
+40:[["Mid-Autumn Festival","Tết Trung thu"],["lantern","đèn lồng"],["fireworks","pháo hoa"],["parade","cuộc diễu hành"],["decorate","trang trí"],["lucky money","tiền lì xì"],["family reunion","sum họp gia đình"],["dragon dance","múa lân"],["holiday","kỳ nghỉ lễ"],["celebration","lễ kỷ niệm"],["candle","cây nến"],["wrap a gift","gói quà"],["greeting card","thiệp chúc mừng"],["special day","ngày đặc biệt"],["traditional food","món ăn truyền thống"],["new clothes","quần áo mới"],["visit relatives","thăm họ hàng"],["make a wish","ước một điều"],["mooncake","bánh trung thu"],["happy holiday","chúc lễ vui vẻ"]],
+41:[["surname","họ"],["given name","tên"],["single","độc thân"],["married","đã kết hôn"],["address","địa chỉ"],["phone number","số điện thoại"],["date of birth","ngày sinh"],["identity card","chứng minh thư"],["signature","chữ ký"],["profile","hồ sơ cá nhân"],["introduce myself","tự giới thiệu"],["I'm from Vietnam","tôi đến từ Việt Nam"],["I live in Hanoi","tôi sống ở Hà Nội"],["I work as","tôi làm nghề"],["I'm twenty","tôi hai mươi tuổi"],["mother tongue","tiếng mẹ đẻ"],["speak English","nói tiếng Anh"],["contact","liên hệ"],["email address","địa chỉ email"],["get to know","làm quen"]],
+42:[["turn right","rẽ phải"],["roundabout","vòng xuyến"],["junction","ngã tư"],["traffic","giao thông"],["straight ahead","thẳng phía trước"],["behind","phía sau"],["in front of","phía trước"],["between","ở giữa"],["far","xa"],["near","gần"],["block","dãy nhà"],["landmark","địa điểm nổi bật"],["how do I get to...?","làm sao đến...?"],["is it far?","có xa không?"],["on the left","bên trái"],["take the second turn","rẽ ở ngã thứ hai"],["follow me","đi theo tôi"],["you can't miss it","không thể nhầm được"],["direction","phương hướng"],["get lost","bị lạc đường"]],
+43:[["subway","tàu điện ngầm"],["carriage","toa tàu"],["conductor","người soát vé"],["single ticket","vé một chiều"],["return ticket","vé khứ hồi"],["timetable","lịch chạy tàu"],["delay","sự chậm trễ"],["on board","lên tàu"],["seat","chỗ ngồi"],["stop","điểm dừng"],["next station","ga tiếp theo"],["change lines","chuyển tuyến"],["mind the gap","chú ý khe hở"],["rush hour","giờ cao điểm"],["standing room","chỗ đứng"],["miss the bus","lỡ chuyến xe"],["get on","lên xe"],["monthly pass","vé tháng"]],
+44:[["shopping cart","xe đẩy hàng"],["basket","giỏ hàng"],["shelf","kệ hàng"],["frozen food","đồ đông lạnh"],["dairy","đồ từ sữa"],["bakery section","quầy bánh"],["fresh produce","rau quả tươi"],["special offer","ưu đãi đặc biệt"],["buy one get one","mua một tặng một"],["expiry date","hạn sử dụng"],["barcode","mã vạch"],["self-checkout","tự thanh toán"],["cashier","thu ngân"],["queue","xếp hàng"],["refund","hoàn tiền"],["out of stock","hết hàng"],["loyalty card","thẻ thành viên"],["grocery","hàng tạp hoá"],["in bulk","mua số lượng lớn"],["carrier bag","túi đựng hàng"]],
+45:[["steam","hấp"],["grill","nướng vỉ"],["bake","nướng lò"],["stir-fry","xào"],["mix","trộn"],["pour","rót"],["slice","cắt lát"],["peel","gọt vỏ"],["season","nêm gia vị"],["taste","nếm"],["boiling water","nước sôi"],["frying pan","chảo rán"],["pot","cái nồi"],["oven","lò nướng"],["stove","bếp nấu"],["measure","đong đo"],["a pinch of salt","một nhúm muối"],["let it cool","để nguội"],["serve","dọn ra"],["homemade","tự làm ở nhà"]],
+46:[["stomach ache","đau bụng"],["sore throat","đau họng"],["runny nose","sổ mũi"],["dizzy","chóng mặt"],["tired","mệt mỏi"],["allergy","dị ứng"],["pain","cơn đau"],["bandage","băng gạc"],["pill","viên thuốc"],["thermometer","nhiệt kế"],["blood pressure","huyết áp"],["healthy diet","chế độ ăn lành mạnh"],["drink water","uống nước"],["get some rest","nghỉ ngơi"],["stay in bed","nằm nghỉ"],["see a doctor","đi khám bác sĩ"],["feel better","đỡ hơn"],["take medicine","uống thuốc"],["first aid","sơ cứu"],["emergency","cấp cứu"]],
+47:[["waiting room","phòng chờ"],["reception","quầy tiếp tân"],["patient","bệnh nhân"],["checkup","khám tổng quát"],["X-ray","chụp X-quang"],["blood test","xét nghiệm máu"],["nurse","y tá"],["surgeon","bác sĩ phẫu thuật"],["ward","phòng bệnh"],["treatment","điều trị"],["operation","ca mổ"],["pharmacist","dược sĩ"],["dose","liều lượng"],["twice a day","hai lần một ngày"],["side effect","tác dụng phụ"],["health insurance","bảo hiểm y tế"],["make an appointment","đặt lịch hẹn"],["medical record","hồ sơ bệnh án"],["referral","giấy chuyển viện"],["recovery","sự hồi phục"]],
+48:[["workout","buổi tập"],["jog","chạy bộ"],["push-up","chống đẩy"],["sit-up","gập bụng"],["squat","gánh tạ đứng lên ngồi xuống"],["lift weights","nâng tạ"],["yoga","yoga"],["treadmill","máy chạy bộ"],["gym membership","thẻ tập gym"],["personal trainer","huấn luyện viên riêng"],["build muscle","tăng cơ"],["lose weight","giảm cân"],["stay fit","giữ dáng"],["heartbeat","nhịp tim"],["sweat","đổ mồ hôi"],["water bottle","chai nước"],["rest day","ngày nghỉ tập"],["warm-up","khởi động"],["cool down","hạ nhiệt"]],
+49:[["reception desk","quầy lễ tân"],["single room","phòng đơn"],["double room","phòng đôi"],["key card","thẻ phòng"],["room service","phục vụ tại phòng"],["breakfast included","có bữa sáng"],["check out","trả phòng"],["book online","đặt phòng qua mạng"],["vacancy","phòng còn trống"],["fully booked","hết phòng"],["swimming pool","hồ bơi"],["air conditioning","điều hoà"],["sea view","phòng nhìn ra biển"],["extra bed","giường phụ"],["deposit","tiền đặt cọc"],["complaint","lời phàn nàn"],["comfortable","thoải mái"],["upgrade","nâng hạng phòng"],["late checkout","trả phòng muộn"]],
+50:[["check-in desk","quầy làm thủ tục"],["passport","hộ chiếu"],["boarding gate","cửa lên máy bay"],["security check","kiểm tra an ninh"],["hand luggage","hành lý xách tay"],["baggage claim","nơi nhận hành lý"],["duty free","hàng miễn thuế"],["departure lounge","phòng chờ khởi hành"],["flight number","số hiệu chuyến bay"],["window seat","ghế cạnh cửa sổ"],["aisle seat","ghế cạnh lối đi"],["take off","cất cánh"],["land","hạ cánh"],["seatbelt sign","đèn thắt dây an toàn"],["cabin crew","tiếp viên hàng không"],["connecting flight","chuyến bay nối"],["jet lag","lệch múi giờ"],["visa","thị thực"],["boarding time","giờ lên máy bay"],["safe flight","thượng lộ bình an"]],
+51:[["climate","khí hậu"],["heatwave","đợt nắng nóng"],["typhoon","cơn bão nhiệt đới"],["hail","mưa đá"],["frost","sương giá"],["mild","ôn hoà"],["humidity","độ ẩm"],["degree","độ (nhiệt)"],["weather report","bản tin thời tiết"],["shower","cơn mưa rào"],["breeze","làn gió nhẹ"],["overcast","u ám"],["clear sky","trời quang"],["temperature drop","nhiệt độ giảm"],["global warming","nóng lên toàn cầu"],["natural disaster","thiên tai"],["evacuate","sơ tán"],["flood warning","cảnh báo lũ"],["dry spell","đợt khô hạn"],["extreme weather","thời tiết cực đoan"]],
+52:[["apartment","căn hộ"],["landlord","chủ nhà"],["tenant","người thuê"],["deposit","tiền đặt cọc"],["furnished","có nội thất"],["ground floor","tầng trệt"],["utilities","tiện ích điện nước"],["neighbourhood","khu dân cư"],["move in","dọn vào"],["move out","dọn đi"],["lease","hợp đồng thuê"],["spacious","rộng rãi"],["cosy","ấm cúng"],["renovate","cải tạo"],["mortgage","khoản vay mua nhà"],["property","bất động sản"],["viewing","xem nhà"],["storage room","phòng kho"],["shared house","nhà ở chung"]],
+53:[["vacuum","hút bụi"],["mop the floor","lau sàn"],["dust","lau bụi"],["take out the rubbish","đổ rác"],["make the bed","dọn giường"],["iron clothes","là quần áo"],["fold laundry","gấp quần áo"],["water the plants","tưới cây"],["scrub","cọ rửa"],["polish","đánh bóng"],["declutter","dọn bớt đồ"],["housework","việc nhà"],["chore chart","bảng phân công việc"],["clean up","dọn dẹp"],["wipe the table","lau bàn"],["do the dishes","rửa bát"],["change the sheets","thay ga giường"],["sort recycling","phân loại rác tái chế"],["spring cleaning","tổng vệ sinh"],["helping hand","chung tay giúp"]],
+54:[["smartphone","điện thoại thông minh"],["laptop","máy tính xách tay"],["tablet","máy tính bảng"],["charger","bộ sạc"],["wifi","mạng không dây"],["download","tải xuống"],["upload","tải lên"],["password","mật khẩu"],["settings","cài đặt"],["notification","thông báo"],["swipe","vuốt màn hình"],["tap","chạm"],["storage full","đầy bộ nhớ"],["restart","khởi động lại"],["airplane mode","chế độ máy bay"],["headphones","tai nghe"],["cable","dây cáp"],["touchscreen","màn hình cảm ứng"],["low battery","pin yếu"],["software update","cập nhật phần mềm"]],
+55:[["profile picture","ảnh đại diện"],["news feed","bảng tin"],["like a post","thích bài đăng"],["message","tin nhắn"],["group chat","nhóm trò chuyện"],["hashtag","thẻ hashtag"],["go viral","lan truyền mạnh"],["influencer","người có ảnh hưởng"],["block","chặn"],["privacy","quyền riêng tư"],["screen time","thời gian dùng màn hình"],["log in","đăng nhập"],["log out","đăng xuất"],["sign up","đăng ký"],["online friend","bạn trên mạng"],["fake news","tin giả"],["stream","phát trực tiếp"],["subscribe","đăng ký theo dõi"],["scroll","lướt"]],
+56:[["income","thu nhập"],["expense","chi phí"],["salary","lương"],["savings","tiền tiết kiệm"],["debt","nợ"],["loan","khoản vay"],["bill","hoá đơn"],["pocket money","tiền tiêu vặt"],["cheap","rẻ"],["expensive","đắt"],["value for money","đáng đồng tiền"],["waste money","phí tiền"],["invest","đầu tư"],["profit","lợi nhuận"],["worth it","đáng giá"],["on a budget","hạn hẹp ngân sách"],["price","giá cả"],["financial goal","mục tiêu tài chính"],["make ends meet","xoay xở đủ sống"]],
+57:[["bank account","tài khoản ngân hàng"],["debit card","thẻ ghi nợ"],["credit card","thẻ tín dụng"],["ATM","cây ATM"],["balance","số dư"],["statement","sao kê"],["transaction","giao dịch"],["exchange rate","tỷ giá"],["online banking","ngân hàng trực tuyến"],["branch","chi nhánh"],["cheque","séc"],["overdraft","thấu chi"],["savings account","tài khoản tiết kiệm"],["interest rate","lãi suất"],["PIN code","mã PIN"],["wire transfer","chuyển khoản"],["currency","tiền tệ"],["cash machine","máy rút tiền"],["account holder","chủ tài khoản"],["mobile payment","thanh toán di động"]],
+58:[["inbox","hộp thư đến"],["subject line","dòng tiêu đề"],["attachment","tệp đính kèm"],["cc","đồng gửi"],["draft","bản nháp"],["send","gửi"],["reply all","trả lời tất cả"],["signature","chữ ký cuối thư"],["spam","thư rác"],["urgent","khẩn cấp"],["follow up","thư theo dõi"],["Dear Sir","Kính gửi ông"],["best regards","trân trọng"],["looking forward","mong nhận hồi âm"],["please find attached","xin xem tệp đính kèm"],["out of office","vắng mặt"],["formal email","thư trang trọng"],["typo","lỗi đánh máy"],["proofread","đọc soát lỗi"]],
+59:[["once upon a time","ngày xửa ngày xưa"],["in the beginning","lúc đầu"],["meanwhile","trong lúc đó"],["after that","sau đó"],["in the end","cuối cùng"],["a long time ago","cách đây rất lâu"],["all of a sudden","bỗng nhiên"],["happened","đã xảy ra"],["decided","đã quyết định"],["arrived","đã đến"],["realised","nhận ra"],["character","nhân vật"],["plot","cốt truyện"],["happy ending","kết thúc có hậu"],["adventure","cuộc phiêu lưu"],["memory","kỷ niệm"],["looking back","nhìn lại"],["turning point","bước ngoặt"],["at first","thoạt đầu"],["eventually","rốt cuộc"]],
+60:[["dream","ước mơ"],["ambition","hoài bão"],["plan ahead","lên kế hoạch trước"],["in the future","trong tương lai"],["hope to","hy vọng sẽ"],["intend to","dự định"],["look forward to","mong chờ"],["save up for","tiết kiệm để mua"],["career","sự nghiệp"],["opportunity","cơ hội"],["challenge","thử thách"],["achieve","đạt được"],["set a goal","đặt mục tiêu"],["step by step","từng bước một"],["long-term","dài hạn"],["short-term","ngắn hạn"],["I will","tôi sẽ"],["someday","một ngày nào đó"],["make it happen","biến thành hiện thực"]],
+61:[["job interview","phỏng vấn xin việc"],["applicant","người xin việc"],["qualification","bằng cấp"],["experience","kinh nghiệm"],["skill","kỹ năng"],["cover letter","thư xin việc"],["reference","người giới thiệu"],["vacancy","vị trí trống"],["shortlist","danh sách vào vòng trong"],["full-time","toàn thời gian"],["part-time","bán thời gian"],["probation","thử việc"],["notice period","thời gian báo trước nghỉ"],["negotiate salary","thương lượng lương"],["strengths","điểm mạnh"],["weaknesses","điểm yếu"],["team player","người hợp tác tốt"],["under pressure","dưới áp lực"],["get hired","được nhận"],["job offer","lời mời làm việc"]],
+62:[["manager","quản lý"],["staff","nhân viên"],["meeting","cuộc họp"],["project","dự án"],["task","nhiệm vụ"],["report","báo cáo"],["break","giờ nghỉ"],["schedule","lịch làm việc"],["remote work","làm việc từ xa"],["productivity","năng suất"],["teamwork","làm việc nhóm"],["responsibility","trách nhiệm"],["performance","hiệu suất"],["colleague support","hỗ trợ đồng nghiệp"],["work-life balance","cân bằng công việc cuộc sống"]],
+63:[["chairperson","người chủ trì"],["attendee","người tham dự"],["agree","đồng ý"],["disagree","không đồng ý"],["vote","biểu quyết"],["decision","quyết định"],["action point","việc cần làm"],["deadline","thời hạn"],["summarise","tóm tắt"],["raise a point","nêu ý kiến"],["follow up","theo dõi tiếp"],["brainstorm","động não"],["feedback","phản hồi"],["conference call","gọi họp trực tuyến"],["wrap up","kết thúc họp"]],
+64:[["presentation","bài thuyết trình"],["projector","máy chiếu"],["pointer","bút chỉ"],["introduction","phần mở đầu"],["main point","ý chính"],["conclusion","phần kết"],["handout","tài liệu phát"],["visual aid","hình ảnh minh hoạ"],["speak clearly","nói rõ ràng"],["eye contact","giao tiếp bằng mắt"],["body language","ngôn ngữ cơ thể"],["nervous","lo lắng"],["confident","tự tin"],["rehearse","tập dượt"],["question and answer","hỏi và đáp"],["time limit","giới hạn thời gian"],["engage the audience","thu hút khán giả"],["thank you for listening","cảm ơn đã lắng nghe"]],
+65:[["university","trường đại học"],["degree","bằng cấp"],["lecture","bài giảng"],["seminar","buổi hội thảo"],["deadline","hạn nộp"],["tuition fee","học phí"],["campus","khuôn viên trường"],["dormitory","ký túc xá"],["professor","giáo sư"],["research","nghiên cứu"],["thesis","luận văn"],["credit","tín chỉ"],["semester","học kỳ"],["exam period","kỳ thi"],["study group","nhóm học"],["academic","thuộc học thuật"]],
+66:[["reduce","giảm thiểu"],["reuse","tái sử dụng"],["plastic","nhựa"],["litter","xả rác"],["landfill","bãi chôn rác"],["compost","phân hữu cơ"],["carbon","các-bon"],["renewable","tái tạo"],["endangered","có nguy cơ tuyệt chủng"],["deforestation","phá rừng"],["clean energy","năng lượng sạch"],["ecosystem","hệ sinh thái"],["go green","sống xanh"],["single-use","dùng một lần"],["environmental","thuộc môi trường"]],
+67:[["melting ice","băng tan"],["extreme heat","nắng nóng khắc nghiệt"],["drought","hạn hán"],["fossil fuel","nhiên liệu hoá thạch"],["renewable energy","năng lượng tái tạo"],["mitigate","giảm nhẹ"],["global temperature","nhiệt độ toàn cầu"],["net zero","phát thải ròng bằng không"],["climate action","hành động vì khí hậu"],["biodiversity","đa dạng sinh học"],["offset","bù đắp phát thải"],["awareness","nhận thức"],["policy","chính sách"],["vulnerable","dễ bị tổn thương"],["urgent action","hành động khẩn cấp"]],
+68:[["article","bài báo"],["journalist","nhà báo"],["breaking news","tin nóng"],["report","tường thuật"],["editor","biên tập viên"],["press","báo chí"],["interview","phỏng vấn"],["fact-check","kiểm chứng"],["biased","thiên lệch"],["objective","khách quan"],["front page","trang nhất"],["column","chuyên mục"],["subscription","đăng ký báo"],["broadcast","phát sóng"],["eyewitness","nhân chứng"],["misinformation","thông tin sai lệch"]],
+69:[["actor","diễn viên nam"],["actress","diễn viên nữ"],["scene","cảnh phim"],["soundtrack","nhạc phim"],["genre","thể loại"],["comedy","phim hài"],["thriller","phim ly kỳ"],["documentary","phim tài liệu"],["special effects","kỹ xảo"],["box office","doanh thu phòng vé"],["premiere","buổi ra mắt"],["cast","dàn diễn viên"],["storyline","mạch truyện"],["blockbuster","bom tấn"],["award-winning","đoạt giải"]],
+70:[["fiction","truyện hư cấu"],["non-fiction","sách phi hư cấu"],["poetry","thơ ca"],["genre","thể loại"],["plot twist","tình tiết bất ngờ"],["narrator","người kể chuyện"],["publish","xuất bản"],["bestseller","sách bán chạy"],["paperback","sách bìa mềm"],["e-book","sách điện tử"],["library","thư viện"],["borrow a book","mượn sách"],["setting","bối cảnh"],["page-turner","cuốn hút khó rời"],["book review","bài điểm sách"]],
+71:[["beat","phách nhịp"],["chorus","điệp khúc"],["verse","đoạn lời"],["single","đĩa đơn"],["genre","thể loại nhạc"],["live concert","hoà nhạc trực tiếp"],["record","thu âm"],["composer","nhà soạn nhạc"],["lyricist","người viết lời"],["playlist","danh sách phát"],["tune","giai điệu"],["catchy","dễ nghe dễ nhớ"],["fan base","cộng đồng người hâm mộ"],["chart-topping","đứng đầu bảng xếp hạng"],["remix","phối lại"]],
+72:[["gallery","phòng tranh"],["landscape","tranh phong cảnh"],["canvas","toan vẽ"],["brushstroke","nét cọ"],["palette","bảng màu"],["frame","khung tranh"],["artist","nghệ sĩ"],["inspiration","cảm hứng"],["contemporary","đương đại"],["fine art","mỹ thuật"],["exhibit","trưng bày"],["curator","người phụ trách triển lãm"],["creativity","sự sáng tạo"],["visual art","nghệ thuật thị giác"],["art collection","bộ sưu tập nghệ thuật"]],
+73:[["dish","món ăn"],["ingredient","nguyên liệu"],["recipe","công thức"],["seasoning","gia vị"],["aroma","mùi thơm"],["savoury","đậm đà mặn"],["sweet and sour","chua ngọt"],["specialty","đặc sản"],["fusion","ẩm thực kết hợp"],["authentic","đúng vị gốc"],["vegetarian","món chay"],["portion","khẩu phần"],["garnish","trang trí món ăn"],["food stall","quầy hàng ăn"],["local dish","món địa phương"]],
+74:[["custom","phong tục"],["folk song","dân ca"],["legend","truyền thuyết"],["ritual","nghi lễ"],["worship","thờ cúng"],["temple","đền chùa"],["incense","hương / nhang"],["offering","lễ vật"],["national costume","trang phục truyền thống"],["water puppet","múa rối nước"],["lunar calendar","âm lịch"],["generation","thế hệ"],["preserve","gìn giữ"],["cultural value","giá trị văn hoá"],["historic site","di tích lịch sử"]],
+75:[["respect","tôn trọng"],["make up","làm hoà"],["fall out","giận nhau"],["loyal","trung thành"],["reliable","đáng tin"],["understanding","thấu hiểu"],["compromise","nhượng bộ"],["misunderstanding","hiểu lầm"],["close friend","bạn thân thiết"],["keep in touch","giữ liên lạc"],["lend a hand","giúp một tay"],["take sides","bênh vực"],["long-distance","xa cách"],["common interest","điểm chung"],["mutual respect","tôn trọng lẫn nhau"]],
+76:[["honest","trung thực"],["shy","nhút nhát"],["outgoing","hướng ngoại"],["ambitious","tham vọng"],["cheerful","vui vẻ"],["hardworking","chăm chỉ"],["easy-going","dễ tính"],["moody","hay thay đổi tâm trạng"],["sensitive","nhạy cảm"],["thoughtful","chu đáo"],["selfish","ích kỷ"],["polite","lịch sự"],["curious","tò mò"],["down-to-earth","giản dị thực tế"],["good sense of humour","hài hước"]],
+77:[["motivation","động lực"],["willpower","ý chí"],["discipline","tính kỷ luật"],["consistent","đều đặn"],["break a habit","bỏ thói quen"],["form a habit","hình thành thói quen"],["reward","phần thưởng"],["trigger","yếu tố kích hoạt"],["track progress","theo dõi tiến bộ"],["small step","bước nhỏ"],["daily goal","mục tiêu hằng ngày"],["stay on track","đi đúng hướng"],["bad habit","thói quen xấu"],["self-control","tự chủ"],["make time","dành thời gian"]],
+78:[["oversleep","ngủ quên"],["wake up","thức dậy"],["yawn","ngáp"],["tired","mệt mỏi"],["bedtime","giờ đi ngủ"],["night owl","cú đêm"],["early bird","người dậy sớm"],["snore","ngáy"],["dream","giấc mơ"],["nightmare","ác mộng"],["sleep schedule","lịch ngủ"],["screen before bed","dùng màn hình trước ngủ"],["sleep quality","chất lượng giấc ngủ"],["rest well","nghỉ ngơi tốt"],["eight hours","tám tiếng"]],
+79:[["smart city","thành phố thông minh"],["data","dữ liệu"],["network","mạng lưới"],["automation","tự động hoá"],["surveillance","giám sát"],["urban planning","quy hoạch đô thị"],["green space","không gian xanh"],["smart grid","lưới điện thông minh"],["connectivity","khả năng kết nối"],["digital","kỹ thuật số"],["resource","tài nguyên"],["monitor","theo dõi"],["innovation","đổi mới"],["citizen","người dân"],["quality of life","chất lượng sống"]],
+80:[["public transport","giao thông công cộng"],["rush hour","giờ cao điểm"],["car park","bãi đỗ xe"],["one-way street","đường một chiều"],["speed limit","giới hạn tốc độ"],["traffic jam","kẹt xe"],["overpass","cầu vượt"],["cycle lane","làn xe đạp"],["toll","phí đường bộ"],["carpool","đi chung xe"],["emission","khí thải"],["gridlock","tắc nghẽn toàn diện"],["detour","đường vòng"],["infrastructure","cơ sở hạ tầng"],["ease congestion","giảm ùn tắc"]],
+81:[["supply","cung"],["demand","cầu"],["GDP","tổng sản phẩm quốc nội"],["interest rate","lãi suất"],["currency","tiền tệ"],["market","thị trường"],["consumer","người tiêu dùng"],["price rise","tăng giá"],["cost of living","chi phí sinh hoạt"],["wage","tiền công"],["central bank","ngân hàng trung ương"],["economic growth","tăng trưởng kinh tế"],["export","xuất khẩu"],["import","nhập khẩu"],["unemployment","thất nghiệp"],["trade","thương mại"]],
+82:[["funding","vốn tài trợ"],["pitch","bài thuyết trình gọi vốn"],["business model","mô hình kinh doanh"],["profit margin","biên lợi nhuận"],["market share","thị phần"],["competitor","đối thủ cạnh tranh"],["launch","ra mắt"],["customer base","tệp khách hàng"],["cash flow","dòng tiền"],["venture capital","vốn mạo hiểm"],["entrepreneur","doanh nhân"],["valuation","định giá"],["prototype","bản mẫu"],["growth","sự tăng trưởng"],["risk","rủi ro"]],
+83:[["machine learning","học máy"],["neural network","mạng nơ-ron"],["model","mô hình"],["prediction","dự đoán"],["dataset","tập dữ liệu"],["accuracy","độ chính xác"],["prompt","câu lệnh"],["hallucination","ảo giác của AI"],["fine-tune","tinh chỉnh"],["deploy","triển khai"],["ethics","đạo đức"],["transparency","tính minh bạch"],["supervised","có giám sát"],["reasoning","lập luận"],["reliable output","đầu ra đáng tin"]],
+84:[["data breach","rò rỉ dữ liệu"],["personal data","dữ liệu cá nhân"],["cookie","cookie theo dõi"],["tracking","theo dõi hành vi"],["privacy policy","chính sách riêng tư"],["opt out","từ chối tham gia"],["third party","bên thứ ba"],["data protection","bảo vệ dữ liệu"],["identity theft","đánh cắp danh tính"],["secure","an toàn"],["confidential","bảo mật"],["access control","kiểm soát truy cập"],["metadata","siêu dữ liệu"],["leak","rò rỉ"],["digital footprint","dấu vết số"],["regulation","quy định"]],
+85:[["symptom","triệu chứng"],["treatment","phương pháp điều trị"],["prescription","đơn thuốc"],["antibiotic","kháng sinh"],["virus","vi-rút"],["outbreak","đợt bùng phát"],["quarantine","cách ly"],["specialist","bác sĩ chuyên khoa"],["surgery","phẫu thuật"],["patient care","chăm sóc bệnh nhân"],["recovery","hồi phục"],["prevention","phòng ngừa"],["chronic","mạn tính"],["dose","liều lượng"],["medical research","nghiên cứu y học"]],
+86:[["astronaut","phi hành gia"],["spacecraft","tàu vũ trụ"],["galaxy","thiên hà"],["planet","hành tinh"],["telescope","kính thiên văn"],["rocket","tên lửa"],["mission","sứ mệnh"],["atmosphere","khí quyển"],["asteroid","tiểu hành tinh"],["solar system","hệ mặt trời"],["weightless","không trọng lượng"],["space station","trạm vũ trụ"],["light year","năm ánh sáng"],["reusable rocket","tên lửa tái sử dụng"],["outer space","không gian ngoài vũ trụ"]],
+87:[["wind turbine","tua-bin gió"],["hydropower","thuỷ điện"],["battery","pin lưu trữ"],["clean energy","năng lượng sạch"],["power plant","nhà máy điện"],["carbon neutral","trung hoà các-bon"],["efficiency","hiệu suất"],["consumption","mức tiêu thụ"],["off-grid","tách lưới điện"],["generate","tạo ra điện"],["capacity","công suất"],["sustainable","bền vững"],["energy source","nguồn năng lượng"],["peak demand","nhu cầu cao điểm"],["transition","chuyển đổi"]],
+88:[["policy","chính sách"],["enforce","thực thi"],["reform","cải cách"],["public interest","lợi ích công cộng"],["transparency","minh bạch"],["accountability","trách nhiệm giải trình"],["budget","ngân sách"],["legislation","luật pháp"],["compliance","tuân thủ"],["incentive","ưu đãi"],["governance","quản trị"],["framework","khuôn khổ"],["welfare","phúc lợi"],["taxpayer","người nộp thuế"],["public sector","khu vực công"]],
+89:[["lawsuit","vụ kiện"],["court","toà án"],["judge","thẩm phán"],["witness","nhân chứng"],["contract","hợp đồng"],["breach","vi phạm"],["clause","điều khoản"],["legal","hợp pháp"],["illegal","phi pháp"],["rights","quyền lợi"],["obligation","nghĩa vụ"],["settlement","dàn xếp"],["appeal","kháng cáo"],["jurisdiction","thẩm quyền"],["fine","khoản phạt"]],
+90:[["procurement","mua sắm đấu thầu"],["invitation to bid","thư mời thầu"],["specification","yêu cầu kỹ thuật"],["proposal","hồ sơ đề xuất"],["lowest price","giá thấp nhất"],["qualification","năng lực"],["deadline","hạn nộp thầu"],["contractor","nhà thầu thi công"],["compliance","tuân thủ"],["performance bond","bảo lãnh thực hiện"],["subcontractor","nhà thầu phụ"],["negotiation","đàm phán"],["transparent","minh bạch"],["disqualify","loại"],["bid opening","mở thầu"]],
+91:[["concrete","bê tông"],["scaffolding","giàn giáo"],["blueprint","bản vẽ"],["structure","kết cấu"],["excavation","đào đất"],["column","cột"],["beam","dầm"],["foundation pile","cọc móng"],["construction site","công trường"],["safety helmet","mũ bảo hộ"],["measurement","phép đo"],["level","cao độ"],["boundary","ranh giới"],["contractor","nhà thầu"],["inspection","kiểm định"]],
+92:[["floor plan","mặt bằng"],["ceiling","trần nhà"],["natural light","ánh sáng tự nhiên"],["material","vật liệu"],["sustainable design","thiết kế bền vững"],["load","tải trọng"],["symmetry","tính đối xứng"],["interior","nội thất"],["exterior","ngoại thất"],["draft","bản phác thảo"],["scale model","mô hình tỷ lệ"],["courtyard","sân trong"],["insulation","cách nhiệt"],["structural","thuộc kết cấu"],["landmark building","công trình biểu tượng"]],
+93:[["export market","thị trường xuất khẩu"],["import duty","thuế nhập khẩu"],["free trade","tự do thương mại"],["multinational","đa quốc gia"],["logistics","hậu cần"],["global market","thị trường toàn cầu"],["competitive","cạnh tranh"],["labour cost","chi phí nhân công"],["distribution","phân phối"],["trade agreement","hiệp định thương mại"],["cross-border","xuyên biên giới"],["manufacturing","sản xuất"],["shipping","vận chuyển"],["economic ties","quan hệ kinh tế"],["interdependence","phụ thuộc lẫn nhau"]],
+94:[["brand","thương hiệu"],["slogan","khẩu hiệu"],["logo","biểu trưng"],["advertisement","quảng cáo"],["marketing","tiếp thị"],["consumer behaviour","hành vi người tiêu dùng"],["viral","lan truyền"],["promotion","khuyến mãi"],["publicity","sự quảng bá"],["market research","nghiên cứu thị trường"],["billboard","biển quảng cáo"],["sponsor","nhà tài trợ"],["click rate","tỷ lệ nhấp"],["brand image","hình ảnh thương hiệu"],["catchphrase","câu cửa miệng"]],
+95:[["behaviour","hành vi"],["emotion","cảm xúc"],["memory","trí nhớ"],["stress","căng thẳng"],["mindset","tư duy"],["subconscious","tiềm thức"],["therapy","liệu pháp"],["anxiety","lo âu"],["self-esteem","lòng tự trọng"],["empathy","sự đồng cảm"],["conditioning","điều kiện hoá"],["attention span","khả năng tập trung"],["coping","đối phó"],["well-being","sức khoẻ tinh thần"],["habit formation","hình thành thói quen"]],
+96:[["logic","logic"],["argument","luận cứ"],["morality","đạo đức học"],["free will","ý chí tự do"],["consciousness","ý thức"],["truth","chân lý"],["knowledge","tri thức"],["belief","niềm tin"],["ethical","thuộc đạo đức"],["rational","hợp lý"],["justify","biện minh"],["principle","nguyên tắc"],["perspective","góc nhìn"],["inquiry","sự truy vấn"],["critical thinking","tư duy phản biện"]],
+97:[["honesty","trung thực"],["fairness","công bằng"],["accountable","có trách nhiệm"],["whistleblower","người tố giác"],["bribery","hối lộ"],["misconduct","hành vi sai trái"],["code of conduct","quy tắc ứng xử"],["moral","đạo đức"],["responsibility","trách nhiệm"],["trustworthy","đáng tin cậy"],["corruption","tham nhũng"],["ethical standard","chuẩn mực đạo đức"],["disclose","công khai"],["principle","nguyên tắc"],["do the right thing","làm điều đúng đắn"]],
+98:[["debate","tranh luận"],["standpoint","quan điểm"],["persuade","thuyết phục"],["rebuttal","lời bác bỏ"],["valid","hợp lý"],["flaw","điểm yếu"],["logical","có logic"],["support a claim","củng cố luận điểm"],["objection","sự phản đối"],["reasonable","hợp tình hợp lý"],["for and against","tán thành và phản đối"],["weigh up","cân nhắc"],["convincing","thuyết phục"],["assumption","giả định"],["draw a conclusion","rút ra kết luận"]],
+99:[["piece of cake","dễ như ăn bánh"],["hit the books","cắm đầu vào học"],["under the weather","thấy mệt trong người"],["once in a blue moon","hoạ hoằn lắm mới"],["cost an arm and a leg","đắt cắt cổ"],["call it a day","gác việc lại nghỉ"],["think outside the box","tư duy sáng tạo"],["bite the bullet","cắn răng chịu đựng"],["a blessing in disguise","trong cái rủi có cái may"],["the last straw","giọt nước tràn ly"],["pull yourself together","trấn tĩnh lại"],["speak your mind","nói thẳng suy nghĩ"],["keep an eye on","để mắt trông chừng"],["on the fence","còn lưỡng lự"],["long story short","nói ngắn gọn"]],
+100:[["candidate","ứng viên"],["merit","năng lực xứng đáng"],["potential","tiềm năng"],["recommendation","thư giới thiệu"],["selection panel","hội đồng tuyển chọn"],["academic record","kết quả học tập"],["extracurricular","hoạt động ngoại khoá"],["leadership","khả năng lãnh đạo"],["stand out","nổi bật"],["eligibility","điều kiện dự tuyển"],["deadline","hạn nộp hồ sơ"],["award","giải thưởng"],["personal statement","bài luận cá nhân"],["future plan","kế hoạch tương lai"],["fully funded","học bổng toàn phần"]]
+};
+TOPICS.forEach(function(t){ if (EXTRA_WORDS[t.id]) t.words = t.words.concat(EXTRA_WORDS[t.id]); });
 
 const GRAMMAR = [
   // A2
@@ -769,6 +896,272 @@ const READINGS = [
   ]),
 ];
 
+
+
+/* ---- Nội dung bài tập mở rộng ---- */
+/* ================================================================
+   VƯỜN TỪ — NỘI DUNG BÀI TẬP MỞ RỘNG
+   Bốn dạng mới, do soạn mới. Không sao chép nguồn ngoài.
+
+   1. CLOZE_SENT   — điền 1 từ vào chỗ trống trong 1 câu (trắc nghiệm)
+   2. CLOZE_PARA   — điền nhiều chỗ trống trong 1 đoạn văn ngắn
+   3. DIALOGUES    — nghe hội thoại/đoạn văn rồi trả lời (nghe hiểu)
+   4. (chính tả & xếp chữ dùng lại kho từ vựng, không cần dữ liệu riêng)
+   ================================================================ */
+
+/* ---- 1. Điền chỗ trống trong CÂU (cấp 3–5) ----
+   CS(level, topicId, "câu có ___", đáp án, [3 mồi nhử], "giải thích ngắn") */
+const CS = (level, topicId, sentence, answer, distractors, why) =>
+  ({ level, topic: topicId, sentence, answer, distractors, why });
+
+const CLOZE_SENT = [
+  // A2
+  CS(3, 42, "Go straight and ___ left at the market.", "turn", ["turned", "turning", "turns"], "Câu mệnh lệnh dùng động từ nguyên thể: turn."),
+  CS(3, 46, "I have a ___, so I'll take some medicine.", "headache", ["headphone", "heartbeat", "handbag"], "headache = đau đầu."),
+  CS(3, 33, "This shirt is too ___; do you have a bigger size?", "small", ["tall", "long", "wide"], "Trái nghĩa với 'bigger size' là 'small'."),
+  CS(3, 56, "I want to ___ money to buy a new bike.", "save", ["spend", "waste", "lose"], "save money = tiết kiệm tiền."),
+  CS(3, 27, "Every morning I ___ up at six o'clock.", "wake", ["walk", "work", "wait"], "wake up = thức dậy."),
+  CS(3, 49, "We'd like to ___ a room for two nights.", "book", ["read", "cook", "look"], "book a room = đặt phòng."),
+  CS(3, 50, "Please show your ___ at the boarding gate.", "boarding pass", ["menu", "receipt", "ticket machine"], "Ở cửa lên máy bay cần 'boarding pass'."),
+  CS(3, 45, "First, ___ the vegetables into small pieces.", "chop", ["drink", "sleep", "drive"], "chop = thái nhỏ."),
+  CS(3, 34, "Excuse me, can I have the ___, please?", "bill", ["ball", "bell", "bull"], "Xin hoá đơn: the bill."),
+  CS(3, 57, "I need to ___ some money from the ATM.", "withdraw", ["deposit", "borrow", "lend"], "Rút tiền từ ATM: withdraw."),
+  CS(3, 24, "The day after Monday is ___.", "Tuesday", ["Sunday", "Friday", "Thursday"], "Sau thứ Hai là thứ Ba."),
+  CS(3, 18, "Take an umbrella; it's very ___ today.", "rainy", ["sunny", "dry", "warm"], "Cần ô khi trời mưa: rainy."),
+  // B1
+  CS(4, 61, "Could you tell me about your greatest ___?", "strength", ["strong", "stronger", "strongly"], "Danh từ sau 'greatest': strength."),
+  CS(4, 62, "The report is due on Friday; that's the ___.", "deadline", ["headline", "guideline", "outline"], "Hạn chót: deadline."),
+  CS(4, 66, "We should ___ plastic instead of throwing it away.", "recycle", ["reply", "reduce", "remove"], "Tái chế nhựa: recycle (hợp nghĩa 'instead of throwing away')."),
+  CS(4, 77, "It's hard to ___ a new habit without a clear plan.", "form", ["from", "farm", "firm"], "form a habit = tạo thói quen."),
+  CS(4, 63, "Let's ___ the meeting until next week.", "postpone", ["propose", "prepare", "present"], "Hoãn cuộc họp: postpone."),
+  CS(4, 68, "A good journalist always checks the ___ of a story.", "source", ["sauce", "course", "force"], "Nguồn tin: source."),
+  CS(4, 75, "After the argument, he decided to ___.", "apologise", ["apply", "appear", "appoint"], "Xin lỗi sau khi cãi nhau: apologise."),
+  CS(4, 80, "Widening roads often fails to reduce ___.", "congestion", ["condition", "connection", "conclusion"], "Giảm ùn tắc: congestion."),
+  CS(4, 65, "She won a ___ to study abroad for free.", "scholarship", ["relationship", "friendship", "membership"], "Học bổng: scholarship."),
+  CS(4, 78, "I couldn't sleep last night; I have ___.", "insomnia", ["ammonia", "insulin", "influenza"], "Mất ngủ: insomnia."),
+  CS(4, 72, "The museum's new ___ opens next month.", "exhibition", ["condition", "permission", "attention"], "Triển lãm: exhibition."),
+  // B2
+  CS(5, 81, "When prices rise quickly, we call it ___.", "inflation", ["reflection", "invitation", "information"], "Lạm phát: inflation."),
+  CS(5, 83, "The ___ decides which results the model returns.", "algorithm", ["rhythm", "logarithm", "album"], "Thuật toán: algorithm."),
+  CS(5, 90, "Each ___ must submit a bid before the deadline.", "bidder", ["builder", "banker", "buyer"], "Nhà thầu nộp hồ sơ: bidder."),
+  CS(5, 84, "Strong ___ protects your data from being read.", "encryption", ["reception", "description", "prescription"], "Mã hoá bảo vệ dữ liệu: encryption."),
+  CS(5, 91, "The engineer checked the ___ before pouring concrete.", "foundation", ["fountain", "formation", "furniture"], "Móng công trình: foundation."),
+  CS(5, 87, "Solar and wind are types of ___ energy.", "renewable", ["removable", "returnable", "reasonable"], "Năng lượng tái tạo: renewable."),
+  CS(5, 82, "The ___ invested a million dollars in the startup.", "investor", ["inventor", "investigator", "instructor"], "Nhà đầu tư: investor."),
+  CS(5, 97, "Acting with ___ means doing right even when unwatched.", "integrity", ["identity", "intensity", "immunity"], "Chính trực: integrity."),
+  CS(5, 89, "The court reached its final ___ after two weeks.", "verdict", ["version", "verse", "vertex"], "Phán quyết: verdict."),
+  CS(5, 93, "A global ___ links factories across many countries.", "supply chain", ["food chain", "key chain", "chain store"], "Chuỗi cung ứng: supply chain."),
+  CS(5, 98, "A strong ___ can weaken your opponent's case.", "counterargument", ["compliment", "commitment", "component"], "Phản biện: counterargument."),
+  CS(5, 95, "With enough ___, people recover from hard times.", "resilience", ["reference", "residence", "resistance"], "Khả năng phục hồi: resilience."),
+].map((c, i) => Object.assign({ id: "cs" + i, kind: "clozeSent" }, c));
+
+/* ---- 2. Điền chỗ trống trong ĐOẠN VĂN (cấp 3–5) ----
+   Mỗi blank: { a: đáp án, opts: [4 lựa chọn] }. Chuỗi dùng {0},{1}... đánh dấu vị trí. */
+const CP = (level, topicId, title, text, blanks) => ({ level, topic: topicId, title, text, blanks });
+
+const CLOZE_PARA = [
+  CP(3, 27, "A busy morning",
+    "Every school day I {0} up at six. I brush my {1} and have a quick {2}. Then I {3} my bag and walk to school with my sister.",
+    [
+      { a: "wake", opts: ["wake", "walk", "work", "wait"] },
+      { a: "teeth", opts: ["teeth", "hair", "hands", "face"] },
+      { a: "breakfast", opts: ["breakfast", "dinner", "lesson", "shower"] },
+      { a: "pack", opts: ["pack", "open", "lose", "buy"] },
+    ]),
+  CP(3, 56, "Saving each month",
+    "At the end of the month, Linh had no money left. Now, on payday she puts money into different {0}: one for rent, one for food, and one for {1}. After three months she managed to {2} two million dong. The trick is not to earn more but to plan where the money {3}.",
+    [
+      { a: "envelopes", opts: ["envelopes", "windows", "tickets", "photos"] },
+      { a: "savings", opts: ["savings", "shopping", "spending", "selling"] },
+      { a: "save", opts: ["save", "spend", "waste", "borrow"] },
+      { a: "goes", opts: ["goes", "comes", "stays", "grows"] },
+    ]),
+  CP(3, 49, "Checking in",
+    "We arrived at the hotel and went to the {0} desk. The photo online showed a room with a {1} view, but our room faced the car park. I showed them our {2}, and after ten minutes they {3} us to a better room upstairs.",
+    [
+      { a: "reception", opts: ["reception", "departure", "boarding", "waiting"] },
+      { a: "sea", opts: ["sea", "car", "wall", "door"] },
+      { a: "reservation", opts: ["reservation", "recreation", "reflection", "relation"] },
+      { a: "moved", opts: ["moved", "closed", "opened", "paid"] },
+    ]),
+  CP(4, 62, "The busy trap",
+    "In many offices, looking {0} has become a kind of status. People answer emails at midnight and join meetings they don't need. But being busy and being {1} are not the same thing. Real, deep work needs long, {2} hours, which a full calendar makes impossible. The best colleagues protect their time and are willing to say {3}.",
+    [
+      { a: "busy", opts: ["busy", "lazy", "quiet", "early"] },
+      { a: "productive", opts: ["productive", "expensive", "attractive", "creative"] },
+      { a: "uninterrupted", opts: ["uninterrupted", "unexpected", "unemployed", "uncomfortable"] },
+      { a: "no", opts: ["no", "yes", "hello", "sorry"] },
+    ]),
+  CP(4, 66, "The recycling gap",
+    "Many cities report high recycling {0}, but the numbers can mislead. A bin marked 'recyclable' may be full of food {1}, and dirty batches often end up in {2} anyway. Experts say the real answer is to {3} how much packaging we produce in the first place.",
+    [
+      { a: "rates", opts: ["rates", "roads", "rooms", "rules"] },
+      { a: "waste", opts: ["waste", "water", "wood", "wind"] },
+      { a: "landfill", opts: ["landfill", "landmark", "landlord", "landscape"] },
+      { a: "reduce", opts: ["reduce", "repeat", "return", "remove"] },
+    ]),
+  CP(4, 77, "Two minutes",
+    "People often fail to build habits because they aim too {0}. A better way is to make the habit almost embarrassingly {1}: two minutes of running, one page of reading. The point is not the two minutes; it is that showing up becomes {2}. Once the habit {3}, making it bigger is easy.",
+    [
+      { a: "high", opts: ["high", "low", "far", "late"] },
+      { a: "small", opts: ["small", "large", "hard", "long"] },
+      { a: "automatic", opts: ["automatic", "impossible", "expensive", "dangerous"] },
+      { a: "exists", opts: ["exists", "leaves", "breaks", "fails"] },
+    ]),
+  CP(5, 81, "The quiet tax",
+    "Inflation is often called a {0}, and the comparison fits. Like a tax, it moves {1} power away from those who hold cash; unlike a tax, it is never debated or {2}. Central banks raise interest {3} to slow it down, but the tool is blunt and cools the whole economy at once.",
+    [
+      { a: "tax", opts: ["tax", "gift", "loan", "wage"] },
+      { a: "purchasing", opts: ["purchasing", "publishing", "punishing", "practising"] },
+      { a: "legislated", opts: ["legislated", "celebrated", "calculated", "decorated"] },
+      { a: "rates", opts: ["rates", "roads", "risks", "rules"] },
+    ]),
+  CP(5, 90, "Lowest is not cheapest",
+    "Procurement law asks the buyer to consider the lowest {0} price, not simply the lowest offer. A bidder who wins by {1} the work has every reason to recover the margin later through {2} orders and delay claims. The evaluation {3} exist to filter for capability, not only for cost.",
+    [
+      { a: "evaluated", opts: ["evaluated", "educated", "elevated", "estimated"] },
+      { a: "underpricing", opts: ["underpricing", "underlining", "understanding", "undertaking"] },
+      { a: "variation", opts: ["variation", "vacation", "vibration", "validation"] },
+      { a: "criteria", opts: ["criteria", "cafeteria", "bacteria", "material"] },
+    ]),
+  CP(5, 83, "Confident and wrong",
+    "The biggest weakness of language models is not that they are {0} — people are wrong all the time — but that they are wrong with the same {1} they show when right. A model that {2} whenever unsure would be easier to trust. Until evaluation {3} false confidence, the problem will remain.",
+    [
+      { a: "wrong", opts: ["wrong", "slow", "quiet", "cheap"] },
+      { a: "fluency", opts: ["fluency", "frequency", "efficiency", "urgency"] },
+      { a: "hedged", opts: ["hedged", "hurried", "helped", "hinted"] },
+      { a: "penalises", opts: ["penalises", "publishes", "practises", "purchases"] },
+    ]),
+].map((p, i) => Object.assign({ id: "cp" + i, kind: "clozePara" }, p));
+
+/* ---- 3. Nghe hội thoại / đoạn văn rồi trả lời (cấp 2–5) ----
+   lines: mảng câu để đọc lần lượt (hội thoại có tên người nói).
+   Người học nghe (TTS), rồi trả lời câu hỏi. */
+const DL = (level, topicId, title, lines, qs) => ({ level, topic: topicId, title, lines, qs });
+
+const DIALOGUES = [
+  DL(2, 34, "Ordering food",
+    [
+      { s: "Waiter", t: "Good evening. What would you like to order?" },
+      { s: "Nam", t: "I'd like a bowl of noodle soup, please." },
+      { s: "Waiter", t: "Anything to drink?" },
+      { s: "Nam", t: "Yes, an orange juice, please." },
+    ],
+    [
+      { q: "What food does Nam order?", opts: ["Rice", "Noodle soup", "Bread", "Fish"], a: "Noodle soup" },
+      { q: "What does Nam want to drink?", opts: ["Water", "Tea", "Orange juice", "Milk"], a: "Orange juice" },
+    ]),
+  DL(2, 33, "At the shop",
+    [
+      { s: "Mai", t: "How much is this red hat?" },
+      { s: "Seller", t: "It's fifty thousand dong." },
+      { s: "Mai", t: "That's a bit expensive. Can I get a discount?" },
+      { s: "Seller", t: "Okay, forty thousand for you." },
+    ],
+    [
+      { q: "What is Mai buying?", opts: ["A red hat", "A blue bag", "A green shirt", "A yellow scarf"], a: "A red hat" },
+      { q: "What is the final price?", opts: ["Fifty thousand", "Forty thousand", "Thirty thousand", "Sixty thousand"], a: "Forty thousand" },
+    ]),
+  DL(3, 42, "Asking the way",
+    [
+      { s: "Tourist", t: "Excuse me, how do I get to the post office?" },
+      { s: "Local", t: "Go straight for two blocks, then turn left at the market." },
+      { s: "Tourist", t: "Is it far?" },
+      { s: "Local", t: "No, about five minutes on foot. It's opposite a coffee shop." },
+    ],
+    [
+      { q: "Where should the tourist turn left?", opts: ["At the market", "At the coffee shop", "At the post office", "At the bank"], a: "At the market" },
+      { q: "How long does it take on foot?", opts: ["Two minutes", "About five minutes", "Half an hour", "Ten minutes"], a: "About five minutes" },
+      { q: "What is the post office opposite?", opts: ["A coffee shop", "A school", "A market", "A hospital"], a: "A coffee shop" },
+    ]),
+  DL(3, 46, "At the doctor",
+    [
+      { s: "Doctor", t: "What seems to be the problem?" },
+      { s: "Patient", t: "I've had a headache and a fever since Monday." },
+      { s: "Doctor", t: "It's just a common cold. Take this medicine and rest." },
+      { s: "Patient", t: "Thank you. How many times a day?" },
+      { s: "Doctor", t: "Twice a day, after meals." },
+    ],
+    [
+      { q: "Since when has the patient felt ill?", opts: ["Since Monday", "Since Friday", "Since yesterday", "Since last month"], a: "Since Monday" },
+      { q: "What is the illness?", opts: ["A common cold", "The flu", "A broken arm", "Food poisoning"], a: "A common cold" },
+      { q: "How often should the patient take the medicine?", opts: ["Once a day", "Twice a day", "Three times a day", "Every hour"], a: "Twice a day" },
+    ]),
+  DL(3, 49, "Booking a room",
+    [
+      { s: "Guest", t: "Hello, I'd like to book a double room for two nights." },
+      { s: "Clerk", t: "Certainly. Would you like a sea view?" },
+      { s: "Guest", t: "How much is that?" },
+      { s: "Clerk", t: "The sea-view room costs an extra two hundred thousand per night." },
+      { s: "Guest", t: "That's fine. I'll take it." },
+    ],
+    [
+      { q: "How many nights does the guest want?", opts: ["One", "Two", "Three", "A week"], a: "Two" },
+      { q: "What does the sea view cost extra?", opts: ["One hundred thousand", "Two hundred thousand per night", "It's free", "Fifty thousand"], a: "Two hundred thousand per night" },
+    ]),
+  DL(4, 61, "A job interview",
+    [
+      { s: "Interviewer", t: "Why do you think you're right for this job?" },
+      { s: "Candidate", t: "I have three years of experience and I work well in a team." },
+      { s: "Interviewer", t: "What's your greatest weakness?" },
+      { s: "Candidate", t: "I used to avoid difficult conversations, but now I ask for feedback every month." },
+      { s: "Interviewer", t: "That's a thoughtful answer. We'll be in touch." },
+    ],
+    [
+      { q: "How much experience does the candidate have?", opts: ["One year", "Two years", "Three years", "Five years"], a: "Three years" },
+      { q: "What was the candidate's weakness?", opts: ["Being late", "Avoiding difficult conversations", "Poor teamwork", "Weak English"], a: "Avoiding difficult conversations" },
+      { q: "How does the candidate deal with it now?", opts: ["Asks for feedback monthly", "Ignores it", "Changed jobs", "Works alone"], a: "Asks for feedback monthly" },
+    ]),
+  DL(4, 63, "A short meeting",
+    [
+      { s: "Manager", t: "Let's keep this quick. Can we meet the Friday deadline?" },
+      { s: "Linh", t: "The design is done, but testing needs two more days." },
+      { s: "Manager", t: "Then let's postpone the launch to Monday." },
+      { s: "Linh", t: "Agreed. I'll update the team." },
+    ],
+    [
+      { q: "What is already finished?", opts: ["The design", "The testing", "The launch", "The report"], a: "The design" },
+      { q: "What do they decide to do?", opts: ["Cancel the project", "Postpone the launch to Monday", "Work all weekend", "Meet again Friday"], a: "Postpone the launch to Monday" },
+    ]),
+  DL(4, 80, "Talking about traffic",
+    [
+      { s: "Anna", t: "They widened the road, but it's still jammed every morning." },
+      { s: "Ben", t: "That's induced demand. More road just attracts more cars." },
+      { s: "Anna", t: "So what actually works?" },
+      { s: "Ben", t: "Making public transport easier and driving a little less convenient." },
+    ],
+    [
+      { q: "What happened after the road was widened?", opts: ["Traffic disappeared", "It's still jammed", "Fewer cars", "The road closed"], a: "It's still jammed" },
+      { q: "What does Ben say actually works?", opts: ["Building more roads", "Improving public transport", "Banning cars", "Raising fuel prices"], a: "Improving public transport" },
+    ]),
+  DL(5, 82, "Pitching a startup",
+    [
+      { s: "Founder", t: "We reached break-even in eighteen months." },
+      { s: "Investor", t: "Impressive. What's your biggest risk?" },
+      { s: "Founder", t: "Scaling too fast before the product is ready." },
+      { s: "Investor", t: "Good awareness. How much funding are you seeking?" },
+      { s: "Founder", t: "Half a million to expand the team." },
+    ],
+    [
+      { q: "When did the startup break even?", opts: ["In six months", "In eighteen months", "In three years", "It hasn't"], a: "In eighteen months" },
+      { q: "What is the founder's biggest risk?", opts: ["Scaling too fast", "Losing staff", "High rent", "Weak marketing"], a: "Scaling too fast" },
+      { q: "How much funding does the founder want?", opts: ["Half a million", "One million", "Two million", "Nothing"], a: "Half a million" },
+    ]),
+  DL(5, 90, "Discussing a tender",
+    [
+      { s: "Officer", t: "Bidder A offered the lowest price by far." },
+      { s: "Expert", t: "Lowest price isn't the same as lowest evaluated price." },
+      { s: "Officer", t: "You think they underpriced it?" },
+      { s: "Expert", t: "Likely. They'll try to recover margin through variation orders later." },
+      { s: "Officer", t: "Then we should check their similar contracts first." },
+    ],
+    [
+      { q: "What did Bidder A offer?", opts: ["The lowest price", "The best design", "The fastest delivery", "The most staff"], a: "The lowest price" },
+      { q: "How might Bidder A recover margin?", opts: ["Through variation orders", "By working faster", "By hiring locally", "By lowering quality openly"], a: "Through variation orders" },
+      { q: "What does the expert suggest checking?", opts: ["Their similar contracts", "Their office", "Their website", "Their staff photos"], a: "Their similar contracts" },
+    ]),
+].map((d, i) => Object.assign({ id: "dl" + i, kind: "dialogue" }, d));
+
 /* ================================================================
    VƯỜN TỪ — LÕI THUẬT TOÁN
    FSRS-lite · bộ chọn bài thích ứng · bộ sinh ô chữ
@@ -828,12 +1221,29 @@ READINGS.forEach((r, i) =>
     ITEMS.push({ id: "r" + i + "-" + j, kind: "read", passage: r, q: q.q, opts: q.opts, a: q.a, topic: r.topicId, level: r.level, emoji: "📖" })
   )
 );
+/* Bài tập mở rộng: điền câu, điền đoạn văn, nghe hội thoại */
+if (typeof CLOZE_SENT !== "undefined")
+  CLOZE_SENT.forEach((c) => ITEMS.push({ id: c.id, kind: "clozeSent", data: c, topic: c.topic, level: c.level, emoji: "✏️" }));
+if (typeof CLOZE_PARA !== "undefined")
+  CLOZE_PARA.forEach((p) => ITEMS.push({ id: p.id, kind: "clozePara", data: p, topic: p.topic, level: p.level, emoji: "📝" }));
+if (typeof DIALOGUES !== "undefined")
+  DIALOGUES.forEach((d) => ITEMS.push({ id: d.id, kind: "dialogue", data: d, topic: d.topic, level: d.level, emoji: "🎧" }));
+
 const ITEM_BY_ID = {};
 ITEMS.forEach((i) => (ITEM_BY_ID[i.id] = i));
 const TOPIC_BY_ID = {};
 TOPICS.forEach((t) => (TOPIC_BY_ID[t.id] = t));
 
 const shuffle = (a) => { const x = a.slice(); for (let i = x.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const s = x[i]; x[i] = x[j]; x[j] = s; } return x; };
+
+/* Index từ vựng để chọn mồi nhử nhanh (tránh filter toàn bộ ITEMS mỗi câu) */
+const WORDS_BY_TOPIC = {};
+const WORDS_BY_LEVEL = {};
+ITEMS.forEach((i) => {
+  if (i.kind !== "word") return;
+  (WORDS_BY_TOPIC[i.topic] = WORDS_BY_TOPIC[i.topic] || []).push(i);
+  (WORDS_BY_LEVEL[i.level] = WORDS_BY_LEVEL[i.level] || []).push(i);
+});
 
 /* ---------- Bộ chọn bài thích ứng ----------
    Ưu tiên item mới, rồi item có R gần ngưỡng 0.85 (vùng phát triển gần)
@@ -843,11 +1253,24 @@ const TARGET_R = 0.85;
 function buildLesson(topicId, mem, now) {
   const t = TOPIC_BY_ID[topicId];
   const L = lvl(t.level);
-  const pool = ITEMS.filter((i) => i.kind === "word" && i.topic === topicId);
-  if (L.skills.indexOf("grammar") >= 0)
+  // Cấp 1–2: chỉ lấy tối đa 12 từ mỗi buổi (kho 25 từ là quá dài cho trẻ)
+  let words = ITEMS.filter((i) => i.kind === "word" && i.topic === topicId);
+  const pool = t.level <= 2 ? pickWordsForKids(words, mem, now, 12) : words.slice();
+
+  if (L.skills.indexOf("grammar") >= 0) {
     pool.push.apply(pool, shuffle(ITEMS.filter((i) => i.kind === "grammar" && i.level === t.level)).slice(0, 3));
-  if (L.skills.indexOf("read") >= 0)
+    // điền chỗ trống trong câu (theo chủ đề nếu có, nếu không lấy theo cấp)
+    const csTopic = ITEMS.filter((i) => i.kind === "clozeSent" && i.topic === topicId);
+    const csLevel = shuffle(ITEMS.filter((i) => i.kind === "clozeSent" && i.level === t.level));
+    pool.push.apply(pool, (csTopic.length ? csTopic : csLevel).slice(0, 2));
+  }
+  if (L.skills.indexOf("read") >= 0) {
     pool.push.apply(pool, ITEMS.filter((i) => i.kind === "read" && i.topic === topicId));
+    pool.push.apply(pool, ITEMS.filter((i) => i.kind === "clozePara" && i.topic === topicId));
+  }
+  // nghe hội thoại: có từ cấp 2 trở lên
+  if (t.level >= 2)
+    pool.push.apply(pool, ITEMS.filter((i) => i.kind === "dialogue" && i.topic === topicId));
 
   return pool
     .map((it) => {
@@ -857,6 +1280,14 @@ function buildLesson(topicId, mem, now) {
     })
     .sort((a, b) => a.key - b.key)
     .map((s) => s.it);
+}
+
+/* Trẻ em: ưu tiên từ chưa học, rồi từ sắp quên; giới hạn số lượng mỗi buổi */
+function pickWordsForKids(words, mem, now, limit) {
+  const fresh = words.filter((w) => !mem[w.id] || mem[w.id].reps === 0);
+  const seen = words.filter((w) => mem[w.id] && mem[w.id].reps > 0)
+    .sort((a, b) => retrievability(mem[a.id], now) - retrievability(mem[b.id], now));
+  return shuffle(fresh).slice(0, limit - Math.min(seen.length, 4)).concat(seen.slice(0, 4));
 }
 
 function buildReviewQueue(mem, now, size) {
@@ -871,21 +1302,45 @@ function buildReviewQueue(mem, now, size) {
 
 /* ---------- Sinh dạng bài tập ---------- */
 function buildExercise(item, mem, kid) {
-  if (item.kind === "grammar") return { type: "fill", item: item, options: shuffle(item.opts) };
-  if (item.kind === "read")    return { type: "read", item: item, options: shuffle(item.opts) };
+  if (item.kind === "grammar")    return { type: "fill", item: item, options: shuffle(item.opts) };
+  if (item.kind === "read")       return { type: "read", item: item, options: shuffle(item.opts) };
+  if (item.kind === "clozeSent")  return { type: "clozeSent", item: item, options: shuffle([item.data.answer].concat(item.data.distractors)) };
+  if (item.kind === "clozePara")  return { type: "clozePara", item: item };
+  if (item.kind === "dialogue")   return { type: "dialogue", item: item };
 
   const reps = (mem[item.id] && mem[item.id].reps) || 0;
-  const modes = kid ? ["listen", "viToEn", "speak", "enToVi"] : ["viToEn", "listen", "enToVi", "speak"];
+  // Cấp 1–2 (trẻ em): nghe, chọn nghĩa, phát âm, xếp chữ (không đánh máy chính tả)
+  // Cấp 3+: thêm chính tả (nghe → gõ lại)
+  const modes = kid
+    ? ["listen", "viToEn", "speak", "enToVi", "scramble"]
+    : ["viToEn", "listen", "enToVi", "speak", "dictation", "scramble"];
   const mode = reps === 0 ? (kid ? "listen" : "viToEn") : modes[reps % modes.length];
-  if (mode === "speak") return { type: "speak", item: item };
+  if (mode === "speak")      return { type: "speak", item: item };
+  if (mode === "dictation")  return { type: "dictation", item: item };
+  if (mode === "scramble")   return buildScramble(item);
 
-  const same  = shuffle(ITEMS.filter((i) => i.kind === "word" && i.topic === item.topic && i.id !== item.id)).slice(0, 3);
-  const other = shuffle(ITEMS.filter((i) => i.kind === "word" && i.level === item.level && i.id !== item.id)).slice(0, 6);
+  const same  = shuffle((WORDS_BY_TOPIC[item.topic] || []).filter((i) => i.id !== item.id)).slice(0, 3);
+  const other = shuffle((WORDS_BY_LEVEL[item.level] || []).filter((i) => i.id !== item.id)).slice(0, 6);
   const seen = {}; const opts = [];
   same.concat(other).forEach((o) => {
     if (opts.length < 3 && !seen[o.id] && o.vi !== item.vi && o.en !== item.en) { seen[o.id] = 1; opts.push(o); }
   });
   return { type: mode, item: item, options: shuffle([item].concat(opts)) };
+}
+
+/* Xếp chữ cái: chỉ áp dụng cho từ đơn ≤ 9 chữ cái; nếu không, lùi về chọn nghĩa */
+function buildScramble(item) {
+  const word = item.en;
+  if (!/^[A-Za-z]{2,9}$/.test(word)) {
+    const same = shuffle((WORDS_BY_TOPIC[item.topic] || []).filter((i) => i.id !== item.id)).slice(0, 3);
+    const other = shuffle((WORDS_BY_LEVEL[item.level] || []).filter((i) => i.id !== item.id)).slice(0, 6);
+    const seen = {}; const opts = [];
+    same.concat(other).forEach((o) => { if (opts.length < 3 && !seen[o.id] && o.en !== item.en) { seen[o.id] = 1; opts.push(o); } });
+    return { type: "viToEn", item: item, options: shuffle([item].concat(opts)) };
+  }
+  let letters = shuffle(word.split(""));
+  for (let tries = 0; tries < 8 && letters.join("") === word; tries++) letters = shuffle(word.split(""));
+  return { type: "scramble", item: item, letters: letters };
 }
 
 /* ---------- Bộ sinh ô chữ ----------
@@ -1014,8 +1469,10 @@ function similarity(a, b) {
 
 /* Xuất cho môi trường test (Node). Trong trình duyệt, dòng này bị bỏ qua. */
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { LEVELS, lvl, retrievability, review, nextInterval, emptyMem, ITEMS, ITEM_BY_ID, TOPIC_BY_ID, TOPICS, GRAMMAR, READINGS, buildLesson, buildReviewQueue, buildExercise, makeCrossword, similarity, DAY, shuffle };
+  module.exports = { LEVELS, lvl, retrievability, review, nextInterval, emptyMem, ITEMS, ITEM_BY_ID, TOPIC_BY_ID, TOPICS, GRAMMAR, READINGS, buildLesson, buildReviewQueue, buildExercise, buildScramble, makeCrossword, similarity, DAY, shuffle };
 }
+
+
 
 
 /* ================================================================
@@ -1142,6 +1599,10 @@ function beginQueue() {
   st.hearts = isKid() ? 99 : 5;
   st.ex = buildExercise(st.queue[0], st.mem, isKid());
   st.picked = null; st.result = null;
+  st.paraPicked = {}; st.paraResults = null;
+  st.dlgPicked = {}; st.dlgResults = null;
+  st.dictInput = ""; st.dictScore = 0;
+  st.scrambleBuilt = []; st.scramblePool = null;
   go("learn");
 }
 function checkAnswer() {
@@ -1149,8 +1610,29 @@ function checkAnswer() {
   const ex = st.ex;
   let ok;
   if (ex.type === "fill" || ex.type === "read") ok = st.picked === ex.item.a;
+  else if (ex.type === "clozeSent") ok = st.picked === ex.item.data.answer;
+  else if (ex.type === "clozePara") ok = checkClozePara();
+  else if (ex.type === "dialogue") ok = checkDialogue();
+  else if (ex.type === "dictation") ok = checkDictation();
+  else if (ex.type === "scramble") ok = (st.scrambleBuilt || []).join("") === ex.item.en;
   else ok = st.picked === ex.item.id;
   grade(ok);
+}
+function checkClozePara() {
+  const bl = st.ex.item.data.blanks;
+  st.paraResults = bl.map((b, i) => (st.paraPicked && st.paraPicked[i]) === b.a);
+  return st.paraResults.every(Boolean);
+}
+function checkDialogue() {
+  const qs = st.ex.item.data.qs;
+  st.dlgResults = qs.map((q, i) => (st.dlgPicked && st.dlgPicked[i]) === q.a);
+  return st.dlgResults.every(Boolean);
+}
+function checkDictation() {
+  const target = st.ex.item.en;
+  const typed = (st.dictInput || "").trim();
+  st.dictScore = similarity(typed, target);
+  return st.dictScore >= 0.85;
 }
 function grade(ok) {
   record(st.ex.item.id, ok);
@@ -1158,7 +1640,8 @@ function grade(ok) {
     st.combo++;
     const gain = 10 + (st.combo % 3 === 0 ? 5 : 0);
     addXp(gain);
-    if (st.ex.item.kind === "word") speak(st.ex.item.en);
+    const it = st.ex.item;
+    if (it.kind === "word" && it.en) speak(it.en);
     if (st.combo % 3 === 0) toast("Chuỗi " + st.combo + " câu đúng · +5 XP");
   } else {
     st.combo = 0;
@@ -1174,6 +1657,10 @@ function nextExercise() {
   st.idx = i;
   st.ex = buildExercise(st.queue[i], st.mem, isKid());
   st.picked = null; st.result = null;
+  st.paraPicked = {}; st.paraResults = null;
+  st.dlgPicked = {}; st.dlgResults = null;
+  st.dictInput = ""; st.dictScore = 0;
+  st.scrambleBuilt = []; st.scramblePool = null;
   render();
 }
 function travel(d) {
@@ -1207,7 +1694,10 @@ function render() {
   app.innerHTML = html;
   app.classList.remove("rise"); void app.offsetWidth; app.classList.add("rise");
   if (st.screen === "gcross") wireCrossword();
-  if (st.screen === "learn" && st.ex && st.ex.type === "listen" && !st.result) speak(st.ex.item.en);
+  if (st.screen === "learn" && st.ex && !st.result) {
+    if (st.ex.type === "listen" || st.ex.type === "dictation") speak(st.ex.item.en);
+    if (st.ex.type === "dictation") wireDictation();
+  }
   renderNav();
 }
 
@@ -1309,7 +1799,7 @@ function viewLearn() {
   const ex = st.ex, it = ex.item;
   const pct = ((st.idx + (st.result ? 1 : 0)) / st.queue.length) * 100;
   const kid = isKid();
-  const prompts = { viToEn: "Chọn từ tiếng Anh đúng", enToVi: "Từ này nghĩa là gì?", listen: "Nghe và chọn từ bạn nghe được", speak: "Nhấn micro và đọc to", fill: "Chọn đáp án đúng", read: "Đọc đoạn văn và trả lời" };
+  const prompts = { viToEn: "Chọn từ tiếng Anh đúng", enToVi: "Từ này nghĩa là gì?", listen: "Nghe và chọn từ bạn nghe được", speak: "Nhấn micro và đọc to", fill: "Chọn đáp án đúng", read: "Đọc đoạn văn và trả lời", clozeSent: "Điền từ đúng vào chỗ trống", clozePara: "Điền các từ vào đoạn văn", dialogue: "Nghe hội thoại và trả lời", dictation: "Nghe và gõ lại từ", scramble: "Xếp các chữ cái thành từ đúng" };
 
   let h = '<div class="topbar">' +
     '<button class="x" data-act="tab" data-arg="map" aria-label="Thoát">✕</button>' +
@@ -1336,17 +1826,31 @@ function viewLearn() {
     h += '<div class="big-emoji">' + it.emoji + '</div><button class="prompt-big linkish" data-act="say" data-arg="' + esc(it.en) + '">' + esc(it.en) + " 🔊</button>";
   } else if (ex.type === "listen") {
     h += '<div class="center"><button class="speaker" data-act="say" data-arg="' + esc(it.en) + '" aria-label="Phát lại">🔊</button></div>';
+  } else if (ex.type === "clozeSent") {
+    const d = it.data;
+    const parts = d.sentence.split("___");
+    h += '<div class="prompt-big">' + esc(parts[0]) + '<span class="blank">' + (st.result ? " " + esc(d.answer) + " " : " ___ ") + "</span>" + esc(parts[1] || "") + "</div>";
+  } else if (ex.type === "clozePara") {
+    h += viewClozePara(it);
+  } else if (ex.type === "dialogue") {
+    h += viewDialogue(it);
+  } else if (ex.type === "dictation") {
+    h += viewDictation(it);
+  } else if (ex.type === "scramble") {
+    h += viewScramble(it);
   } else if (ex.type === "speak") {
     h += viewSpeakBody(it);
   }
 
-  if (ex.type !== "speak") {
+  // Các dạng có bộ lựa chọn dạng nút A/B/C/D
+  var multiChoice = (ex.type === "clozeSent");
+  if (ex.type !== "speak" && ex.type !== "clozePara" && ex.type !== "dialogue" && ex.type !== "dictation" && ex.type !== "scramble") {
     h += '<div class="options">';
     ex.options.forEach((o) => {
-      const isText = ex.type === "fill" || ex.type === "read";
+      const isText = ex.type === "fill" || ex.type === "read" || ex.type === "clozeSent";
       const val = isText ? o : o.id;
       const label = isText ? o : ex.type === "enToVi" ? o.vi : o.emoji + " " + o.en;
-      const correct = isText ? it.a : it.id;
+      const correct = ex.type === "clozeSent" ? it.data.answer : (isText ? it.a : it.id);
       let cls = "opt";
       if (st.result) {
         if (val === correct) cls += " right";
@@ -1362,17 +1866,130 @@ function viewLearn() {
     const ok = st.result === "ok";
     let why = "";
     if (ex.type === "fill") why = esc(it.why);
+    else if (ex.type === "clozeSent") why = esc(it.data.why);
     else if (ex.type === "read") why = "Đáp án: <b>" + esc(it.a) + "</b>";
+    else if (ex.type === "clozePara") why = clozeParaAnswers(it);
+    else if (ex.type === "dialogue") why = dialogueAnswers(it);
+    else if (ex.type === "dictation") why = "Đáp án: <b>" + esc(it.en) + "</b> = " + esc(it.vi) + " · Độ khớp " + Math.round((st.dictScore || 0) * 100) + "%";
+    else if (ex.type === "scramble") why = "<b>" + esc(it.en) + "</b> = " + esc(it.vi);
     else why = "<b>" + esc(it.en) + "</b> = " + esc(it.vi);
     h += '<div class="feedback ' + (ok ? "ok" : "no") + '"><div class="fb-title">' + (ok ? "Chuẩn luôn! 🌱" : "Chưa đúng") + "</div><div class=\"fb-body\">" + why + "</div></div>";
   }
 
-  const ready = ex.type === "speak" ? false : st.picked !== null;
+  let ready;
+  if (ex.type === "speak") ready = false;
+  else if (ex.type === "clozePara") ready = st.paraPicked && Object.keys(st.paraPicked).length === it.data.blanks.length;
+  else if (ex.type === "dialogue") ready = st.dlgPicked && Object.keys(st.dlgPicked).length === it.data.qs.length;
+  else if (ex.type === "dictation") ready = (st.dictInput || "").trim().length > 0;
+  else if (ex.type === "scramble") ready = (st.scrambleBuilt || []).length === it.en.length;
+  else ready = st.picked !== null;
+
   if (st.result)
     h += '<button class="btn ' + (st.result === "ok" ? "btn-leaf" : "btn-lychee") + '" data-act="next">Tiếp tục</button>';
   else if (ex.type !== "speak")
     h += '<button class="btn btn-leaf" data-act="check"' + (ready ? "" : " disabled") + ">Kiểm tra</button>";
   return h;
+}
+
+/* ---- View: điền chỗ trống trong đoạn văn ---- */
+function viewClozePara(it) {
+  const d = it.data;
+  st.paraPicked = st.paraPicked || {};
+  // tách đoạn văn theo {n}, chèn ô chọn
+  let html = '<div class="para-cloze">';
+  const segs = d.text.split(/(\{\d+\})/);
+  segs.forEach((seg) => {
+    const m = seg.match(/^\{(\d+)\}$/);
+    if (m) {
+      const bi = +m[1];
+      const picked = st.paraPicked[bi];
+      let cls = "para-blank";
+      if (st.result) cls += (st.paraResults && st.paraResults[bi]) ? " right" : " wrong";
+      else if (picked) cls += " filled";
+      html += '<span class="' + cls + '">' + (picked ? esc(picked) : "____") + "</span>";
+    } else html += esc(seg);
+  });
+  html += "</div>";
+  // các nhóm lựa chọn cho từng chỗ trống
+  if (!st.result) {
+    d.blanks.forEach((b, bi) => {
+      const on = st.paraPicked[bi];
+      html += '<div class="para-choices"><span class="para-num">' + (bi + 1) + ".</span>";
+      b.opts.forEach((o) => {
+        html += '<button class="chip' + (on === o ? " on" : "") + '" data-act="para-pick" data-arg="' + bi + "|" + esc(o) + '">' + esc(o) + "</button>";
+      });
+      html += "</div>";
+    });
+  }
+  return html;
+}
+function clozeParaAnswers(it) {
+  return it.data.blanks.map((b, i) => (i + 1) + ". <b>" + esc(b.a) + "</b>").join(" · ");
+}
+
+/* ---- View: nghe hội thoại và trả lời ---- */
+function viewDialogue(it) {
+  const d = it.data;
+  st.dlgPicked = st.dlgPicked || {};
+  const script = d.lines.map((l) => (l.s ? l.s + ": " : "") + l.t).join(" ");
+  let html = '<div class="dlg-play"><button class="btn btn-ghost" data-act="say-dialogue" data-arg="' + esc(it.id) + '">🎧 Nghe hội thoại</button>';
+  html += '<div class="muted" style="margin-top:6px;font-size:11px">Nghe rồi trả lời. Có thể nghe lại nhiều lần.</div></div>';
+  // sau khi trả lời, hiện lời thoại để đối chiếu
+  if (st.result) {
+    html += '<div class="dlg-script">';
+    d.lines.forEach((l) => { html += '<div><b>' + esc(l.s) + ":</b> " + esc(l.t) + "</div>"; });
+    html += "</div>";
+  }
+  d.qs.forEach((q, qi) => {
+    const on = st.dlgPicked[qi];
+    html += '<div class="dlg-q">' + esc(q.q) + "</div><div class=\"options\">";
+    q.opts.forEach((o) => {
+      let cls = "opt";
+      if (st.result) {
+        if (o === q.a) cls += " right";
+        else if (on === o) cls += " wrong";
+      } else if (on === o) cls += " sel";
+      html += '<button class="' + cls + '" data-act="dlg-pick" data-arg="' + qi + "|" + esc(o) + '"' + (st.result ? " disabled" : "") + ">" + esc(o) + "</button>";
+    });
+    html += "</div>";
+  });
+  return html;
+}
+function dialogueAnswers(it) {
+  return it.data.qs.map((q, i) => (i + 1) + ". <b>" + esc(q.a) + "</b>").join(" · ");
+}
+
+/* ---- View: chính tả (nghe → gõ lại) ---- */
+function viewDictation(it) {
+  let html = '<div class="center"><button class="speaker" data-act="say" data-arg="' + esc(it.en) + '" aria-label="Nghe">🔊</button>';
+  html += '<div class="muted" style="margin-top:8px">Gõ lại từ/cụm từ bạn nghe được</div>';
+  html += '<input class="dict-input" id="dictInput" value="' + esc(st.dictInput || "") + '"' + (st.result ? " disabled" : "") + ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Gõ ở đây..."></div>';
+  return html;
+}
+
+/* ---- View: xếp chữ cái ---- */
+function viewScramble(it) {
+  st.scrambleBuilt = st.scrambleBuilt || [];
+  st.scramblePool = st.scramblePool || it.letters.map((ch, i) => ({ ch, i, used: false }));
+  let html = '<div class="big-emoji">' + it.emoji + '</div><div class="muted center">' + esc(it.vi) + "</div>";
+  // ô đã xếp
+  html += '<div class="scramble-slots">';
+  for (let i = 0; i < it.en.length; i++) {
+    const ch = st.scrambleBuilt[i];
+    let cls = "slot";
+    if (st.result) cls += (st.scrambleBuilt.join("") === it.en) ? " right" : " wrong";
+    html += '<span class="' + cls + '">' + (ch ? esc(ch.toUpperCase()) : "") + "</span>";
+  }
+  html += "</div>";
+  // ngân hàng chữ cái
+  if (!st.result) {
+    html += '<div class="scramble-bank">';
+    st.scramblePool.forEach((p, pi) => {
+      html += '<button class="tile-letter' + (p.used ? " used" : "") + '" data-act="scramble-add" data-arg="' + pi + '"' + (p.used ? " disabled" : "") + ">" + esc(p.ch.toUpperCase()) + "</button>";
+    });
+    html += '</div><button class="mini-clear" data-act="scramble-clear">↺ Xoá</button>';
+  }
+  return html;
 }
 
 function viewSpeakBody(it) {
@@ -1596,6 +2213,13 @@ function viewGameCross() {
   }
   return h;
 }
+function wireDictation() {
+  const inp = document.getElementById("dictInput");
+  if (!inp) return;
+  inp.addEventListener("input", function (e) { st.dictInput = e.target.value; });
+  // Enter để kiểm tra nhanh
+  inp.addEventListener("keydown", function (e) { if (e.key === "Enter" && (st.dictInput || "").trim()) checkAnswer(); });
+}
 function wireCrossword() {
   const s = st.gameState;
   document.querySelectorAll("[data-cw]").forEach((inp) => {
@@ -1700,6 +2324,16 @@ function flipCard(i) {
 /* ================================================================
    NHẬN DIỆN GIỌNG NÓI
    ================================================================ */
+function sayDialogueLines(lines, i) {
+  if (typeof window === "undefined" || !window.speechSynthesis) return;
+  if (i === 0) window.speechSynthesis.cancel();
+  if (i >= lines.length) return;
+  var u;
+  try { u = new SpeechSynthesisUtterance(lines[i].t); } catch (e) { return; }
+  u.lang = "en-US"; u.rate = 0.9;
+  u.onend = function () { setTimeout(function () { sayDialogueLines(lines, i + 1); }, 250); };
+  window.speechSynthesis.speak(u);
+}
 function runASR(target, onDone) {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) { onDone(null); return; }
@@ -1735,6 +2369,30 @@ function onClick(e) {
     case "topic": startLesson(+arg); break;
     case "review": startReview(); break;
     case "pick": if (!st.result) { st.picked = arg; render(); } break;
+    case "para-pick": {
+      if (st.result) break;
+      const p = arg.split("|"); st.paraPicked = st.paraPicked || {};
+      st.paraPicked[+p[0]] = p.slice(1).join("|"); render(); break;
+    }
+    case "dlg-pick": {
+      if (st.result) break;
+      const p = arg.split("|"); st.dlgPicked = st.dlgPicked || {};
+      st.dlgPicked[+p[0]] = p.slice(1).join("|"); render(); break;
+    }
+    case "say-dialogue": {
+      const d = ITEM_BY_ID[arg]; if (!d) break;
+      sayDialogueLines(d.data.lines, 0); break;
+    }
+    case "scramble-add": {
+      if (st.result) break;
+      const pi = +arg; const p = st.scramblePool[pi];
+      if (p && !p.used) { p.used = true; st.scrambleBuilt.push(p.ch); render(); }
+      break;
+    }
+    case "scramble-clear": {
+      if (st.result) break;
+      st.scrambleBuilt = []; (st.scramblePool || []).forEach((p) => (p.used = false)); render(); break;
+    }
     case "check": checkAnswer(); break;
     case "next": nextExercise(); break;
     case "say": speak(arg, 0.75); break;
@@ -1805,16 +2463,16 @@ function boot() {
 /* Cửa sổ gỡ lỗi: mở console gõ VT.st để xem toàn bộ trạng thái, VT.mem() để xem bộ nhớ FSRS */
 if (typeof window !== "undefined")
   window.VT = { st, ITEMS, TOPICS, LEVELS, retrievability, review, makeCrossword, render,
+                buildExercise, buildLesson, buildScramble, TOPIC_BY_ID, ITEM_BY_ID, similarity,
                 mem: () => st.mem, reset: () => { st.mem = {}; st.xp = 0; st.streak = 0; st.todayXp = 0; save(); render(); } };
 
 if (typeof document !== "undefined" && document.getElementById("app")) boot();
 
 
-/* Chạy ngoại tuyến (tuỳ chọn): cần file sw.js đặt cùng thư mục */
+
+
 if ("serviceWorker" in navigator && location.protocol === "https:") {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("sw.js").catch(function () {});
-  });
+  window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
 }
 </script>
 </body>
