@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E9EFFC">
+<meta name="description" content="Vườn từ — học tiếng Anh cho người Việt. 100 chủ đề, 5 cấp độ Pre-A1 đến B2, thuật toán lặp lại ngắt quãng FSRS.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Vườn từ">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22V%C6%B0%E1%BB%9Dn%20t%E1%BB%AB%20%E2%80%94%20H%E1%BB%8Dc%20ti%E1%BA%BFng%20Anh%22%2C%22short_name%22%3A%22V%C6%B0%E1%BB%9Dn%20t%E1%BB%AB%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23E9EFFC%22%2C%22theme_color%22%3A%22%23E9EFFC%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/svg%2Bxml%2C%253Csvg%20xmlns%3D%2527http%3A//www.w3.org/2000/svg%2527%20viewBox%3D%25270%200%20100%20100%2527%253E%253Crect%20width%3D%2527100%2527%20height%3D%2527100%2527%20rx%3D%252722%2527%20fill%3D%2527%252317255A%2527/%253E%253Ctext%20y%3D%252772%2527%20x%3D%252750%2527%20font-size%3D%252760%2527%20text-anchor%3D%2527middle%2527%253E%25F0%259F%258C%25B1%253C/text%253E%253C/svg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image/svg%2Bxml%22%7D%5D%7D">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%2780%27 font-size=%2790%27%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E">
+<title>Vườn từ — Học tiếng Anh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17255A; --ink2:#556090; --sky:#E9EFFC; --card:#FFFFFF;
+  --mango:#F5A623; --lychee:#E8506E; --leaf:#2BB673; --violet:#8B5CF6;
+  --line:#D5DEF5; --shadow:#C9D4EE;
+  --display:'Baloo 2', ui-rounded, 'Segoe UI', system-ui, sans-serif;
+  --body:'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--sky); color:var(--ink); font-family:var(--body);
+  -webkit-font-smoothing:antialiased; padding-bottom:78px;
+}
+#app{max-width:600px;margin:0 auto;padding:16px 16px 8px}
+h1{font-family:var(--display);font-weight:800;font-size:28px;margin:2px 0 0;letter-spacing:-.4px;line-height:1.15}
+h2{font-family:var(--display);font-weight:800;font-size:23px;margin:2px 0 0;letter-spacing:-.3px}
+p{margin:6px 0 0}
+.muted{color:var(--ink2);font-size:13px;line-height:1.55}
+.center{text-align:center}
+.pad{padding:24px 18px}
+.leaf{color:var(--leaf)} .lychee{color:var(--lychee)} .mango{color:var(--mango)}
+
+/* Thẻ */
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:22px;
+  padding:18px; box-shadow:0 2px 0 var(--shadow); margin-bottom:12px;
+  width:100%; text-align:left; font-family:var(--body); color:var(--ink);
+}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink2)}
+
+/* Pills trạng thái */
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;display:flex;gap:6px;align-items:center;font-size:13px}
+.pill b{font-family:var(--display);font-size:15px}
+.pill i{color:var(--ink2);font-size:11px;font-style:normal}
+
+/* Nút */
+.btn{
+  font-family:var(--display);font-weight:700;font-size:16px;border:none;border-radius:16px;
+  padding:14px 18px;cursor:pointer;width:100%;color:#fff;background:var(--ink);
+  box-shadow:0 4px 0 #0E1740;margin-bottom:12px;transition:transform .05s;
+}
+.btn:active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 #0E1740}
+.btn:disabled{background:#C6D0E8;box-shadow:none;cursor:not-allowed}
+.btn-leaf{background:var(--leaf);box-shadow:0 4px 0 #1D8F59}
+.btn-leaf:active:not(:disabled){box-shadow:0 2px 0 #1D8F59}
+.btn-lychee{background:var(--lychee);box-shadow:0 4px 0 #B93C55}
+.btn-lychee:active:not(:disabled){box-shadow:0 2px 0 #B93C55}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none;font-size:15px}
+.btn-ghost:active{transform:translateY(1px)}
+.row{display:flex;gap:8px}
+.row .btn{flex:1}
+.back{border:none;background:transparent;color:var(--ink2);font-size:14px;cursor:pointer;padding:0;margin-bottom:10px;font-family:var(--body)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--mango);outline-offset:2px}
+
+/* Hero + mục tiêu */
+.hero h1{margin-top:4px}
+.goal{margin-top:14px}
+.goal-row{display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);margin-bottom:5px}
+.bar{flex:1;height:10px;background:var(--sky);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.bar.sm{height:6px;margin-top:7px;border:none}
+.fill{height:100%;border-radius:99px;transition:width .4s}
+
+/* Cấp độ / trò chơi */
+.levels{display:grid;gap:10px}
+.level{display:flex;gap:14px;align-items:center;cursor:pointer;margin-bottom:0}
+.badge{width:52px;height:52px;border-radius:18px;color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:21px;flex-shrink:0}
+.lv-body{flex:1;min-width:0}
+.lv-name{font-family:var(--display);font-weight:700;font-size:18px}
+.lv-name span{font-size:12px;color:var(--ink2);font-weight:500;font-family:var(--body)}
+.lv-desc{font-size:12.5px;color:var(--ink2)}
+.lv-note{font-size:11px;font-weight:600;margin-top:2px}
+.lv-count{font-size:12px;color:var(--ink2);font-weight:600}
+
+/* Lưới chủ đề */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{padding:13px;cursor:pointer;margin-bottom:0}
+.tile-emoji{font-size:24px}
+.tile-name{font-family:var(--display);font-weight:700;font-size:15px;line-height:1.2;margin-top:3px}
+.tile-meta{font-size:11px;color:var(--ink2);margin-top:3px}
+
+/* Bài học */
+.topbar{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.x{border:none;background:transparent;font-size:19px;cursor:pointer;color:var(--ink2);padding:0 4px}
+.hearts{font-size:11px;color:var(--ink2);font-weight:600;white-space:nowrap}
+.lesson-title{font-size:11px;color:var(--ink2);font-weight:600;margin-bottom:10px;text-align:center}
+.exercise{min-height:230px}
+.big-emoji{font-size:54px;text-align:center;margin:12px 0 2px}
+.huge-emoji{font-size:104px;line-height:1.1;margin:8px 0}
+.exercise.kid .big-emoji{font-size:76px}
+.exercise.kid .opt{font-size:19px;padding:16px 14px}
+.exercise.kid .prompt-big{font-size:30px}
+.prompt-big{font-family:var(--display);font-weight:700;font-size:24px;text-align:center;line-height:1.45;margin-bottom:6px}
+.linkish{border:none;background:transparent;color:var(--ink);cursor:pointer;width:100%}
+.blank{color:var(--mango);border-bottom:3px solid var(--mango)}
+.gpoint{font-size:11px;color:var(--ink2);font-weight:600;text-align:center;margin:12px 0 8px}
+.speaker{border:none;background:var(--ink);color:#fff;width:90px;height:90px;border-radius:30px;font-size:36px;cursor:pointer;box-shadow:0 5px 0 #0E1740;margin:14px 0}
+.speaker:active{transform:translateY(2px);box-shadow:0 3px 0 #0E1740}
+
+.options{display:grid;gap:8px;margin-top:16px}
+.opt{
+  text-align:left;font-family:var(--body);font-weight:500;font-size:15.5px;background:#fff;color:var(--ink);
+  border:2px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;line-height:1.4;
+}
+.opt.sel{background:var(--sky);border-color:var(--ink)}
+.opt.right{background:#E8F8F0;border-color:var(--leaf);color:#12784E}
+.opt.wrong{background:#FDECEF;border-color:var(--lychee);color:#A82C46}
+.opt:disabled{cursor:default}
+
+.passage{background:var(--sky);border-radius:14px;padding:14px;margin:12px 0;font-size:14.5px;line-height:1.65}
+.passage p{margin:0}
+.passage-head{font-family:var(--display);font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.mini{border:none;background:#fff;border-radius:10px;padding:4px 9px;cursor:pointer;font-size:12px;font-family:var(--body);white-space:nowrap}
+.q{font-family:var(--display);font-weight:700;margin-top:12px;font-size:16px}
+
+.feedback{border-radius:16px;padding:14px;margin-bottom:10px}
+.feedback.ok{background:#E8F8F0;border:1px solid var(--leaf)}
+.feedback.no{background:#FDECEF;border:1px solid var(--lychee)}
+.fb-title{font-family:var(--display);font-weight:800;font-size:17px}
+.feedback.ok .fb-title{color:#12784E}
+.feedback.no .fb-title{color:#A82C46}
+.fb-body{font-size:13px;color:var(--ink2);margin-top:3px;line-height:1.5}
+.notice{font-size:13px;color:var(--ink2);background:var(--sky);border-radius:12px;padding:12px;line-height:1.55}
+
+/* Micro */
+.mic{border:none;width:92px;height:92px;border-radius:30px;font-size:38px;cursor:pointer;color:#fff;background:var(--ink);box-shadow:0 6px 0 #0E1740}
+.mic.listening{background:var(--lychee);box-shadow:none}
+.mic:active:not(.listening){transform:translateY(2px);box-shadow:0 4px 0 #0E1740}
+.mic-hint{font-size:12px;color:var(--ink2);margin-top:10px;font-weight:600}
+.mic-hint.live{color:var(--lychee)}
+.hintlink{border:none;background:transparent;color:var(--ink2);font-size:13px;cursor:pointer;font-family:var(--body);text-decoration:underline;margin:6px 0 16px}
+.score{font-family:var(--display);font-weight:800;font-size:46px;margin:6px 0}
+.heard{font-size:12px;color:var(--ink2);background:var(--sky);border-radius:10px;padding:8px 10px;display:inline-block;margin-top:8px}
+.streak{font-size:12px;font-weight:700;color:var(--mango)}
+
+/* Vườn trí nhớ */
+.plots{display:flex;flex-wrap:wrap;gap:7px}
+.plot{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:14px}
+.table-card{padding:0;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{background:var(--sky);text-align:left;padding:9px 10px;font-size:11px;font-weight:600}
+td{padding:8px 10px;border-top:1px solid var(--line)}
+
+/* Ô chữ */
+.cw-wrap{overflow-x:auto;display:flex;justify-content:center}
+.cw{display:grid;gap:2px;justify-content:center}
+.cw-void{width:var(--cw);height:var(--cw)}
+.cw-cell{position:relative;width:var(--cw);height:var(--cw)}
+.cw-num{position:absolute;top:0;left:2px;font-size:8px;font-weight:700;color:var(--ink2);z-index:1;pointer-events:none}
+.cw-cell input{
+  width:100%;height:100%;text-align:center;font-family:var(--display);font-weight:700;
+  font-size:calc(var(--cw) * .5);border:1.5px solid var(--line);border-radius:5px;
+  background:#fff;color:var(--ink);padding:0;text-transform:uppercase;
+}
+.cw-cell.right input{background:#E8F8F0;border-color:var(--leaf);color:#12784E}
+.cw-cell.wrong input{background:#FDECEF;border-color:var(--lychee);color:#A82C46}
+.clue-group{margin-top:10px}
+.clue-head{font-family:var(--display);font-weight:700;font-size:14px;margin-bottom:4px}
+.clue{font-size:13.5px;padding:3px 0;display:flex;gap:6px}
+.clue b{min-width:16px}
+.clue i{color:var(--ink2);font-size:11px;font-style:normal}
+.clue.ok{color:var(--leaf)}
+.clue.miss{color:var(--ink2)}
+
+/* Lật thẻ */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mcard{
+  height:86px;border-radius:14px;cursor:pointer;border:2px solid var(--line);background:var(--ink);
+  color:var(--ink);font-family:var(--body);font-weight:500;font-size:13.5px;padding:6px;line-height:1.25;
+  transition:background .15s;
+}
+.mcard.en{font-family:var(--display);font-weight:700}
+.mcard.open{background:#fff;border-color:var(--ink)}
+.mcard.done{background:#E8F8F0;border-color:var(--leaf);color:#12784E;cursor:default}
+.mcard-back{font-size:26px}
+
+/* Điều hướng dưới */
+#nav{
+  position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;border-top:1px solid var(--line);
+  padding:8px 0 max(8px, env(safe-area-inset-bottom));z-index:40;
+}
+.tab{
+  flex:1;border:none;background:transparent;cursor:pointer;font-family:var(--body);font-weight:600;
+  font-size:11px;color:var(--ink2);display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 0;
+}
+.tab span{font-size:20px;filter:grayscale(1);opacity:.55}
+.tab.on{color:var(--ink)}
+.tab.on span{filter:none;opacity:1}
+
+/* Toast */
+#toast{
+  position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(12px);
+  background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:600;
+  z-index:60;max-width:92vw;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s, transform .2s;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Chuyển động */
+@keyframes rise{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(232,80,110,.5)}100%{box-shadow:0 0 0 16px rgba(232,80,110,0)}}
+.rise{animation:rise .22s ease-out}
+.ping{animation:ping 1.2s infinite}
+@media (prefers-reduced-motion:reduce){.rise,.ping{animation:none}}
+
+@media (max-width:380px){
+  h1{font-size:24px}
+  .grid2{gap:8px}
+  .tile-name{font-size:14px}
+}
+
+</style>
+</head>
+<body>
+<main id="app"></main>
+<nav id="nav" aria-label="Điều hướng chính"></nav>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   VƯỜN TỪ — BẢN TRIỂN KHAI WEB
+   Một file duy nhất. Không thư viện. Không server. Không build.
+   Tiến độ lưu tại localStorage trên máy người học.
+
+   • 100 chủ đề · 5 cấp (Pre-A1 → B2, khung CEFR)
+   • 500 từ · 36 điểm ngữ pháp · 60 bài đọc (180 câu hỏi)
+   • Engine FSRS-lite (lặp lại ngắt quãng)
+   • 3 trò chơi: phát âm theo hình · ô chữ tự sinh · lật thẻ
+   Nội dung tự soạn. Không sao chép BBC / Lingokids / Duolingo.
+   ============================================================ */
+/* ---------- DỮ LIỆU (trích từ vuon-tu-v2.jsx & readings-full.js) ---------- */
+const T = (id, level, name, emoji, words) => ({ id, level, name, emoji, words });
+const G = (level, point, q, opts, a, why) => ({ level, point, q, opts, a, why });
+const R = (topicId, level, title, text, qs) => ({ topicId, level, title, text, qs });
+const TOPICS = [
+  /* ===== CẤP 1 — MẦM (Pre-A1) ===== */
+  T(1, 1, "Chào hỏi", "👋", [["hello", "xin chào"], ["bye", "tạm biệt"], ["yes", "vâng / có"], ["no", "không"], ["hi", "chào"]]),
+  T(2, 1, "Bảng chữ cái", "🔤", [["letter", "chữ cái"], ["A is for apple", "A là quả táo"], ["B is for ball", "B là quả bóng"], ["C is for cat", "C là con mèo"], ["D is for dog", "D là con chó"]]),
+  T(3, 1, "Số 1–10", "🔢", [["one", "một"], ["three", "ba"], ["five", "năm"], ["eight", "tám"], ["ten", "mười"]]),
+  T(4, 1, "Màu sắc", "🎨", [["red", "màu đỏ"], ["blue", "màu xanh dương"], ["green", "màu xanh lá"], ["yellow", "màu vàng"], ["black", "màu đen"]]),
+  T(5, 1, "Hình khối", "🔺", [["circle", "hình tròn"], ["square", "hình vuông"], ["triangle", "hình tam giác"], ["star", "ngôi sao"], ["heart", "hình trái tim"]]),
+  T(6, 1, "Gia đình", "👨‍👩‍👧", [["mother", "mẹ"], ["father", "bố"], ["sister", "chị / em gái"], ["brother", "anh / em trai"], ["baby", "em bé"]]),
+  T(7, 1, "Cơ thể", "🖐️", [["head", "cái đầu"], ["hand", "bàn tay"], ["eye", "con mắt"], ["nose", "cái mũi"], ["foot", "bàn chân"]]),
+  T(8, 1, "Vật nuôi", "🐶", [["dog", "con chó"], ["cat", "con mèo"], ["fish", "con cá"], ["bird", "con chim"], ["rabbit", "con thỏ"]]),
+  T(9, 1, "Động vật nông trại", "🐄", [["cow", "con bò"], ["pig", "con lợn"], ["duck", "con vịt"], ["buffalo", "con trâu"], ["chicken", "con gà"]]),
+  T(10, 1, "Thú hoang dã", "🦁", [["lion", "sư tử"], ["elephant", "con voi"], ["monkey", "con khỉ"], ["tiger", "con hổ"], ["bear", "con gấu"]]),
+  T(11, 1, "Trái cây", "🍎", [["apple", "quả táo"], ["banana", "quả chuối"], ["mango", "quả xoài"], ["orange", "quả cam"], ["grape", "quả nho"]]),
+  T(12, 1, "Rau củ", "🥕", [["carrot", "cà rốt"], ["tomato", "cà chua"], ["potato", "khoai tây"], ["onion", "củ hành"], ["cabbage", "bắp cải"]]),
+  T(13, 1, "Đồ ăn & thức uống", "🍚", [["rice", "cơm"], ["bread", "bánh mì"], ["milk", "sữa"], ["water", "nước"], ["egg", "quả trứng"]]),
+  T(14, 1, "Quần áo", "👕", [["shirt", "áo sơ mi"], ["hat", "cái mũ"], ["shoes", "đôi giày"], ["dress", "váy đầm"], ["socks", "đôi tất"]]),
+  T(15, 1, "Đồ chơi", "🧸", [["ball", "quả bóng"], ["doll", "búp bê"], ["kite", "cái diều"], ["blocks", "khối xếp hình"], ["car", "xe đồ chơi"]]),
+  T(16, 1, "Trong nhà", "🏠", [["door", "cửa ra vào"], ["window", "cửa sổ"], ["table", "cái bàn"], ["chair", "cái ghế"], ["bed", "cái giường"]]),
+  T(17, 1, "Phương tiện", "🚌", [["bus", "xe buýt"], ["bike", "xe đạp"], ["boat", "con thuyền"], ["plane", "máy bay"], ["train", "tàu hoả"]]),
+  T(18, 1, "Thời tiết", "☀️", [["sunny", "trời nắng"], ["rainy", "trời mưa"], ["windy", "có gió"], ["hot", "nóng"], ["cold", "lạnh"]]),
+  T(19, 1, "Cảm xúc", "😊", [["happy", "vui"], ["sad", "buồn"], ["angry", "tức giận"], ["tired", "mệt"], ["scared", "sợ hãi"]]),
+  T(20, 1, "Nói lời lịch sự", "🙏", [["please", "làm ơn"], ["thank you", "cảm ơn"], ["sorry", "xin lỗi"], ["excuse me", "xin phép"], ["you're welcome", "không có gì"]]),
+
+  /* ===== CẤP 2 — CHỒI (A1) ===== */
+  T(21, 2, "Trường học", "🏫", [["classroom", "lớp học"], ["teacher", "giáo viên"], ["student", "học sinh"], ["playground", "sân chơi"], ["library", "thư viện"]]),
+  T(22, 2, "Đồ dùng học tập", "✏️", [["pencil", "bút chì"], ["eraser", "cục tẩy"], ["notebook", "quyển vở"], ["ruler", "cây thước"], ["backpack", "ba lô"]]),
+  T(23, 2, "Số 11–100", "💯", [["eleven", "mười một"], ["twenty", "hai mươi"], ["fifty", "năm mươi"], ["ninety", "chín mươi"], ["one hundred", "một trăm"]]),
+  T(24, 2, "Ngày trong tuần", "📅", [["Monday", "thứ Hai"], ["Wednesday", "thứ Tư"], ["Friday", "thứ Sáu"], ["weekend", "cuối tuần"], ["today", "hôm nay"]]),
+  T(25, 2, "Tháng & mùa", "🍂", [["January", "tháng Một"], ["July", "tháng Bảy"], ["spring", "mùa xuân"], ["autumn", "mùa thu"], ["season", "mùa"]]),
+  T(26, 2, "Giờ giấc", "⏰", [["o'clock", "đúng giờ"], ["half past", "rưỡi"], ["morning", "buổi sáng"], ["afternoon", "buổi chiều"], ["night", "ban đêm"]]),
+  T(27, 2, "Hoạt động hằng ngày", "🪥", [["wake up", "thức dậy"], ["brush teeth", "đánh răng"], ["have breakfast", "ăn sáng"], ["go to school", "đi học"], ["go to bed", "đi ngủ"]]),
+  T(28, 2, "Sở thích", "🎯", [["read books", "đọc sách"], ["draw", "vẽ"], ["sing", "hát"], ["dance", "nhảy múa"], ["collect", "sưu tầm"]]),
+  T(29, 2, "Thể thao", "⚽", [["football", "bóng đá"], ["swim", "bơi"], ["run", "chạy"], ["badminton", "cầu lông"], ["team", "đội"]]),
+  T(30, 2, "Nhạc cụ", "🎸", [["guitar", "đàn ghi-ta"], ["piano", "đàn piano"], ["drum", "cái trống"], ["flute", "cây sáo"], ["violin", "đàn vĩ cầm"]]),
+  T(31, 2, "Nghề nghiệp", "👷", [["doctor", "bác sĩ"], ["farmer", "nông dân"], ["engineer", "kỹ sư"], ["driver", "tài xế"], ["cook", "đầu bếp"]]),
+  T(32, 2, "Trong thành phố", "🏙️", [["street", "đường phố"], ["park", "công viên"], ["market", "chợ"], ["hospital", "bệnh viện"], ["bridge", "cây cầu"]]),
+  T(33, 2, "Mua sắm", "🛒", [["shop", "cửa hàng"], ["price", "giá"], ["cheap", "rẻ"], ["expensive", "đắt"], ["buy", "mua"]]),
+  T(34, 2, "Ở nhà hàng", "🍽️", [["menu", "thực đơn"], ["order", "gọi món"], ["delicious", "ngon"], ["bill", "hoá đơn"], ["waiter", "phục vụ"]]),
+  T(35, 2, "Bạn bè", "🧑‍🤝‍🧑", [["friend", "bạn bè"], ["play together", "chơi cùng nhau"], ["share", "chia sẻ"], ["help", "giúp đỡ"], ["kind", "tốt bụng"]]),
+  T(36, 2, "Ngoại hình", "🙂", [["tall", "cao"], ["short", "thấp / ngắn"], ["long hair", "tóc dài"], ["young", "trẻ"], ["strong", "khoẻ"]]),
+  T(37, 2, "Thiên nhiên", "🌳", [["tree", "cái cây"], ["flower", "bông hoa"], ["mountain", "ngọn núi"], ["river", "con sông"], ["forest", "khu rừng"]]),
+  T(38, 2, "Côn trùng", "🐝", [["bee", "con ong"], ["ant", "con kiến"], ["butterfly", "con bướm"], ["spider", "con nhện"], ["mosquito", "con muỗi"]]),
+  T(39, 2, "Biển & đại dương", "🌊", [["beach", "bãi biển"], ["wave", "con sóng"], ["shell", "vỏ sò"], ["sand", "cát"], ["island", "hòn đảo"]]),
+  T(40, 2, "Ngày lễ", "🎉", [["Tet holiday", "Tết"], ["Christmas", "Giáng sinh"], ["birthday", "sinh nhật"], ["gift", "món quà"], ["celebrate", "ăn mừng"]]),
+
+  /* ===== CẤP 3 — LÁ (A2) ===== */
+  T(41, 3, "Giới thiệu bản thân", "🪪", [["introduce", "giới thiệu"], ["hometown", "quê nhà"], ["nationality", "quốc tịch"], ["age", "tuổi"], ["occupation", "nghề nghiệp"]]),
+  T(42, 3, "Hỏi đường", "🧭", [["turn left", "rẽ trái"], ["go straight", "đi thẳng"], ["corner", "góc đường"], ["opposite", "đối diện"], ["next to", "bên cạnh"]]),
+  T(43, 3, "Giao thông công cộng", "🚇", [["ticket", "vé"], ["platform", "sân ga"], ["get off", "xuống xe"], ["schedule", "lịch trình"], ["fare", "tiền vé"]]),
+  T(44, 3, "Đi siêu thị", "🏬", [["trolley", "xe đẩy"], ["aisle", "lối đi giữa kệ"], ["discount", "giảm giá"], ["receipt", "hoá đơn"], ["checkout", "quầy thanh toán"]]),
+  T(45, 3, "Nấu ăn", "🍳", [["boil", "luộc / đun sôi"], ["fry", "chiên"], ["chop", "thái nhỏ"], ["recipe", "công thức"], ["ingredient", "nguyên liệu"]]),
+  T(46, 3, "Sức khoẻ", "🩺", [["headache", "đau đầu"], ["fever", "sốt"], ["cough", "ho"], ["medicine", "thuốc"], ["rest", "nghỉ ngơi"]]),
+  T(47, 3, "Ở phòng khám", "🏥", [["appointment", "lịch hẹn"], ["symptom", "triệu chứng"], ["prescription", "đơn thuốc"], ["injection", "tiêm"], ["recover", "hồi phục"]]),
+  T(48, 3, "Thể dục", "🏃", [["exercise", "tập thể dục"], ["stretch", "giãn cơ"], ["gym", "phòng tập"], ["muscle", "cơ bắp"], ["breathe", "hít thở"]]),
+  T(49, 3, "Du lịch & khách sạn", "🏨", [["book a room", "đặt phòng"], ["check in", "nhận phòng"], ["luggage", "hành lý"], ["reservation", "đặt chỗ"], ["view", "cảnh nhìn"]]),
+  T(50, 3, "Ở sân bay", "✈️", [["boarding pass", "thẻ lên máy bay"], ["departure", "khởi hành"], ["arrival", "đến nơi"], ["delay", "trễ chuyến"], ["customs", "hải quan"]]),
+  T(51, 3, "Khí hậu", "🌦️", [["forecast", "dự báo"], ["humid", "ẩm"], ["storm", "bão"], ["flood", "lũ lụt"], ["drought", "hạn hán"]]),
+  T(52, 3, "Nhà cửa & nội thất", "🛋️", [["furniture", "nội thất"], ["sofa", "ghế sofa"], ["wardrobe", "tủ quần áo"], ["balcony", "ban công"], ["rent", "thuê"]]),
+  T(53, 3, "Việc nhà", "🧹", [["sweep", "quét nhà"], ["do the laundry", "giặt đồ"], ["wash the dishes", "rửa bát"], ["tidy up", "dọn dẹp"], ["chore", "việc vặt"]]),
+  T(54, 3, "Công nghệ & điện thoại", "📱", [["battery", "pin"], ["charge", "sạc"], ["app", "ứng dụng"], ["screen", "màn hình"], ["update", "cập nhật"]]),
+  T(55, 3, "Mạng xã hội", "💬", [["post", "đăng bài"], ["comment", "bình luận"], ["follow", "theo dõi"], ["share", "chia sẻ"], ["account", "tài khoản"]]),
+  T(56, 3, "Tiền bạc", "💰", [["save money", "tiết kiệm tiền"], ["spend", "chi tiêu"], ["borrow", "mượn"], ["afford", "đủ tiền mua"], ["budget", "ngân sách"]]),
+  T(57, 3, "Ngân hàng", "🏦", [["account", "tài khoản"], ["withdraw", "rút tiền"], ["deposit", "gửi tiền"], ["transfer", "chuyển khoản"], ["interest", "lãi suất"]]),
+  T(58, 3, "Thư & email", "📧", [["attach", "đính kèm"], ["reply", "trả lời"], ["subject", "tiêu đề"], ["sincerely", "trân trọng"], ["forward", "chuyển tiếp"]]),
+  T(59, 3, "Kể chuyện quá khứ", "🕰️", [["last week", "tuần trước"], ["suddenly", "đột nhiên"], ["then", "sau đó"], ["finally", "cuối cùng"], ["remember", "nhớ lại"]]),
+  T(60, 3, "Kế hoạch tương lai", "🗓️", [["plan", "kế hoạch"], ["hope", "hy vọng"], ["decide", "quyết định"], ["goal", "mục tiêu"], ["prepare", "chuẩn bị"]]),
+
+  /* ===== CẤP 4 — HOA (B1) ===== */
+  T(61, 4, "Phỏng vấn xin việc", "🤝", [["résumé", "hồ sơ xin việc"], ["strength", "điểm mạnh"], ["weakness", "điểm yếu"], ["salary", "lương"], ["candidate", "ứng viên"]]),
+  T(62, 4, "Nơi làm việc", "🏢", [["colleague", "đồng nghiệp"], ["deadline", "hạn chót"], ["overtime", "làm thêm giờ"], ["promotion", "thăng chức"], ["workload", "khối lượng công việc"]]),
+  T(63, 4, "Họp hành", "📊", [["agenda", "chương trình họp"], ["minutes", "biên bản"], ["propose", "đề xuất"], ["postpone", "hoãn"], ["consensus", "đồng thuận"]]),
+  T(64, 4, "Thuyết trình", "🎤", [["slide", "trang trình chiếu"], ["audience", "khán giả"], ["highlight", "nhấn mạnh"], ["summarise", "tóm tắt"], ["Q&A", "hỏi đáp"]]),
+  T(65, 4, "Giáo dục & đại học", "🎓", [["major", "chuyên ngành"], ["scholarship", "học bổng"], ["assignment", "bài tập lớn"], ["graduate", "tốt nghiệp"], ["tuition", "học phí"]]),
+  T(66, 4, "Môi trường", "♻️", [["pollution", "ô nhiễm"], ["recycle", "tái chế"], ["waste", "rác thải"], ["conserve", "bảo tồn"], ["sustainable", "bền vững"]]),
+  T(67, 4, "Biến đổi khí hậu", "🌡️", [["greenhouse gas", "khí nhà kính"], ["emission", "phát thải"], ["sea level", "mực nước biển"], ["carbon footprint", "dấu chân carbon"], ["adapt", "thích ứng"]]),
+  T(68, 4, "Tin tức & báo chí", "📰", [["headline", "tiêu đề báo"], ["source", "nguồn tin"], ["reliable", "đáng tin cậy"], ["bias", "thiên lệch"], ["coverage", "phạm vi đưa tin"]]),
+  T(69, 4, "Phim ảnh", "🎬", [["plot", "cốt truyện"], ["director", "đạo diễn"], ["subtitle", "phụ đề"], ["review", "bài đánh giá"], ["sequel", "phần tiếp theo"]]),
+  T(70, 4, "Sách & văn học", "📚", [["novel", "tiểu thuyết"], ["character", "nhân vật"], ["author", "tác giả"], ["chapter", "chương"], ["theme", "chủ đề"]]),
+  T(71, 4, "Âm nhạc", "🎵", [["lyrics", "lời bài hát"], ["melody", "giai điệu"], ["rhythm", "nhịp điệu"], ["perform", "biểu diễn"], ["album", "an-bum"]]),
+  T(72, 4, "Nghệ thuật", "🖼️", [["exhibition", "triển lãm"], ["sculpture", "tác phẩm điêu khắc"], ["portrait", "chân dung"], ["abstract", "trừu tượng"], ["masterpiece", "kiệt tác"]]),
+  T(73, 4, "Ẩm thực thế giới", "🌍", [["cuisine", "nền ẩm thực"], ["spicy", "cay"], ["flavour", "hương vị"], ["texture", "kết cấu"], ["street food", "đồ ăn đường phố"]]),
+  T(74, 4, "Văn hoá Việt Nam", "🇻🇳", [["ancestor", "tổ tiên"], ["tradition", "truyền thống"], ["festival", "lễ hội"], ["craft village", "làng nghề"], ["heritage", "di sản"]]),
+  T(75, 4, "Quan hệ & tình bạn", "❤️", [["trust", "tin tưởng"], ["argue", "cãi nhau"], ["apologise", "xin lỗi"], ["support", "ủng hộ"], ["get along", "hợp nhau"]]),
+  T(76, 4, "Tính cách", "🧠", [["confident", "tự tin"], ["patient", "kiên nhẫn"], ["stubborn", "cứng đầu"], ["generous", "hào phóng"], ["reliable", "đáng tin"]]),
+  T(77, 4, "Thói quen", "🔁", [["habit", "thói quen"], ["give up", "từ bỏ"], ["stick to", "kiên trì với"], ["procrastinate", "trì hoãn"], ["routine", "nếp sinh hoạt"]]),
+  T(78, 4, "Giấc ngủ", "😴", [["insomnia", "mất ngủ"], ["nap", "ngủ trưa"], ["deep sleep", "ngủ sâu"], ["alarm", "báo thức"], ["refreshed", "sảng khoái"]]),
+  T(79, 4, "Thành phố thông minh", "🌆", [["infrastructure", "hạ tầng"], ["sensor", "cảm biến"], ["efficiency", "hiệu quả"], ["public service", "dịch vụ công"], ["density", "mật độ"]]),
+  T(80, 4, "Giao thông đô thị", "🚦", [["congestion", "ùn tắc"], ["commute", "đi làm hằng ngày"], ["pedestrian", "người đi bộ"], ["route", "tuyến đường"], ["fine", "tiền phạt"]]),
+
+  /* ===== CẤP 5 — QUẢ (B2) ===== */
+  T(81, 5, "Kinh tế & lạm phát", "📈", [["inflation", "lạm phát"], ["supply and demand", "cung và cầu"], ["recession", "suy thoái"], ["purchasing power", "sức mua"], ["stimulus", "kích thích kinh tế"]]),
+  T(82, 5, "Khởi nghiệp", "🚀", [["startup", "công ty khởi nghiệp"], ["investor", "nhà đầu tư"], ["revenue", "doanh thu"], ["scale up", "mở rộng quy mô"], ["break even", "hoà vốn"]]),
+  T(83, 5, "Trí tuệ nhân tạo", "🤖", [["algorithm", "thuật toán"], ["training data", "dữ liệu huấn luyện"], ["bias", "thiên lệch"], ["automation", "tự động hoá"], ["accountability", "trách nhiệm giải trình"]]),
+  T(84, 5, "Dữ liệu & quyền riêng tư", "🔐", [["consent", "sự đồng ý"], ["encryption", "mã hoá"], ["breach", "rò rỉ dữ liệu"], ["surveillance", "giám sát"], ["anonymise", "ẩn danh hoá"]]),
+  T(85, 5, "Y học hiện đại", "🧬", [["diagnosis", "chẩn đoán"], ["clinical trial", "thử nghiệm lâm sàng"], ["vaccine", "vắc-xin"], ["side effect", "tác dụng phụ"], ["immunity", "miễn dịch"]]),
+  T(86, 5, "Vũ trụ", "🛰️", [["orbit", "quỹ đạo"], ["gravity", "trọng lực"], ["satellite", "vệ tinh"], ["launch", "phóng"], ["exploration", "thám hiểm"]]),
+  T(87, 5, "Năng lượng tái tạo", "🔋", [["renewable", "tái tạo"], ["grid", "lưới điện"], ["solar panel", "tấm pin mặt trời"], ["storage", "lưu trữ"], ["fossil fuel", "nhiên liệu hoá thạch"]]),
+  T(88, 5, "Chính sách công", "🏛️", [["regulation", "quy định"], ["subsidy", "trợ cấp"], ["stakeholder", "bên liên quan"], ["implement", "triển khai"], ["oversight", "giám sát"]]),
+  T(89, 5, "Luật pháp", "⚖️", [["liability", "trách nhiệm pháp lý"], ["evidence", "chứng cứ"], ["verdict", "phán quyết"], ["comply", "tuân thủ"], ["dispute", "tranh chấp"]]),
+  T(90, 5, "Đấu thầu & hợp đồng", "📑", [["tender", "gói thầu / đấu thầu"], ["bidder", "nhà thầu"], ["bid security", "bảo đảm dự thầu"], ["evaluation criteria", "tiêu chí đánh giá"], ["contract award", "trao hợp đồng"]]),
+  T(91, 5, "Xây dựng & kỹ thuật", "🏗️", [["foundation", "móng"], ["reinforcement", "cốt thép"], ["load-bearing", "chịu lực"], ["survey", "khảo sát"], ["site clearance", "giải phóng mặt bằng"]]),
+  T(92, 5, "Kiến trúc", "📐", [["facade", "mặt tiền"], ["blueprint", "bản vẽ thiết kế"], ["ventilation", "thông gió"], ["proportion", "tỷ lệ"], ["renovation", "cải tạo"]]),
+  T(93, 5, "Toàn cầu hoá", "🌐", [["supply chain", "chuỗi cung ứng"], ["tariff", "thuế quan"], ["outsourcing", "thuê ngoài"], ["trade deficit", "thâm hụt thương mại"], ["integration", "hội nhập"]]),
+  T(94, 5, "Truyền thông & quảng cáo", "📢", [["target audience", "đối tượng mục tiêu"], ["campaign", "chiến dịch"], ["persuasive", "có sức thuyết phục"], ["endorsement", "sự chứng thực"], ["engagement", "mức tương tác"]]),
+  T(95, 5, "Tâm lý học", "🧩", [["cognitive", "thuộc nhận thức"], ["motivation", "động lực"], ["perception", "nhận thức / tri giác"], ["resilience", "khả năng phục hồi"], ["reinforcement", "sự củng cố"]]),
+  T(96, 5, "Triết học", "💭", [["reasoning", "lập luận"], ["assumption", "giả định"], ["contradiction", "mâu thuẫn"], ["existence", "sự tồn tại"], ["premise", "tiền đề"]]),
+  T(97, 5, "Đạo đức", "🕊️", [["integrity", "chính trực"], ["conflict of interest", "xung đột lợi ích"], ["transparency", "minh bạch"], ["dilemma", "tình thế khó xử"], ["justify", "biện minh"]]),
+  T(98, 5, "Tranh luận & phản biện", "🗣️", [["argument", "luận điểm"], ["counterargument", "phản biện"], ["evidence-based", "dựa trên bằng chứng"], ["concede", "nhượng bộ"], ["fallacy", "nguỵ biện"]]),
+  T(99, 5, "Thành ngữ thông dụng", "🎭", [["break the ice", "phá tan không khí ngại ngùng"], ["on the same page", "cùng quan điểm"], ["cut corners", "làm ẩu cho nhanh"], ["a grey area", "vùng xám / chưa rõ ràng"], ["get the ball rolling", "khởi động công việc"]]),
+  T(100, 5, "Phỏng vấn học bổng", "🏅", [["motivation letter", "thư động lực"], ["achievement", "thành tích"], ["contribution", "đóng góp"], ["long-term vision", "tầm nhìn dài hạn"], ["commitment", "cam kết"]]),
+];
+
+const GRAMMAR = [
+  // A2
+  G(3, "Hiện tại đơn – ngôi 3 số ít", "She ___ to work by bus.", ["go", "goes", "going", "went"], "goes", "He/She/It + động từ thêm -s/-es."),
+  G(3, "Hiện tại tiếp diễn", "Look! The bus ___ now.", ["comes", "come", "is coming", "came"], "is coming", "“Look!/now” → hiện tại tiếp diễn: is/am/are + V-ing."),
+  G(3, "Quá khứ đơn – bất quy tắc", "We ___ to Da Nang last summer.", ["go", "goed", "went", "gone"], "went", "go → went. “last summer” là mốc quá khứ xác định."),
+  G(3, "There is / There are", "There ___ two hospitals near here.", ["is", "are", "have", "has"], "are", "Danh từ số nhiều → “there are”."),
+  G(3, "Mạo từ a / an", "He works as ___ engineer.", ["a", "an", "the", "—"], "an", "“engineer” bắt đầu bằng nguyên âm → “an”."),
+  G(3, "Danh từ đếm được / không đếm được", "How ___ water do you drink?", ["many", "much", "some", "few"], "much", "“water” không đếm được → dùng “much”."),
+  G(3, "So sánh hơn", "This phone is ___ than mine.", ["expensive", "expensiver", "more expensive", "most expensive"], "more expensive", "Tính từ dài (3+ âm tiết) → “more + adj”."),
+  G(3, "So sánh nhất", "Hanoi is one of ___ cities in Vietnam.", ["the oldest", "older", "old", "more old"], "the oldest", "So sánh nhất: the + adj-est."),
+  G(3, "Giới từ chỉ nơi chốn", "The bank is ___ the corner.", ["in", "on", "at", "to"], "on", "“on the corner” là cụm cố định chỉ góc đường."),
+  G(3, "Can / can't", "I ___ swim, but I can't dive.", ["can", "could", "must", "should"], "can", "“can” diễn tả khả năng ở hiện tại."),
+  G(3, "Tương lai – be going to", "It's cloudy. It ___ rain.", ["will", "is going to", "would", "goes to"], "is going to", "Có dấu hiệu hiện tại → “be going to” cho dự đoán."),
+  G(3, "Trạng từ tần suất", "She ___ arrives late.", ["never", "not never", "no", "never not"], "never", "Trạng từ tần suất đứng trước động từ thường."),
+  // B1
+  G(4, "Hiện tại hoàn thành vs quá khứ đơn", "I ___ this company since 2019.", ["join", "joined", "have joined", "was joining"], "have joined", "“since + mốc” → hiện tại hoàn thành."),
+  G(4, "Câu bị động", "The report ___ yesterday.", ["submitted", "was submitted", "is submitted", "has submit"], "was submitted", "Bị động quá khứ: was/were + V3."),
+  G(4, "Câu điều kiện loại 1", "If we ___ now, we'll catch the train.", ["leave", "will leave", "left", "would leave"], "leave", "Loại 1: If + hiện tại đơn, will + V."),
+  G(4, "Câu điều kiện loại 2", "If I ___ you, I would accept the offer.", ["am", "was", "were", "will be"], "were", "Loại 2 giả định: “If I were you” là chuẩn."),
+  G(4, "Mệnh đề quan hệ", "The colleague ___ helped me has resigned.", ["which", "who", "whose", "whom"], "who", "Chủ ngữ chỉ người → “who”."),
+  G(4, "Câu tường thuật", "He said he ___ busy that day.", ["is", "was", "will be", "has been"], "was", "Tường thuật lùi thì: is → was."),
+  G(4, "Động từ khuyết thiếu – suy đoán", "She ___ be at the meeting; her car is outside.", ["must", "can't", "might not", "shouldn't"], "must", "Bằng chứng chắc chắn → “must be” (chắc hẳn là)."),
+  G(4, "Gerund vs Infinitive", "I'm considering ___ the deadline.", ["to extend", "extending", "extend", "extended"], "extending", "“consider” đi với V-ing."),
+  G(4, "Used to", "I ___ commute by motorbike.", ["used to", "use to", "am used to", "was use to"], "used to", "Thói quen quá khứ nay không còn: “used to + V”."),
+  G(4, "Quá khứ tiếp diễn", "While I ___, the phone rang.", ["cook", "cooked", "was cooking", "have cooked"], "was cooking", "Hành động đang diễn ra thì bị cắt ngang → quá khứ tiếp diễn."),
+  G(4, "So sánh với as...as", "This route is not ___ as the old one.", ["as fast", "so faster", "fast as", "as faster"], "as fast", "Cấu trúc: not as + adj + as."),
+  G(4, "Cụm động từ", "We need to ___ the meeting until Friday.", ["put off", "put on", "put up", "put out"], "put off", "“put off” = hoãn lại."),
+  // B2
+  G(5, "Điều kiện loại 3", "If they ___ the risk, they wouldn't have signed.", ["knew", "had known", "would know", "know"], "had known", "Loại 3 (tiếc nuối quá khứ): If + had + V3, would have + V3."),
+  G(5, "Điều kiện hỗn hợp", "If she had studied law, she ___ a judge now.", ["would be", "would have been", "will be", "was"], "would be", "Điều kiện hỗn hợp: quá khứ giả định → kết quả ở hiện tại."),
+  G(5, "Đảo ngữ nhấn mạnh", "Not only ___ the deadline, but he also cut costs.", ["he met", "did he meet", "he did meet", "met he"], "did he meet", "“Not only” đầu câu → đảo ngữ: trợ động từ trước chủ ngữ."),
+  G(5, "Wish / If only", "I wish I ___ more time to prepare.", ["have", "had", "will have", "would had"], "had", "Ước ở hiện tại → lùi một thì: “wish + past simple”."),
+  G(5, "Bị động với động từ tường thuật", "The contract ___ to have been amended.", ["is believed", "believes", "believing", "believed"], "is believed", "Cấu trúc: S + is believed/said + to have V3."),
+  G(5, "Mệnh đề nhượng bộ", "___ the delay, the project stayed within budget.", ["Although", "Despite", "However", "Because"], "Despite", "“Despite + danh từ/cụm danh từ” (không có mệnh đề)."),
+  G(5, "Rút gọn mệnh đề quan hệ", "The bidders ___ for clarification received a reply.", ["asked", "asking", "who asking", "which asked"], "asking", "Rút gọn mệnh đề chủ động: who asked → asking."),
+  G(5, "Câu giả định (subjunctive)", "The board demanded that he ___ present.", ["is", "be", "was", "will be"], "be", "Sau demand/require/insist that → động từ nguyên thể không “to”."),
+  G(5, "Trật tự tính từ", "She bought a ___ table.", ["wooden round large", "large round wooden", "round large wooden", "wooden large round"], "large round wooden", "Trật tự: kích thước → hình dáng → chất liệu."),
+  G(5, "Cấu trúc nhấn mạnh (cleft)", "___ we need is a clearer specification.", ["That", "What", "Which", "It"], "What", "Câu chẻ: “What + mệnh đề + is/are + …”."),
+  G(5, "Hàm ý & sắc thái modal", "You ___ have told me earlier — I could have helped.", ["should", "must", "can", "will"], "should", "“should have + V3” = đáng lẽ phải (trách móc quá khứ)."),
+  G(5, "Liên từ mức độ cao", "The estimate was rejected; ___, the tender was re-issued.", ["moreover", "consequently", "nevertheless", "meanwhile"], "consequently", "Quan hệ nhân–quả → “consequently”."),
+].map((g, i) => ({ id: "g" + i, kind: "grammar", ...g }));
+
+const READINGS = [
+  /* ============ CẤP 3 — LÁ (A2) ============ */
+
+  R(41, 3, "Who am I?", "My name is Trang. I am twenty-four years old and I come from Nam Dinh, a small province in the north of Vietnam. I moved to Ho Chi Minh City three years ago to work as a nurse. People often ask me if I miss my hometown. I do, especially the food, but I go back twice a year for Tet and for my mother's birthday. In my free time I grow small plants on my balcony. It is a quiet hobby, but after a long day at the hospital, quiet is exactly what I want.", [
+    { q: "What is Trang's occupation?", opts: ["A teacher", "A nurse", "A farmer", "A student"], a: "A nurse" },
+    { q: "How often does Trang return to her hometown?", opts: ["Every month", "Twice a year", "Never", "Every weekend"], a: "Twice a year" },
+    { q: "Why does she like her hobby?", opts: ["It makes money", "It is quiet after a busy day", "Her mother taught her", "It is popular"], a: "It is quiet after a busy day" },
+  ]),
+
+  R(42, 3, "Finding the post office", "Mai is new in the city. She wants to send a parcel to her grandmother, so she asks a man at the bus stop. He tells her to go straight for two blocks, then turn left at the big market. The post office is on the corner, opposite a small coffee shop. It closes at five, so Mai decides to walk quickly. She arrives at ten to five and posts the parcel just in time.", [
+    { q: "Where is the post office?", opts: ["Next to the market", "On the corner opposite a coffee shop", "Inside the bus stop", "Behind the school"], a: "On the corner opposite a coffee shop" },
+    { q: "Why does Mai walk quickly?", opts: ["It is raining", "The post office closes at five", "The bus is late", "She is meeting a friend"], a: "The post office closes at five" },
+    { q: "What does “just in time” mean here?", opts: ["Too late", "Very early", "Only barely on time", "At the wrong place"], a: "Only barely on time" },
+  ]),
+
+  R(43, 3, "The wrong platform", "Duc bought a ticket for the seven o'clock train to Hue. He waited on platform two for twenty minutes, but no train came. Then he heard an announcement: the Hue train was leaving from platform five. He ran across the station and reached the door just as it was closing. A guard let him on. Later, Duc looked at his ticket again. The platform number was printed clearly at the bottom. He had simply never read it.", [
+    { q: "Which platform did the Hue train leave from?", opts: ["Platform two", "Platform five", "Platform seven", "Platform one"], a: "Platform five" },
+    { q: "What is the main point of the story?", opts: ["Trains are often late", "Duc did not read his own ticket carefully", "Guards are unhelpful", "Hue is far away"], a: "Duc did not read his own ticket carefully" },
+    { q: "How did Duc find out about the change?", opts: ["A friend told him", "He heard an announcement", "He read a sign", "The guard called him"], a: "He heard an announcement" },
+  ]),
+
+  R(44, 3, "The clever aisle", "Have you noticed that milk and eggs are usually at the back of the supermarket? This is not an accident. These are things almost everyone buys, so the shop puts them far from the door. To reach them, you must walk past many other products. Sweets and snacks are placed near the checkout, where you wait and get bored. The discount signs at the end of each aisle are the biggest of all. Supermarkets do not just sell food; they design the walk you take.", [
+    { q: "Where are milk and eggs usually placed?", opts: ["Near the door", "At the back", "Near the checkout", "Outside"], a: "At the back" },
+    { q: "What is the main idea?", opts: ["Supermarkets arrange the shop to make you buy more", "Milk is expensive", "Checkouts are slow", "Discounts are always fake"], a: "Supermarkets arrange the shop to make you buy more" },
+    { q: "Why are snacks placed near the checkout?", opts: ["They are cheap", "You are waiting and bored there", "They need to stay cold", "They are heavy"], a: "You are waiting and bored there" },
+  ]),
+
+  R(45, 3, "My grandmother's recipe", "My grandmother never used a recipe book. She measured salt with her hand and knew when the soup was ready by its smell. When I asked her how much fish sauce to add, she said, “Enough.” Last year I tried to write her pho recipe down. I stood in the kitchen with a notebook while she chopped onions and boiled the bones for six hours. The list of ingredients was short, but the instructions filled three pages. Most of them were about waiting.", [
+    { q: "How long did she boil the bones?", opts: ["One hour", "Three hours", "Six hours", "All night"], a: "Six hours" },
+    { q: "What did the writer discover about the recipe?", opts: ["It needed many ingredients", "Most of the instructions were about waiting", "It was very cheap", "It was written in a book"], a: "Most of the instructions were about waiting" },
+    { q: "When the grandmother said “Enough,” she meant", opts: ["She was tired", "She judged the amount by experience, not measurement", "There was no fish sauce", "The soup was finished"], a: "She judged the amount by experience, not measurement" },
+  ]),
+
+  R(46, 3, "A bad week", "Last Monday Nam woke up with a headache and a mild fever. He drank a lot of water and rested, but by Wednesday he also had a cough. His mother told him to see a doctor. The doctor said it was only a common cold and gave him some medicine. She also told him not to drink cold water and to sleep at least eight hours a night. By Sunday, Nam felt much better and went back to school.", [
+    { q: "What symptom did Nam have first?", opts: ["A cough", "A headache and fever", "A sore leg", "A stomach ache"], a: "A headache and fever" },
+    { q: "What did the doctor say the illness was?", opts: ["A serious disease", "A common cold", "Food poisoning", "The flu"], a: "A common cold" },
+    { q: "Which advice did the doctor NOT give?", opts: ["Sleep eight hours", "Avoid cold water", "Take medicine", "Stop going to school forever"], a: "Stop going to school forever" },
+  ]),
+
+  R(47, 3, "The waiting room", "Hoa arrived at the clinic at eight, but her appointment was at half past nine. She wanted to be early because the waiting room is always full. When the nurse called her name, the doctor asked about her symptoms: a pain in her shoulder for two weeks. He examined her arm, asked her to lift it, and said the muscle was inflamed. He wrote a prescription and told her to come back in ten days. “And stop carrying your bag on that side,” he added.", [
+    { q: "What time was Hoa's appointment?", opts: ["Eight o'clock", "Nine o'clock", "Half past nine", "Ten o'clock"], a: "Half past nine" },
+    { q: "What did the doctor diagnose?", opts: ["A broken bone", "An inflamed muscle", "A fever", "Nothing at all"], a: "An inflamed muscle" },
+    { q: "The doctor's last comment suggests that", opts: ["Her bag may be causing the problem", "She should buy a new bag", "She should stop working", "The medicine will not work"], a: "Her bag may be causing the problem" },
+  ]),
+
+  R(48, 3, "Ten minutes is enough", "Many people join a gym in January and stop going by March. The problem is usually not laziness — it is the plan. If you decide to exercise for ninety minutes, five days a week, you need a free evening, clean clothes, and a lot of energy. If any one of them is missing, you skip. But ten minutes at home needs almost nothing. It is not enough to make you strong quickly, but it is enough to keep the habit alive. A small habit that survives beats a big one that dies.", [
+    { q: "When do many people stop going to the gym?", opts: ["In January", "By March", "In summer", "After one year"], a: "By March" },
+    { q: "What is the main argument?", opts: ["Gyms are too expensive", "A small habit that survives is better than a big one that fails", "Ninety minutes is the right amount", "Exercise is not important"], a: "A small habit that survives is better than a big one that fails" },
+    { q: "Why does a big plan fail easily?", opts: ["It needs many conditions to be true at once", "It is boring", "It is dangerous", "Nobody knows how to do it"], a: "It needs many conditions to be true at once" },
+  ]),
+
+  R(49, 3, "The room with no view", "The website showed a photo of a bright room with a balcony over the sea. When Lan and her husband checked in, the receptionist gave them a room on the ground floor, facing the car park. Lan showed her the booking. The receptionist explained that the sea-view rooms were an extra charge and the photo was only an example. Lan was polite but firm: the page had not said so. After ten minutes, they were moved upstairs. The lesson, Lan says, is to always read what the price actually includes.", [
+    { q: "What did the first room face?", opts: ["The sea", "The car park", "A garden", "The street"], a: "The car park" },
+    { q: "What was the receptionist's explanation?", opts: ["The hotel was full", "Sea-view rooms cost extra", "The photo was old", "There was a mistake in the system"], a: "Sea-view rooms cost extra" },
+    { q: "“Polite but firm” means Lan was", opts: ["Angry and rude", "Calm but did not give up", "Silent", "Ready to leave"], a: "Calm but did not give up" },
+  ]),
+
+  R(50, 3, "Two hours early", "Airports tell you to arrive two hours before departure. Most of that time is not spent flying — it is spent waiting. You check in, you drop your luggage, you pass security, and then you sit. Some travellers hate this. Others plan for it: they bring a book, they eat properly, they charge their phone. The flight itself may be delayed, and the ones who planned for waiting are calm, while the ones who arrived at the last minute are the most stressed of all.", [
+    { q: "How early do airports ask you to arrive?", opts: ["One hour", "Two hours", "Three hours", "Thirty minutes"], a: "Two hours" },
+    { q: "What is the writer's point?", opts: ["Flights are always delayed", "Travellers who plan for waiting cope better", "Airports are badly designed", "Security is too slow"], a: "Travellers who plan for waiting cope better" },
+    { q: "Who becomes most stressed when there is a delay?", opts: ["Those who arrived at the last minute", "Those who brought a book", "The staff", "Those who ate properly"], a: "Those who arrived at the last minute" },
+  ]),
+
+  R(51, 3, "The rain that did not come", "In the Mekong Delta, farmers used to know when the rain would arrive. Now the forecast is less useful than it was. Some years the rain comes a month late; some years it does not stop for weeks and the fields flood. Salt water has moved further up the rivers, and rice does not grow well in salty soil. Many families have changed to shrimp farming instead. It is not the life they planned, but it is the life the water allows.", [
+    { q: "What has moved further up the rivers?", opts: ["Fresh water", "Salt water", "Boats", "Fish"], a: "Salt water" },
+    { q: "What is the main idea?", opts: ["Farmers are adapting because the climate has changed", "Shrimp is more profitable than rice", "Forecasts are always wrong", "The Mekong is beautiful"], a: "Farmers are adapting because the climate has changed" },
+    { q: "“The life the water allows” suggests that", opts: ["Farmers freely chose shrimp farming", "The environment, not the farmers, decided the change", "Water is plentiful", "Rice is no longer eaten"], a: "The environment, not the farmers, decided the change" },
+  ]),
+
+  R(52, 3, "The empty living room", "When Khanh moved into his first apartment, he wanted to fill it immediately: a sofa, a big television, a bookshelf, a coffee table. His sister told him to wait one month and live in the empty room first. After four weeks, he knew exactly where the morning light fell and where he actually sat. He bought a chair by the window and a small table. He never bought the sofa. “The room told me what it needed,” he says. “I just had to be quiet enough to hear it.”", [
+    { q: "What did Khanh's sister tell him to do?", opts: ["Buy a sofa first", "Live in the empty room for a month", "Paint the walls", "Move somewhere cheaper"], a: "Live in the empty room for a month" },
+    { q: "What did Khanh finally buy?", opts: ["A sofa and a television", "A chair by the window and a small table", "Nothing at all", "A bookshelf"], a: "A chair by the window and a small table" },
+    { q: "The main lesson is that", opts: ["Furniture is expensive", "Waiting reveals what you really need", "Sisters are always right", "Empty rooms are sad"], a: "Waiting reveals what you really need" },
+  ]),
+
+  R(53, 3, "Whose turn is it?", "In many homes, the arguments are not about big things. They are about the dishes. One person believes they do most of the work; the other believes the same. Both are usually honest, because we notice our own effort and forget the effort we do not see. One family solved it with a piece of paper on the fridge: each chore, each week, each name. The arguments stopped almost at once. Not because the work became fair, but because it became visible.", [
+    { q: "What did the family put on the fridge?", opts: ["A photo", "A list of chores, weeks and names", "A calendar of holidays", "A shopping list"], a: "A list of chores, weeks and names" },
+    { q: "Why do both people think they do more?", opts: ["They are dishonest", "We notice our own effort and miss what we do not see", "One of them is lying", "They do not talk"], a: "We notice our own effort and miss what we do not see" },
+    { q: "The arguments stopped because the work became", opts: ["Easier", "Visible", "Shared equally", "Unnecessary"], a: "Visible" },
+  ]),
+
+  R(54, 3, "The battery problem", "Modern phones are faster, brighter and thinner than ever, but the battery still dies before the day does. Part of the reason is us: bigger screens and more apps need more power. Part of it is design — a thin phone has less room for a battery. Some engineers say we could have phones that last three days, but they would be heavier and nobody would buy them. So every year the phone gets a little better and the charger stays in your bag.", [
+    { q: "Why is a thin phone harder to power?", opts: ["It has less room for a battery", "It uses old software", "It has a small screen", "It is cheaper"], a: "It has less room for a battery" },
+    { q: "What is the main point?", opts: ["Batteries could be better, but buyers prefer thin phones", "Phones are badly made", "Chargers are unnecessary", "Apps should be banned"], a: "Batteries could be better, but buyers prefer thin phones" },
+    { q: "“The charger stays in your bag” implies that", opts: ["We still cannot last a day without charging", "Chargers are free", "Bags are useful", "Phones are waterproof"], a: "We still cannot last a day without charging" },
+  ]),
+
+  R(55, 3, "The number under the photo", "Before social media, if you cooked a good meal, you enjoyed it. Now you photograph it, post it, and check how many people liked it. The number under the photo becomes part of the meal. This is not entirely bad — people share recipes, find friends, and learn from each other. But researchers warn about a quiet change: we begin to choose what to do based on what will look good, not on what we will enjoy. The camera slowly moves from recording life to directing it.", [
+    { q: "What do researchers warn about?", opts: ["Bad photos", "Choosing activities for how they look, not for enjoyment", "Slow internet", "Too many recipes"], a: "Choosing activities for how they look, not for enjoyment" },
+    { q: "The writer's view of social media is", opts: ["Entirely negative", "Mixed — useful, but with a hidden cost", "Entirely positive", "Uninterested"], a: "Mixed — useful, but with a hidden cost" },
+    { q: "“The camera moves from recording life to directing it” means", opts: ["Cameras have better quality", "We now live in order to be photographed", "Film directors use phones", "Photos replace memory"], a: "We now live in order to be photographed" },
+  ]),
+
+  R(56, 3, "The envelope method", "Linh earns eight million dong a month, but at the end of every month she has nothing left. A friend suggested a simple habit: on payday, put money into separate envelopes — rent, food, transport, and savings — before spending anything. At first Linh thought it was old-fashioned, but after three months she had saved two million dong. She says the trick is not earning more; it is deciding where the money goes before it disappears.", [
+    { q: "What is the main idea?", opts: ["Linh needs a better job", "Planning where money goes helps you save", "Envelopes are old-fashioned", "Rent is too expensive"], a: "Planning where money goes helps you save" },
+    { q: "When does Linh divide the money?", opts: ["At the end of the month", "On payday, before spending", "Only when she needs to", "Every Sunday"], a: "On payday, before spending" },
+    { q: "How did Linh first react to the idea?", opts: ["She loved it", "She thought it was old-fashioned", "She refused completely", "She told her boss"], a: "She thought it was old-fashioned" },
+  ]),
+
+  R(57, 3, "Reading the small print", "The bank offered Minh a credit card with no annual fee for the first year. He signed quickly. Twelve months later, a fee of six hundred thousand dong appeared on his statement. He called to complain and the staff read him the sentence he had agreed to. It was there, on page four, in very small letters. Minh was annoyed with the bank, but he was more annoyed with himself. Now he reads the last page first, because that is where the cost usually hides.", [
+    { q: "What was the offer?", opts: ["No annual fee for the first year", "No fee forever", "A free phone", "A lower interest rate"], a: "No annual fee for the first year" },
+    { q: "Where was the fee explained?", opts: ["On the first page", "On page four in small letters", "Nowhere", "In an email"], a: "On page four in small letters" },
+    { q: "Why does Minh now read the last page first?", opts: ["It is shorter", "The cost is usually hidden there", "It has the signature", "The bank told him to"], a: "The cost is usually hidden there" },
+  ]),
+
+  R(58, 3, "One sentence, one point", "A good work email is not a letter. Managers receive fifty a day and read them on a phone, between meetings. So put the request in the first line, not the last. Give the deadline as a date, not as “soon”. If you attach a file, say what it is. And before you press send, ask one question: if the reader only reads the subject line, do they still know what you want? If the answer is no, rewrite the subject line.", [
+    { q: "Where should the request go?", opts: ["In the first line", "In the last line", "In the attachment", "In a second email"], a: "In the first line" },
+    { q: "What is the main advice?", opts: ["Write long, polite emails", "Make the point clear immediately", "Never attach files", "Send fewer emails"], a: "Make the point clear immediately" },
+    { q: "The test the writer suggests is about", opts: ["The attachment", "Whether the subject line alone communicates the request", "The greeting", "The signature"], a: "Whether the subject line alone communicates the request" },
+  ]),
+
+  R(59, 3, "The lost wallet", "Two years ago I lost my wallet on a bus in Da Lat. I had all my money in it, and I was two hundred kilometres from home. I sat at the station and did not know what to do. Then a woman I had never met paid for my ticket. She refused to give me her address. She only said, “Do the same for someone else.” I still remember her face. Since then I have twice helped a stranger, and both times I said exactly the same sentence.", [
+    { q: "Where did the writer lose the wallet?", opts: ["On a bus in Da Lat", "At home", "At the station", "In a shop"], a: "On a bus in Da Lat" },
+    { q: "What did the woman ask for in return?", opts: ["Money later", "Nothing except that he help someone else", "His address", "A phone number"], a: "Nothing except that he help someone else" },
+    { q: "The story is mainly about", opts: ["The danger of buses", "Kindness that is passed on rather than repaid", "Losing money", "Life in Da Lat"], a: "Kindness that is passed on rather than repaid" },
+  ]),
+
+  R(60, 3, "The five-year question", "In interviews people are often asked where they want to be in five years. Most answers are polite and vague. A better question, one manager says, is smaller: what do you want to be true in twelve months that is not true today? That question can be answered honestly, and it can be checked. Five-year plans are useful for direction, but they change. Twelve-month goals are the ones that decide what you actually do on Monday morning.", [
+    { q: "What question does the manager prefer?", opts: ["Where will you be in five years?", "What do you want to be true in twelve months?", "What is your salary?", "Why did you leave your last job?"], a: "What do you want to be true in twelve months?" },
+    { q: "Why are five-year plans less useful?", opts: ["They are too short", "They are vague and they change", "Nobody asks them", "They are illegal"], a: "They are vague and they change" },
+    { q: "“What you actually do on Monday morning” refers to", opts: ["Real, immediate action", "A meeting", "A holiday", "The weekend"], a: "Real, immediate action" },
+  ]),
+
+  /* ============ CẤP 4 — HOA (B1) ============ */
+
+  R(61, 4, "The weakness question", "Interviewers ask about your greatest weakness knowing that most candidates will lie. The classic answer — “I work too hard” — is not a weakness; it is an advertisement, and everyone in the room knows it. A more effective response names a real limitation and then shows what you have done about it. Saying “I used to avoid difficult conversations, so I asked my manager for feedback every month, and now I schedule them first” demonstrates two things the job actually requires: self-awareness and the willingness to act. Honesty here is not a risk. Pretending to be flawless is.", [
+    { q: "What is wrong with saying “I work too hard”?", opts: ["It is illegal", "It is an advertisement, not a real weakness", "It is too personal", "It is too honest"], a: "It is an advertisement, not a real weakness" },
+    { q: "What does an effective answer demonstrate?", opts: ["Self-awareness and willingness to act", "Technical skill", "Long experience", "A high salary"], a: "Self-awareness and willingness to act" },
+    { q: "The writer's final point is that", opts: ["Honesty is risky", "Appearing flawless is the greater risk", "You should not answer", "Interviews are pointless"], a: "Appearing flawless is the greater risk" },
+  ]),
+
+  R(62, 4, "The busy trap", "In many offices, being visibly busy has become a form of status. People reply to messages at midnight, attend meetings they do not need, and describe their workload as “crazy” with something close to pride. The trouble is that busyness and productivity are not the same thing, and they are often opposites. Deep work — the kind that produces something genuinely valuable — requires uninterrupted hours, which a full calendar makes impossible. The most effective colleagues are rarely the ones who look busiest. They are the ones who have protected their time and are willing to say no.", [
+    { q: "How do some people treat their heavy workload?", opts: ["With shame", "With something close to pride", "With indifference", "With fear"], a: "With something close to pride" },
+    { q: "What does deep work require?", opts: ["More meetings", "Uninterrupted hours", "A bigger team", "Late-night emails"], a: "Uninterrupted hours" },
+    { q: "According to the writer, effective colleagues are those who", opts: ["Attend every meeting", "Protect their time and say no", "Reply fastest", "Work at midnight"], a: "Protect their time and say no" },
+  ]),
+
+  R(63, 4, "The meeting that should have been an email", "A meeting is expensive. Ten people for one hour is not one hour of cost; it is ten. Yet meetings are scheduled by habit, not by need. The test is simple: a meeting is justified only when a decision must be made and disagreement is likely. If the purpose is to share information, send the information. If the purpose is to update the manager, the manager can read. Some companies now require an agenda with a named decision before a meeting can be booked. Attendance falls sharply, and nothing important is lost.", [
+    { q: "When is a meeting justified?", opts: ["When a decision must be made and disagreement is likely", "Every Monday", "When the manager wants an update", "When information must be shared"], a: "When a decision must be made and disagreement is likely" },
+    { q: "What do some companies now require?", opts: ["Shorter meetings", "An agenda with a named decision", "Standing meetings", "Fewer employees"], a: "An agenda with a named decision" },
+    { q: "“It is ten” refers to", opts: ["Ten meetings", "Ten person-hours of cost", "Ten decisions", "Ten minutes"], a: "Ten person-hours of cost" },
+  ]),
+
+  R(64, 4, "Do not read your slides", "The most common mistake in presentations is also the easiest to fix: the speaker reads the slide aloud while the audience reads it silently, faster. Two channels compete, and both lose. A slide should carry what words cannot — an image, a graph, a single number — while the speaker carries the argument. If your slides make sense without you, you are not needed; if you make sense without your slides, you are ready. Rehearse the first sixty seconds until you no longer need to think about them, because that is when the audience decides whether to listen.", [
+    { q: "What is the most common mistake?", opts: ["Speaking too quietly", "Reading the slides aloud", "Using no slides", "Standing still"], a: "Reading the slides aloud" },
+    { q: "What should a slide carry?", opts: ["The full argument", "What words cannot — an image, a graph, a number", "The speaker's notes", "A summary of everything"], a: "What words cannot — an image, a graph, a number" },
+    { q: "Why rehearse the first sixty seconds?", opts: ["It is the hardest part to write", "The audience decides then whether to listen", "It is required", "The slides load slowly"], a: "The audience decides then whether to listen" },
+  ]),
+
+  R(65, 4, "The wrong major", "Every year, thousands of students choose a major based on what their parents consider secure, or on which examination score they happened to achieve. Three years later, many discover that they have been preparing carefully for a life they do not want. Changing course is expensive, and admitting the mistake feels like failure. But the real failure is continuing. A degree is four years; a career is forty. Universities that allow students to switch after the first year report better results, not worse — motivation, it turns out, is not a small factor.", [
+    { q: "Why do many students choose the wrong major?", opts: ["Parental expectations or exam scores", "Poor teaching", "High tuition", "Lack of information"], a: "Parental expectations or exam scores" },
+    { q: "What is the writer's main argument?", opts: ["Universities are too expensive", "Continuing in the wrong field is the real failure", "Students should not choose", "Exams should be abolished"], a: "Continuing in the wrong field is the real failure" },
+    { q: "“A degree is four years; a career is forty” is used to show", opts: ["Degrees are short and unimportant", "The cost of switching is small compared to the cost of staying", "Careers are too long", "Students should study longer"], a: "The cost of switching is small compared to the cost of staying" },
+  ]),
+
+  R(66, 4, "The recycling gap", "Many cities claim high recycling rates, but the figures can be misleading. A bin may be labelled “recyclable” while its contents are contaminated with food waste, and contaminated batches are often sent to landfill anyway. Experts argue that the real problem starts earlier: too much packaging is produced in the first place. Reducing consumption is less visible than recycling, and far less popular, but it removes the waste before it is created. Recycling, they warn, should be the last step — not the first.", [
+    { q: "Why can recycling figures be misleading?", opts: ["Bins are too small", "Contaminated batches still go to landfill", "People do not read labels", "Cities lie about population"], a: "Contaminated batches still go to landfill" },
+    { q: "What do the experts say is the real problem?", opts: ["Too much packaging is produced", "Recycling bins are expensive", "Landfills are full", "People forget to sort waste"], a: "Too much packaging is produced" },
+    { q: "The writer's attitude to recycling is best described as", opts: ["Enthusiastic", "Sceptical of it as a first solution", "Completely opposed", "Indifferent"], a: "Sceptical of it as a first solution" },
+  ]),
+
+  R(67, 4, "One and a half degrees", "The figure appears in every climate report, but it is widely misunderstood. One and a half degrees does not mean a slightly warmer afternoon. Average global temperature is an average: it hides the fact that some regions warm far faster, and that a small rise in the mean produces a large rise in the frequency of extremes. A heatwave that used to occur once in fifty years may arrive every five. The danger is not the average temperature we will live in; it is the extremes we will have to survive.", [
+    { q: "What does a small rise in the average produce?", opts: ["A large rise in extreme events", "Slightly warmer afternoons", "Cooler winters", "No noticeable change"], a: "A large rise in extreme events" },
+    { q: "What is the central misunderstanding?", opts: ["People confuse averages with the whole picture", "People think it is too cold", "Reports are unclear", "Scientists disagree"], a: "People confuse averages with the whole picture" },
+    { q: "The last sentence implies that", opts: ["Averages matter more than extremes", "The real threat lies in extreme events, not mean warming", "We will adapt easily", "Fifty years is a long time"], a: "The real threat lies in extreme events, not mean warming" },
+  ]),
+
+  R(68, 4, "Who paid for this story?", "A headline is not a fact; it is a decision. Someone chose which of a thousand events to report, which word to use, and which detail to place first. This does not make journalism worthless — it makes it human. The useful question is not “is this source biased?” (all are) but “what would this source have to admit if it were wrong?” A publication that corrects its errors openly is more reliable than one that never seems to make any. Trust the process, not the promise.", [
+    { q: "What does the writer say a headline is?", opts: ["A fact", "A decision", "An advertisement", "A summary"], a: "A decision" },
+    { q: "Which question does the writer recommend?", opts: ["Is this source biased?", "What would this source admit if it were wrong?", "Who owns this newspaper?", "How old is the story?"], a: "What would this source admit if it were wrong?" },
+    { q: "A publication that never corrects itself is", opts: ["More reliable", "Less reliable", "Neutral", "Unbiased"], a: "Less reliable" },
+  ]),
+
+  R(69, 4, "Why the sequel is worse", "Studios keep making sequels because the numbers say they should: a familiar title reduces risk, and risk is what a studio fears most. But the very thing that makes a sequel safe is what makes it weak. The first film had to earn your attention; the second assumes it. Characters who once surprised us are now required to behave as we expect them to. There are exceptions, and they follow one rule: the good sequel asks a new question rather than repeating the old answer.", [
+    { q: "Why do studios make sequels?", opts: ["Directors prefer them", "A familiar title reduces risk", "They are cheaper to film", "Audiences demand them"], a: "A familiar title reduces risk" },
+    { q: "What makes a good sequel, according to the writer?", opts: ["A bigger budget", "Asking a new question rather than repeating the old answer", "The same cast", "A longer running time"], a: "Asking a new question rather than repeating the old answer" },
+    { q: "“The second assumes it” means the sequel", opts: ["Takes the audience's interest for granted", "Costs more money", "Has a new director", "Is shorter"], a: "Takes the audience's interest for granted" },
+  ]),
+
+  R(70, 4, "Finishing the book", "There is a rule many readers impose on themselves: once started, a book must be finished. It sounds like discipline, but it is closer to a trap. Every hour spent on a novel you dislike is an hour not spent on one you would have loved, and no amount of stubbornness turns a bad match into a good one. Some readers now give a book fifty pages. If it has not earned the next hour, it goes back on the shelf. Reading more begins with abandoning more.", [
+    { q: "How many pages do some readers give a book?", opts: ["Ten", "Fifty", "One hundred", "The whole book"], a: "Fifty" },
+    { q: "What is the writer's argument?", opts: ["Discipline is important", "Abandoning bad books lets you read more good ones", "Novels are too long", "Readers are lazy"], a: "Abandoning bad books lets you read more good ones" },
+    { q: "The writer calls the rule “closer to a trap” because it", opts: ["Wastes time you could spend on better books", "Is difficult to follow", "Was invented by publishers", "Makes reading enjoyable"], a: "Wastes time you could spend on better books" },
+  ]),
+
+  R(71, 4, "The song you cannot escape", "Some melodies stay in the head for days. Researchers call them earworms, and they share certain features: a simple rhythm, a small unexpected leap in the melody, and — crucially — an unfinished quality. The brain dislikes incompleteness and keeps replaying the phrase, trying to resolve it. This is why songwriters sometimes end a chorus on an unstable note. It is also why the cure for an earworm is often to listen to the whole song once, properly. Finish it, and the mind lets it go.", [
+    { q: "What is an “earworm”?", opts: ["A hearing illness", "A melody that repeats in your head", "A type of instrument", "A recording device"], a: "A melody that repeats in your head" },
+    { q: "Why does the brain keep replaying the phrase?", opts: ["It enjoys it", "It dislikes incompleteness and tries to resolve it", "It is memorising the lyrics", "It is tired"], a: "It dislikes incompleteness and tries to resolve it" },
+    { q: "The suggested cure is to", opts: ["Listen to a different song", "Listen to the whole song properly", "Sleep", "Sing it louder"], a: "Listen to the whole song properly" },
+  ]),
+
+  R(72, 4, "Standing too close", "In a gallery, most visitors spend about eight seconds in front of each painting — long enough to read the label, take a photograph, and move on. The label is the problem. It tells you the artist, the date, and often the meaning, and once you have read it, you stop looking. An old exercise reverses the order: choose one work, look at it for five minutes without reading anything, and only then turn to the label. Most people report that they saw something the label never mentioned.", [
+    { q: "How long do most visitors look at a painting?", opts: ["Eight seconds", "Five minutes", "One minute", "Half an hour"], a: "Eight seconds" },
+    { q: "Why is the label a problem?", opts: ["It is badly written", "Once read, people stop looking", "It is too small", "It is often wrong"], a: "Once read, people stop looking" },
+    { q: "The exercise suggests that looking first", opts: ["Wastes time", "Reveals things the label does not mention", "Is only for experts", "Should replace labels entirely"], a: "Reveals things the label does not mention" },
+  ]),
+
+  R(73, 4, "Authentic, whatever that means", "Travellers hunt for “authentic” food, but the word hides an assumption: that a cuisine has a fixed, original form which change corrupts. It does not. The chilli is South American and reached Vietnam by ship. The baguette in banh mi arrived with the French. Pho itself is barely more than a century old. What we call tradition is simply borrowing that has been going on long enough to be forgotten. A living cuisine is not a museum, and the dishes we defend as ancient were, at some point, somebody's innovation.", [
+    { q: "Where did the chilli originally come from?", opts: ["Vietnam", "France", "South America", "China"], a: "South America" },
+    { q: "What is the writer's central claim?", opts: ["Tradition is borrowing that has been forgotten", "Foreign food is better", "Pho is not Vietnamese", "Authenticity is important"], a: "Tradition is borrowing that has been forgotten" },
+    { q: "“A living cuisine is not a museum” means it", opts: ["Should not change", "Naturally keeps changing", "Is not worth studying", "Is badly preserved"], a: "Naturally keeps changing" },
+  ]),
+
+  R(74, 4, "The village that makes one thing", "Along the Red River there are villages that have made the same object for four hundred years: paper in one, silk in another, bronze in a third. The skill passes from parent to child, and outsiders rarely learn it. This concentration produced extraordinary quality, but it also produced fragility. When a young generation leaves for the factories, the craft does not shrink gradually; it can disappear within a single lifetime. Several villages now teach the craft in schools — not to preserve a product, but to preserve the possibility of making it.", [
+    { q: "How was the skill traditionally passed on?", opts: ["Through schools", "From parent to child", "By foreign teachers", "Through books"], a: "From parent to child" },
+    { q: "Why is the craft fragile?", opts: ["The materials are rare", "It can vanish in one generation if the young leave", "It is illegal", "It is too expensive"], a: "It can vanish in one generation if the young leave" },
+    { q: "The schools teach the craft in order to preserve", opts: ["The product", "The possibility of making it", "The village population", "Tourism income"], a: "The possibility of making it" },
+  ]),
+
+  R(75, 4, "The friendship that faded", "Nobody ended it. There was no argument, no betrayal — just a reply that came a day later, then a week, then not at all. Most friendships do not break; they simply lose the small maintenance that kept them alive. Researchers who study adult friendship find that proximity does most of the work, and when proximity disappears, effort has to replace it. The uncomfortable conclusion is that a friendship which survives distance is not luckier than one that does not. It is usually just more deliberate.", [
+    { q: "How do most friendships end, according to the text?", opts: ["Through an argument", "Gradually, without any event", "Through betrayal", "By agreement"], a: "Gradually, without any event" },
+    { q: "What normally does most of the work in a friendship?", opts: ["Proximity", "Money", "Shared hobbies", "Social media"], a: "Proximity" },
+    { q: "The “uncomfortable conclusion” is that lasting friendships are", opts: ["A matter of luck", "The result of deliberate effort", "Rare and impossible", "Based on childhood"], a: "The result of deliberate effort" },
+  ]),
+
+  R(76, 4, "The confident and the competent", "In groups, we tend to follow whoever speaks first and most confidently, and we assume that confidence signals competence. Studies find only a weak link between the two. Worse, the least skilled are often the most certain, because judging your own skill requires the very knowledge you lack. This is not a reason to distrust confident people; it is a reason to ask them for their reasoning. A competent person can explain how they might be wrong. Someone who cannot describe what would change their mind has not really thought.", [
+    { q: "What do people wrongly assume?", opts: ["That confidence signals competence", "That silence signals wisdom", "That experts are always right", "That groups make good decisions"], a: "That confidence signals competence" },
+    { q: "Why are the least skilled often the most certain?", opts: ["They are dishonest", "Judging your skill requires the knowledge you lack", "They practise more", "They are naturally bold"], a: "Judging your skill requires the knowledge you lack" },
+    { q: "The writer's practical test is to ask a person", opts: ["How confident they feel", "What would change their mind", "How long they have worked", "Who agrees with them"], a: "What would change their mind" },
+  ]),
+
+  R(77, 4, "Two minutes", "People often fail to build habits because they aim too high. Someone who has never exercised promises to run an hour a day, then quits within a week. A more reliable approach is to shrink the habit until it is almost embarrassingly small: two minutes of running, one page of reading, one sentence of writing. The point is not the two minutes; it is that showing up becomes automatic. Once the habit exists, making it bigger is easy. Making it exist at all is the hard part.", [
+    { q: "Why do people fail to build habits?", opts: ["They are lazy", "They set the target too high", "They have no time", "They dislike exercise"], a: "They set the target too high" },
+    { q: "What is the purpose of the “two minutes”?", opts: ["To burn calories", "To make showing up automatic", "To save time", "To impress others"], a: "To make showing up automatic" },
+    { q: "According to the text, the hardest part is", opts: ["Increasing the habit", "Making the habit exist at all", "Finding a coach", "Buying equipment"], a: "Making the habit exist at all" },
+  ]),
+
+  R(78, 4, "The debt you cannot repay", "Sleep is often treated as a flexible resource: borrow four hours tonight, return them at the weekend. The metabolism does not accept these terms. A single short night measurably reduces attention, mood and judgement, and although a long weekend lie-in restores the feeling of rest, it does not restore all the measured damage. The most dangerous part is that the tired brain is bad at noticing that it is tired. People who have slept five hours for a week rate their own performance as normal. It is not.", [
+    { q: "What does a single short night reduce?", opts: ["Attention, mood and judgement", "Height and weight", "Appetite only", "Nothing measurable"], a: "Attention, mood and judgement" },
+    { q: "What is the most dangerous aspect of sleep loss?", opts: ["It causes illness immediately", "The tired brain cannot notice its own impairment", "It is expensive", "It is permanent"], a: "The tired brain cannot notice its own impairment" },
+    { q: "The “debt” metaphor is used to show that", opts: ["Sleep can be borrowed and fully repaid", "Lost sleep is not fully recoverable", "Sleep costs money", "Weekends are important"], a: "Lost sleep is not fully recoverable" },
+  ]),
+
+  R(79, 4, "Sensors are not a strategy", "When a city announces that it has become “smart”, it usually means it has installed sensors. Traffic lights now count cars; bins report when they are full. The data is real, and some of it is useful. But a sensor measures; it does not decide. A city that collects a million data points and still cannot say who is responsible for acting on them has bought instruments, not intelligence. The hardest part of a smart city was never the technology. It was the institution that has to use it.", [
+    { q: "What does “smart” usually mean in practice?", opts: ["Installing sensors", "Better schools", "Cheaper housing", "Fewer cars"], a: "Installing sensors" },
+    { q: "What is the writer's main criticism?", opts: ["Sensors are too expensive", "Data is useless without institutions that act on it", "Cities are too big", "Technology is unreliable"], a: "Data is useless without institutions that act on it" },
+    { q: "“Instruments, not intelligence” suggests the city has", opts: ["Tools but no capacity to use them", "Intelligent staff", "Broken equipment", "Too little data"], a: "Tools but no capacity to use them" },
+  ]),
+
+  R(80, 4, "Wider roads, more cars", "When a city widens a road to reduce congestion, traffic usually improves for a few months — then returns to exactly what it was. Transport researchers call this induced demand: the extra capacity makes driving more attractive, so more people drive. Cities that have reduced congestion durably did the opposite. They made driving slightly less convenient and public transport slightly more so. The lesson is uncomfortable: you cannot build your way out of traffic, because the road itself creates the cars that fill it.", [
+    { q: "What is “induced demand”?", opts: ["Extra capacity attracts more drivers", "Demand for wider roads", "A tax on drivers", "A type of public transport"], a: "Extra capacity attracts more drivers" },
+    { q: "What did successful cities do?", opts: ["Built more roads", "Made driving less convenient, transit more so", "Banned all cars", "Raised fuel prices only"], a: "Made driving less convenient, transit more so" },
+    { q: "The phrase “you cannot build your way out of traffic” means", opts: ["Construction is illegal", "Building more roads will not solve congestion", "Roads are too expensive", "Traffic is unimportant"], a: "Building more roads will not solve congestion" },
+  ]),
+
+  /* ============ CẤP 5 — QUẢ (B2) ============ */
+
+  R(81, 5, "The tax nobody voted for", "Inflation is sometimes described as a tax, and the comparison is more exact than it first appears. Like a tax, it transfers purchasing power away from those who hold cash; unlike a tax, it is never debated, never legislated, and falls hardest on those least able to protect themselves. A household with savings in a bank account loses quietly. A household with debt at a fixed rate quietly gains. Central banks raise interest rates to reverse this, but the instrument is blunt: it cools the whole economy in order to cool one part of it, and the unemployment it creates is not distributed evenly either.", [
+    { q: "Who quietly gains during inflation?", opts: ["Savers with cash", "Households with fixed-rate debt", "Retired people", "Central banks"], a: "Households with fixed-rate debt" },
+    { q: "Why does the writer call the interest-rate tool “blunt”?", opts: ["It works too slowly", "It cools the whole economy to cool one part", "It is illegal", "It is too popular"], a: "It cools the whole economy to cool one part" },
+    { q: "The comparison with a tax is imperfect because inflation", opts: ["Raises revenue", "Is never debated or legislated", "Is voluntary", "Applies only to the rich"], a: "Is never debated or legislated" },
+  ]),
+
+  R(82, 5, "Failure is not the risk", "Founders are routinely told that failure is the great danger of a startup. It is not. The far more common outcome is the company that neither dies nor succeeds: it survives, pays salaries, grows six per cent a year, and consumes a decade of its founders' lives without ever becoming what it promised. Investors have a word for this, and it is not a kind one. A business that fails quickly returns its people, its capital and its lessons to the market. A business that limps forward returns nothing at all. Knowing when to stop is a skill, and almost nobody is taught it.", [
+    { q: "What outcome does the writer consider worse than failure?", opts: ["Bankruptcy", "A company that survives without succeeding", "Rapid growth", "Being acquired"], a: "A company that survives without succeeding" },
+    { q: "What does a quick failure return to the market?", opts: ["Nothing", "People, capital and lessons", "Only money", "Only reputation"], a: "People, capital and lessons" },
+    { q: "The final sentence implies that stopping is", opts: ["A sign of weakness", "A genuine competence that is rarely taught", "Always premature", "Financially irrelevant"], a: "A genuine competence that is rarely taught" },
+  ]),
+
+  R(83, 5, "The confidence problem", "The most persistent weakness of large language models is not that they are wrong — humans are wrong constantly — but that they are wrong with the same fluency they display when they are right. A model that hedged whenever it was uncertain would be far easier to work with, yet fluency is precisely what training rewards. The result is an asymmetry: the cost of a confident error falls on the user, while the benefit of confident prose accrues to the system's perceived quality. Until evaluation penalises unwarranted certainty as heavily as it penalises hesitation, the incentive will not change.", [
+    { q: "What does the writer identify as the key weakness?", opts: ["Models are frequently wrong", "Models are wrong with the same fluency as when right", "Models are too slow", "Models hedge too much"], a: "Models are wrong with the same fluency as when right" },
+    { q: "Who bears the cost of a confident error?", opts: ["The developer", "The user", "The evaluator", "Nobody"], a: "The user" },
+    { q: "What change does the writer call for?", opts: ["Faster models", "Evaluation that penalises unwarranted certainty", "More training data", "Banning hedging"], a: "Evaluation that penalises unwarranted certainty" },
+  ]),
+
+  R(84, 5, "Consent you did not give", "Clicking “I agree” is treated in law as consent, but the fiction is transparent. The average person would need weeks each year to read the terms they accept, and the terms are drafted by the party that benefits from them. Worse, the most consequential data is often inferred rather than collected: you never disclosed your income, but your purchase history predicts it. Regulation that focuses on consent therefore protects the wrong thing. What matters is not whether you agreed to the collection, but what may lawfully be done with the inference.", [
+    { q: "Why is “I agree” described as a fiction?", opts: ["The terms are unreadable in practice and drafted by the beneficiary", "The button does not work", "It is not legally binding", "Users are dishonest"], a: "The terms are unreadable in practice and drafted by the beneficiary" },
+    { q: "What is the writer's central argument?", opts: ["Consent-based regulation protects the wrong thing", "Data collection should be banned", "Users should read terms", "Income should be private"], a: "Consent-based regulation protects the wrong thing" },
+    { q: "The income example illustrates that data can be", opts: ["Encrypted", "Inferred without ever being disclosed", "Sold cheaply", "Deleted on request"], a: "Inferred without ever being disclosed" },
+  ]),
+
+  R(85, 5, "The trial that failed well", "A clinical trial that finds no effect is often called a failure, and its results are frequently never published. This is a serious distortion. If ten teams test the same compound and only the one that found a positive result publishes, the literature will report a treatment that works when the evidence says otherwise. The problem is not fraud; it is selection. Journals prefer positive findings, and careers are built on them. Pre-registration — declaring the hypothesis before the data is collected — was introduced precisely to make a null result publishable, and therefore honest.", [
+    { q: "What happens when only positive results are published?", opts: ["The literature overstates the treatment's effect", "Trials become cheaper", "Fraud increases", "Nothing changes"], a: "The literature overstates the treatment's effect" },
+    { q: "What does the writer say the underlying problem is?", opts: ["Fraud", "Selection", "Poor statistics", "Small samples"], a: "Selection" },
+    { q: "The purpose of pre-registration is to", opts: ["Speed up trials", "Make a null result publishable", "Protect patents", "Reduce costs"], a: "Make a null result publishable" },
+  ]),
+
+  R(86, 5, "The cost of leaving", "Almost the entire difficulty of spaceflight is contained in the first few minutes. To reach orbit, a vehicle must not merely rise; it must accelerate sideways to roughly twenty-eight thousand kilometres an hour, or it will simply fall back. Nearly all the fuel is spent fighting gravity while carrying the fuel that has not yet been burned — a problem that compounds against itself. This is why reusability changed the economics so sharply. The rocket was never the expensive part; throwing it away was.", [
+    { q: "What must a vehicle do to reach orbit?", opts: ["Rise vertically", "Accelerate sideways to enormous speed", "Escape the atmosphere only", "Reduce its mass"], a: "Accelerate sideways to enormous speed" },
+    { q: "Why does the fuel problem “compound against itself”?", opts: ["Fuel must be carried to lift fuel not yet burned", "Fuel is scarce", "Fuel is heavy on the ground", "Engines are inefficient"], a: "Fuel must be carried to lift fuel not yet burned" },
+    { q: "The final sentence argues that the true cost was", opts: ["Building the rocket", "Discarding the rocket after one flight", "The fuel", "The crew"], a: "Discarding the rocket after one flight" },
+  ]),
+
+  R(87, 5, "The problem is not the sun", "Solar panels have become remarkably cheap; the sun has never sent an invoice. The obstacle is that electricity must be consumed at the instant it is generated, and the sun does not consult the demand curve. It shines hardest at midday and stops entirely in the evening, precisely when households switch everything on. A grid built on renewables is therefore not primarily a generation problem but a storage and transmission problem — and those are far less photogenic. Governments cut ribbons in front of solar farms. Nobody holds a ceremony for a battery.", [
+    { q: "When does household demand typically peak?", opts: ["At midday", "In the evening", "At dawn", "At night"], a: "In the evening" },
+    { q: "What does the writer identify as the real obstacle?", opts: ["The cost of panels", "Storage and transmission", "Lack of sunlight", "Public opposition"], a: "Storage and transmission" },
+    { q: "The last two sentences are used to suggest that", opts: ["Politics rewards the visible over the necessary", "Batteries are unimportant", "Solar farms are useless", "Ceremonies are expensive"], a: "Politics rewards the visible over the necessary" },
+  ]),
+
+  R(88, 5, "The policy that worked on paper", "Every policy is designed for the behaviour its authors expect, and then meets the behaviour people actually have. A subsidy intended to help small farmers is captured by the intermediaries who process the paperwork. A rule requiring three competing quotations produces three quotations from firms that are quietly related. None of this proves that regulation is futile; it proves that regulation without an enforcement mechanism is merely a suggestion. The decisive question in policy design is not what the rule requires, but what happens to the person who ignores it.", [
+    { q: "What happens to the farming subsidy in the example?", opts: ["It is cancelled", "It is captured by intermediaries", "It doubles in value", "It reaches the farmers"], a: "It is captured by intermediaries" },
+    { q: "What is the writer's central claim?", opts: ["Regulation is futile", "A rule without enforcement is only a suggestion", "Subsidies should be abolished", "Paperwork should be reduced"], a: "A rule without enforcement is only a suggestion" },
+    { q: "The example of three related firms illustrates", opts: ["Healthy competition", "Formal compliance that defeats the rule's purpose", "Fraud by officials", "A drafting error"], a: "Formal compliance that defeats the rule's purpose" },
+  ]),
+
+  R(89, 5, "Beyond reasonable doubt", "The criminal standard of proof is deliberately asymmetric. It does not ask which account is more likely; it asks whether any reasonable doubt remains. This will inevitably acquit some who are guilty, and the system accepts that cost knowingly, on the principle that a wrongful conviction is the graver injustice. Civil disputes apply a lower standard — the balance of probabilities — because the stakes are compensation, not liberty. Critics who complain that a court “let a guilty man go” are often objecting not to an error but to the design.", [
+    { q: "What does the criminal standard ask?", opts: ["Which account is more likely", "Whether any reasonable doubt remains", "Who has better lawyers", "What the public believes"], a: "Whether any reasonable doubt remains" },
+    { q: "Why is the standard lower in civil cases?", opts: ["The stakes are compensation, not liberty", "Civil courts are faster", "There is less evidence", "Judges are different"], a: "The stakes are compensation, not liberty" },
+    { q: "The final sentence suggests that such critics are objecting to", opts: ["A mistake by the court", "The deliberate design of the system", "Corrupt judges", "Weak evidence"], a: "The deliberate design of the system" },
+  ]),
+
+  R(90, 5, "The lowest price is not the cheapest", "Procurement law in many countries requires the contracting party to consider the lowest evaluated price, not simply the lowest offer. The distinction matters. A bidder who wins by underpricing the work has every incentive to recover the margin later — through variation orders, disputed specifications, or delay claims. The evaluation criteria therefore exist to filter for capability, not only for cost: turnover thresholds, similar contracts, and technical compliance are all attempts to answer one question — can this bidder actually deliver? A tender that ignores that question buys a cheap contract and an expensive project.", [
+    { q: "What distinction does the writer emphasise?", opts: ["Lowest offer vs lowest evaluated price", "Public vs private tenders", "Goods vs services", "Local vs foreign bidders"], a: "Lowest offer vs lowest evaluated price" },
+    { q: "How might an underpricing bidder recover margin?", opts: ["By working faster", "Through variation orders and delay claims", "By hiring cheaper staff only", "By refusing the contract"], a: "Through variation orders and delay claims" },
+    { q: "“A cheap contract and an expensive project” implies", opts: ["Savings are always real", "Low bid price can lead to high total cost", "Projects should be small", "Contracts are unnecessary"], a: "Low bid price can lead to high total cost" },
+  ]),
+
+  R(91, 5, "What the survey found", "Every serious construction dispute I have seen began before the first concrete was poured. A boundary was assumed rather than surveyed; a soil report was read quickly; a level was taken from a benchmark nobody verified. Errors at this stage are cheap to correct and catastrophic to ignore, because everything built afterwards inherits them. The cost curve is brutally simple: a mistake identified during survey costs hours, during design costs days, during construction costs months, and after handover costs litigation. Nothing in engineering rewards patience as reliably as the beginning does.", [
+    { q: "When do most serious disputes begin?", opts: ["During construction", "Before the first concrete is poured", "After handover", "During litigation"], a: "Before the first concrete is poured" },
+    { q: "What is the writer's main point about early errors?", opts: ["They are unavoidable", "They are cheap to fix but catastrophic to ignore", "They are rare", "They are the surveyor's fault"], a: "They are cheap to fix but catastrophic to ignore" },
+    { q: "The “cost curve” demonstrates that the cost of an error", opts: ["Stays constant", "Rises sharply the later it is found", "Falls over time", "Depends on the client"], a: "Rises sharply the later it is found" },
+  ]),
+
+  R(92, 5, "The building that ignored the climate", "Glass towers designed for northern Europe now stand in tropical cities, sealed against an outdoor climate they were never meant to exclude, and cooled at enormous expense. Before mechanical cooling existed, architects in these regions solved the problem with geometry: deep eaves, cross-ventilation, courtyards, and thick walls that release heat slowly. None of this is nostalgia. A building oriented correctly on its site can reduce its cooling load substantially before a single unit of energy is spent. The most sustainable technology in architecture remains the one that requires no power at all.", [
+    { q: "How did architects once solve the heat problem?", opts: ["With mechanical cooling", "With geometry: eaves, ventilation, courtyards", "By using glass", "By building underground"], a: "With geometry: eaves, ventilation, courtyards" },
+    { q: "What is the writer's argument?", opts: ["Old buildings are more beautiful", "Passive design should precede mechanical cooling", "Glass should be banned", "Tropical cities are too hot"], a: "Passive design should precede mechanical cooling" },
+    { q: "“None of this is nostalgia” means the writer is", opts: ["Recommending it on practical, not sentimental, grounds", "Rejecting old methods", "Uninterested in history", "Being ironic"], a: "Recommending it on practical, not sentimental, grounds" },
+  ]),
+
+  R(93, 5, "The efficient supply chain that broke", "For thirty years, global manufacturing optimised relentlessly for one variable: cost. Inventory was waste, so factories held almost none; suppliers were single-sourced, because a second supplier meant a worse price. The system was extraordinarily efficient and, it turned out, extraordinarily brittle. A single closed port could halt production on three continents. Firms are now rediscovering an old idea that efficiency had taught them to forget: redundancy is not waste. It is the price of continuing to operate on the day something goes wrong — and something always does.", [
+    { q: "What single variable did manufacturing optimise for?", opts: ["Speed", "Cost", "Quality", "Safety"], a: "Cost" },
+    { q: "What was the hidden weakness of the system?", opts: ["It was brittle — a single disruption halted everything", "It was too slow", "It was too expensive", "It produced poor quality"], a: "It was brittle — a single disruption halted everything" },
+    { q: "“Redundancy is not waste” means spare capacity is", opts: ["An unnecessary cost", "The price of resilience", "Illegal", "A management fashion"], a: "The price of resilience" },
+  ]),
+
+  R(94, 5, "Advertising to the person you want to be", "Effective advertising rarely describes the product. It describes an identity, and then places the product between you and it. The watch does not tell the time better; it says you are the kind of person who values precision. This is why arguing with an advertisement on factual grounds so often fails — the claim was never factual. It is also why regulation focused on false statements has limited effect: the persuasive work is done by everything that is implied and nothing that is said. The most powerful advertisements can be perfectly, defensibly true.", [
+    { q: "What does effective advertising describe?", opts: ["The product's features", "An identity the buyer aspires to", "The price", "The manufacturer"], a: "An identity the buyer aspires to" },
+    { q: "Why does regulation of false statements have limited effect?", opts: ["Regulators are weak", "The persuasion is in what is implied, not stated", "Advertisements are too short", "Consumers do not care"], a: "The persuasion is in what is implied, not stated" },
+    { q: "The final sentence is intended to be", opts: ["Reassuring", "Unsettling — truth is no protection against manipulation", "Humorous", "Neutral"], a: "Unsettling — truth is no protection against manipulation" },
+  ]),
+
+  R(95, 5, "Why we remember the interruption", "In the 1920s a psychologist noticed that waiters recalled unpaid orders in detail and forgot them the moment the bill was settled. The finding — that unfinished tasks occupy memory more insistently than completed ones — has been replicated many times and exploited relentlessly. It explains the cliffhanger, the unread-message badge, and the discomfort of a job left half-done. It also suggests a practical remedy that sounds too simple to work: writing an unfinished task down, with a specific next step, substantially reduces the mental noise it generates. The mind is not asking you to do the task. It is asking you to stop losing it.", [
+    { q: "What did the waiters demonstrate?", opts: ["Unfinished tasks are remembered more insistently", "Waiters have poor memory", "Payment improves recall", "Memory declines with age"], a: "Unfinished tasks are remembered more insistently" },
+    { q: "What practical remedy is suggested?", opts: ["Finishing every task immediately", "Writing the task down with a specific next step", "Ignoring the task", "Delegating the task"], a: "Writing the task down with a specific next step" },
+    { q: "The final sentence implies the mind's real demand is for", opts: ["Completion", "Assurance that the task will not be forgotten", "Rest", "Reward"], a: "Assurance that the task will not be forgotten" },
+  ]),
+
+  R(96, 5, "The question behind the question", "Philosophy is often mocked for asking questions that cannot be answered, but the accusation misses what the discipline actually does. Its characteristic move is not to answer a question; it is to examine the assumption the question smuggles in. Ask “how do we make people happier?” and the philosopher asks what happiness is being measured, and whether the measure has quietly become the goal. This is not evasion. Almost every serious error in policy, science and ordinary life begins with a well-executed answer to a question that was never properly examined.", [
+    { q: "What is philosophy's characteristic move?", opts: ["Answering difficult questions", "Examining the assumptions inside the question", "Rejecting all questions", "Measuring happiness"], a: "Examining the assumptions inside the question" },
+    { q: "The writer defends philosophy against the charge that it", opts: ["Is too difficult", "Evades questions it cannot answer", "Is unscientific", "Is old-fashioned"], a: "Evades questions it cannot answer" },
+    { q: "The final sentence argues that serious errors begin with", opts: ["A wrong answer", "A good answer to an unexamined question", "Bad measurement", "Poor policy"], a: "A good answer to an unexamined question" },
+  ]),
+
+  R(97, 5, "The grey area", "Codes of ethics are written as if every dilemma had a clean answer, but the difficult cases are difficult precisely because two defensible principles collide. An engineer who reports a safety concern may protect the public and destroy a colleague's career on the same afternoon. Rules cannot resolve this; they can only ensure that the decision is made openly rather than quietly. That is the practical purpose of transparency: not to guarantee the right choice, but to make a wrong one harder to hide.", [
+    { q: "Why are hard ethical cases difficult?", opts: ["Rules are unclear", "Two defensible principles collide", "People are dishonest", "Codes are too long"], a: "Two defensible principles collide" },
+    { q: "According to the writer, what is transparency's practical purpose?", opts: ["Guaranteeing the right choice", "Making a wrong choice harder to hide", "Protecting careers", "Speeding up decisions"], a: "Making a wrong choice harder to hide" },
+    { q: "The engineer example is used to show", opts: ["Engineers are unethical", "One action can serve and harm at once", "Safety is unimportant", "Colleagues cannot be trusted"], a: "One action can serve and harm at once" },
+  ]),
+
+  R(98, 5, "Steelmanning", "Before you attack an argument, state it in a form its author would accept — ideally a stronger form than they managed themselves. This practice, sometimes called steelmanning, is not politeness. It is self-defence. An opponent's position that you have distorted is one you cannot learn from, and a debate you win against a distortion leaves your own belief entirely untested. The willingness to describe the other side accurately is also the most reliable public signal of intellectual honesty available, which is precisely why it is so rare in the places where debate is loudest.", [
+    { q: "What does steelmanning require?", opts: ["Stating the opposing argument in its strongest form", "Being polite", "Refusing to argue", "Winning quickly"], a: "Stating the opposing argument in its strongest form" },
+    { q: "Why does the writer call it “self-defence”?", opts: ["It prevents personal attacks", "Beating a distortion leaves your own belief untested", "It protects your reputation", "It ends arguments faster"], a: "Beating a distortion leaves your own belief untested" },
+    { q: "The final clause implies that loud debates tend to be", opts: ["Intellectually honest", "Short of intellectual honesty", "Well informed", "Private"], a: "Short of intellectual honesty" },
+  ]),
+
+  R(99, 5, "Cutting corners", "English idioms are rarely decorative; they usually encode a judgement. To “cut corners” does not mean to be efficient — it means to have sacrificed quality for speed, and the phrase carries quiet disapproval. To call something “a grey area” is not neutral either: it signals that the speaker expects the rules to be exploited. Learners who memorise idioms as vocabulary often miss this, and use them accurately but tactlessly. The literal meaning is the easy half. The attitude buried inside the phrase is the half that decides whether you sound fluent or merely correct.", [
+    { q: "What does “cut corners” actually imply?", opts: ["Efficiency", "Sacrificing quality for speed, with disapproval", "Turning a vehicle", "Saving money legally"], a: "Sacrificing quality for speed, with disapproval" },
+    { q: "What mistake do learners often make?", opts: ["Using idioms accurately but tactlessly", "Avoiding idioms entirely", "Translating them literally", "Mispronouncing them"], a: "Using idioms accurately but tactlessly" },
+    { q: "“Fluent or merely correct” distinguishes between", opts: ["Speed and accuracy", "Grasping the attitude and knowing only the meaning", "Writing and speaking", "British and American English"], a: "Grasping the attitude and knowing only the meaning" },
+  ]),
+
+  R(100, 5, "What the committee is really asking", "A scholarship committee reads several hundred applications describing achievement, and by the fiftieth they have stopped being impressed by achievement alone. What distinguishes the successful application is almost never the longest list. It is a coherent line connecting what the candidate has done, what they intend to do, and why this particular programme is necessary for the second to follow from the first. A generic paragraph praising the university's reputation is worse than nothing: it tells the committee that the same letter was sent to five other institutions, and that the applicant has not thought about any of them.", [
+    { q: "What distinguishes a successful application?", opts: ["The longest list of achievements", "A coherent line from past to intention to programme", "Praise for the university", "Perfect grammar"], a: "A coherent line from past to intention to programme" },
+    { q: "Why is a generic paragraph “worse than nothing”?", opts: ["It wastes space", "It reveals the letter was mass-produced", "It is badly written", "It flatters too much"], a: "It reveals the letter was mass-produced" },
+    { q: "The opening sentence implies that committees are", opts: ["Easily impressed", "Saturated and looking for something other than achievement", "Hostile to applicants", "Poorly organised"], a: "Saturated and looking for something other than achievement" },
+  ]),
+];
+
+/* ================================================================
+   VƯỜN TỪ — LÕI THUẬT TOÁN
+   FSRS-lite · bộ chọn bài thích ứng · bộ sinh ô chữ
+   ================================================================ */
+
+/* ---------- Cấp độ ---------- */
+const LEVELS = [
+  { id: 1, name: "Mầm",  cefr: "Pre-A1", age: "4–7 tuổi",     color: "#2BB673", desc: "Nghe · Phát âm · Từ vựng",  skills: ["listen","speak","vocab"] },
+  { id: 2, name: "Chồi", cefr: "A1",     age: "Tiểu học",     color: "#3FA7D6", desc: "Nghe · Phát âm · Từ vựng",  skills: ["listen","speak","vocab"] },
+  { id: 3, name: "Lá",   cefr: "A2",     age: "THCS trở lên", color: "#F5A623", desc: "+ Ngữ pháp · Đọc hiểu",     skills: ["listen","speak","vocab","grammar","read"] },
+  { id: 4, name: "Hoa",  cefr: "B1",     age: "Người đi làm", color: "#E8506E", desc: "+ Ngữ pháp · Đọc hiểu",     skills: ["listen","speak","vocab","grammar","read"] },
+  { id: 5, name: "Quả",  cefr: "B2",     age: "Nâng cao",     color: "#8B5CF6", desc: "+ Ngữ pháp · Đọc hiểu",     skills: ["listen","speak","vocab","grammar","read"] },
+];
+const lvl = (id) => LEVELS.find((l) => l.id === id);
+
+/* ---------- FSRS-lite ----------
+   R(t) = (1 + F·t/S)^(-0.5)   — đường quên lũy thừa (FSRS-5)
+   S = độ bền trí nhớ (ngày), D = độ khó (1–10)
+------------------------------------------------ */
+const F_ = 19 / 81, DECAY = -0.5, DAY = 86400000;
+const W = { S0a: 0.4, S0g: 3.0, D0a: 7.2, D0g: 5.0, dUp: 0.9, dDn: 0.35, sInc: 2.6, sHard: 0.06, sBonus: 1.6, sFail: 1.5, sPow: 0.35 };
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const emptyMem = () => ({ S: 0, D: 5, last: 0, reps: 0, lapses: 0 });
+
+function retrievability(m, now) {
+  if (!m || m.reps === 0) return 0;
+  const t = Math.max(0, (now - m.last) / DAY);
+  return Math.pow(1 + (F_ * t) / Math.max(m.S, 0.05), DECAY);
+}
+function review(m, ok, now) {
+  if (!m || m.reps === 0)
+    return { S: ok ? W.S0g : W.S0a, D: clamp(ok ? W.D0g : W.D0a, 1, 10), last: now, reps: 1, lapses: ok ? 0 : 1 };
+  const R0 = retrievability(m, now);
+  const D = clamp(ok ? m.D - W.dDn : m.D + W.dUp, 1, 10);
+  let S;
+  if (ok) {
+    const gain = 1 + W.sInc * (11 - D) * W.sHard * (Math.exp(W.sBonus * (1 - R0)) - 1) * Math.pow(m.S, -0.15);
+    S = m.S * Math.max(1.05, gain);
+  } else {
+    S = W.sFail * Math.pow(D, -0.3) * Math.pow(m.S + 1, W.sPow) * Math.exp(0.5 * (1 - R0));
+    S = Math.max(0.15, Math.min(S, m.S));
+  }
+  return { S: clamp(S, 0.1, 3650), D, last: now, reps: m.reps + 1, lapses: m.lapses + (ok ? 0 : 1) };
+}
+const nextInterval = (S, target = 0.9) => (S / F_) * (Math.pow(target, 1 / DECAY) - 1);
+
+/* ---------- Đóng gói item học ---------- */
+const ITEMS = [];
+TOPICS.forEach((t) =>
+  t.words.forEach(([en, vi], i) =>
+    ITEMS.push({ id: "w" + t.id + "-" + i, kind: "word", en, vi, emoji: t.emoji, topic: t.id, level: t.level })
+  )
+);
+GRAMMAR.forEach((g) => ITEMS.push(Object.assign({}, g, { topic: null, emoji: "📐" })));
+READINGS.forEach((r, i) =>
+  r.qs.forEach((q, j) =>
+    ITEMS.push({ id: "r" + i + "-" + j, kind: "read", passage: r, q: q.q, opts: q.opts, a: q.a, topic: r.topicId, level: r.level, emoji: "📖" })
+  )
+);
+const ITEM_BY_ID = {};
+ITEMS.forEach((i) => (ITEM_BY_ID[i.id] = i));
+const TOPIC_BY_ID = {};
+TOPICS.forEach((t) => (TOPIC_BY_ID[t.id] = t));
+
+const shuffle = (a) => { const x = a.slice(); for (let i = x.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const s = x[i]; x[i] = x[j]; x[j] = s; } return x; };
+
+/* ---------- Bộ chọn bài thích ứng ----------
+   Ưu tiên item mới, rồi item có R gần ngưỡng 0.85 (vùng phát triển gần)
+------------------------------------------------ */
+const TARGET_R = 0.85;
+
+function buildLesson(topicId, mem, now) {
+  const t = TOPIC_BY_ID[topicId];
+  const L = lvl(t.level);
+  const pool = ITEMS.filter((i) => i.kind === "word" && i.topic === topicId);
+  if (L.skills.indexOf("grammar") >= 0)
+    pool.push.apply(pool, shuffle(ITEMS.filter((i) => i.kind === "grammar" && i.level === t.level)).slice(0, 3));
+  if (L.skills.indexOf("read") >= 0)
+    pool.push.apply(pool, ITEMS.filter((i) => i.kind === "read" && i.topic === topicId));
+
+  return pool
+    .map((it) => {
+      const m = mem[it.id];
+      const isNew = !m || m.reps === 0;
+      return { it, key: isNew ? -1e9 : -Math.abs(retrievability(m, now) - TARGET_R) };
+    })
+    .sort((a, b) => a.key - b.key)
+    .map((s) => s.it);
+}
+
+function buildReviewQueue(mem, now, size) {
+  size = size || 12;
+  return Object.keys(mem)
+    .map((id) => ({ it: ITEM_BY_ID[id], r: retrievability(mem[id], now) }))
+    .filter((x) => x.it && x.r < 0.93)
+    .sort((a, b) => a.r - b.r)
+    .slice(0, size)
+    .map((x) => x.it);
+}
+
+/* ---------- Sinh dạng bài tập ---------- */
+function buildExercise(item, mem, kid) {
+  if (item.kind === "grammar") return { type: "fill", item: item, options: shuffle(item.opts) };
+  if (item.kind === "read")    return { type: "read", item: item, options: shuffle(item.opts) };
+
+  const reps = (mem[item.id] && mem[item.id].reps) || 0;
+  const modes = kid ? ["listen", "viToEn", "speak", "enToVi"] : ["viToEn", "listen", "enToVi", "speak"];
+  const mode = reps === 0 ? (kid ? "listen" : "viToEn") : modes[reps % modes.length];
+  if (mode === "speak") return { type: "speak", item: item };
+
+  const same  = shuffle(ITEMS.filter((i) => i.kind === "word" && i.topic === item.topic && i.id !== item.id)).slice(0, 3);
+  const other = shuffle(ITEMS.filter((i) => i.kind === "word" && i.level === item.level && i.id !== item.id)).slice(0, 6);
+  const seen = {}; const opts = [];
+  same.concat(other).forEach((o) => {
+    if (opts.length < 3 && !seen[o.id] && o.vi !== item.vi && o.en !== item.en) { seen[o.id] = 1; opts.push(o); }
+  });
+  return { type: mode, item: item, options: shuffle([item].concat(opts)) };
+}
+
+/* ---------- Bộ sinh ô chữ ----------
+   Greedy + thử nhiều thứ tự; kiểm tra ràng buộc kề cạnh để không tạo "từ ma"
+------------------------------------------------ */
+const CW_SIZE = 13;
+
+function cwCanPlace(grid, word, r, c, dir) {
+  const L = word.length;
+  const dr = dir === "V" ? 1 : 0, dc = dir === "H" ? 1 : 0;
+  if (r < 0 || c < 0) return null;
+  if (r + dr * (L - 1) >= CW_SIZE || c + dc * (L - 1) >= CW_SIZE) return null;
+  const br = r - dr, bc = c - dc;
+  if (br >= 0 && bc >= 0 && grid[br][bc]) return null;
+  const ar = r + dr * L, ac = c + dc * L;
+  if (ar < CW_SIZE && ac < CW_SIZE && grid[ar][ac]) return null;
+
+  let cross = 0;
+  for (let i = 0; i < L; i++) {
+    const rr = r + dr * i, cc = c + dc * i;
+    const cell = grid[rr][cc];
+    if (cell) {
+      if (cell !== word[i]) return null;
+      cross++;
+    } else {
+      const sides = dir === "H" ? [[rr - 1, cc], [rr + 1, cc]] : [[rr, cc - 1], [rr, cc + 1]];
+      for (let k = 0; k < 2; k++) {
+        const sr = sides[k][0], sc = sides[k][1];
+        if (sr >= 0 && sr < CW_SIZE && sc >= 0 && sc < CW_SIZE && grid[sr][sc]) return null;
+      }
+    }
+  }
+  return cross;
+}
+
+function cwTryBuild(words) {
+  const grid = [];
+  for (let i = 0; i < CW_SIZE; i++) grid.push(new Array(CW_SIZE).fill(null));
+  const placed = [];
+  const put = (e, r, c, dir) => {
+    const dr = dir === "V" ? 1 : 0, dc = dir === "H" ? 1 : 0;
+    for (let i = 0; i < e.w.length; i++) grid[r + dr * i][c + dc * i] = e.w[i];
+    placed.push(Object.assign({}, e, { r, c, dir }));
+  };
+  const first = words[0];
+  put(first, Math.floor(CW_SIZE / 2), Math.floor((CW_SIZE - first.w.length) / 2), "H");
+
+  for (let k = 1; k < words.length; k++) {
+    const e = words[k];
+    let best = null;
+    for (let pi = 0; pi < placed.length; pi++) {
+      const p = placed[pi];
+      for (let i = 0; i < p.w.length; i++)
+        for (let j = 0; j < e.w.length; j++) {
+          if (p.w[i] !== e.w[j]) continue;
+          const dir = p.dir === "H" ? "V" : "H";
+          const pr = p.r + (p.dir === "V" ? i : 0);
+          const pc = p.c + (p.dir === "H" ? i : 0);
+          const r = dir === "V" ? pr - j : pr;
+          const c = dir === "H" ? pc - j : pc;
+          const cross = cwCanPlace(grid, e.w, r, c, dir);
+          if (cross === null || cross < 1) continue;
+          const dist = Math.abs(r - CW_SIZE / 2) + Math.abs(c - CW_SIZE / 2);
+          const score = cross * 100 - dist;
+          if (!best || score > best.score) best = { r, c, dir, score };
+        }
+    }
+    if (best) put(e, best.r, best.c, best.dir);
+  }
+  if (placed.length < 3) return null;
+
+  let r0 = CW_SIZE, c0 = CW_SIZE, r1 = 0, c1 = 0;
+  for (let r = 0; r < CW_SIZE; r++)
+    for (let c = 0; c < CW_SIZE; c++)
+      if (grid[r][c]) { r0 = Math.min(r0, r); c0 = Math.min(c0, c); r1 = Math.max(r1, r); c1 = Math.max(c1, c); }
+  const H = r1 - r0 + 1, Wd = c1 - c0 + 1;
+  const cut = [];
+  for (let r = 0; r < H; r++) { const row = []; for (let c = 0; c < Wd; c++) row.push(grid[r + r0][c + c0]); cut.push(row); }
+  const clues = placed.map((p) => Object.assign({}, p, { r: p.r - r0, c: p.c - c0 }));
+
+  const nums = {}; let n = 0;
+  clues.sort((a, b) => a.r - b.r || a.c - b.c).forEach((p) => {
+    const key = p.r + "," + p.c;
+    if (!(key in nums)) nums[key] = ++n;
+    p.num = nums[key];
+  });
+  return { grid: cut, clues, nums, H, W: Wd };
+}
+
+function makeCrossword(entries, attempts) {
+  attempts = attempts || 40;
+  const valid = entries
+    .map((e) => Object.assign({}, e, { w: e.en.toLowerCase() }))
+    .filter((e) => /^[a-z]{3,9}$/.test(e.w));
+  if (valid.length < 3) return null;
+
+  let best = null;
+  for (let a = 0; a < attempts; a++) {
+    let order;
+    if (a === 0) order = valid.slice().sort((x, y) => y.w.length - x.w.length);
+    else {
+      const s = shuffle(valid);
+      const longest = s.slice().sort((x, y) => y.w.length - x.w.length)[0];
+      order = [longest].concat(s.filter((x) => x !== longest));
+    }
+    const r = cwTryBuild(order.slice(0, 8));
+    if (r && (!best || r.clues.length > best.clues.length)) best = r;
+    if (best && best.clues.length === Math.min(valid.length, 8)) break;
+  }
+  return best;
+}
+
+/* ---------- Chấm phát âm: Levenshtein trên chuỗi chuẩn hoá ---------- */
+function similarity(a, b) {
+  const norm = (s) => String(s).toLowerCase().replace(/[^a-z ]/g, "").trim();
+  a = norm(a); b = norm(b);
+  if (!a || !b) return 0;
+  const dp = [];
+  for (let i = 0; i <= a.length; i++) { dp.push(new Array(b.length + 1).fill(0)); dp[i][0] = i; }
+  for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+  for (let i = 1; i <= a.length; i++)
+    for (let j = 1; j <= b.length; j++)
+      dp[i][j] = Math.min(dp[i-1][j] + 1, dp[i][j-1] + 1, dp[i-1][j-1] + (a[i-1] === b[j-1] ? 0 : 1));
+  return 1 - dp[a.length][b.length] / Math.max(a.length, b.length);
+}
+
+/* Xuất cho môi trường test (Node). Trong trình duyệt, dòng này bị bỏ qua. */
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { LEVELS, lvl, retrievability, review, nextInterval, emptyMem, ITEMS, ITEM_BY_ID, TOPIC_BY_ID, TOPICS, GRAMMAR, READINGS, buildLesson, buildReviewQueue, buildExercise, makeCrossword, similarity, DAY, shuffle };
+}
+
+
+/* ================================================================
+   VƯỜN TỪ — GIAO DIỆN (vanilla JS, không phụ thuộc thư viện)
+   ================================================================ */
+
+const st = {
+  now: Date.now(),
+  mem: {},
+  xp: 0, streak: 0, todayXp: 0, goal: 50,
+  hearts: 5, combo: 0,
+  screen: "map",
+  level: null, topic: null,
+  queue: [], idx: 0, ex: null, picked: null, result: null, sessionXp: 0, sessionTitle: "",
+  game: null, gameState: null,
+  toast: null, toastTimer: null,
+};
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const isKid = () => st.level !== null && st.level <= 2;
+
+/* ---------- Giọng nói (bọc an toàn) ---------- */
+function speak(text, rate) {
+  try {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US"; u.rate = rate || 0.85;
+    window.speechSynthesis.speak(u);
+  } catch (e) { /* trình duyệt không hỗ trợ */ }
+}
+function hasASR() {
+  try { return !!(window.SpeechRecognition || window.webkitSpeechRecognition); } catch (e) { return false; }
+}
+
+/* ---------- Lưu / tải tiến độ ---------- */
+const SKEY = "vuontu:v1";
+function snapshot() { return { mem: st.mem, xp: st.xp, streak: st.streak, todayXp: st.todayXp, now: st.now }; }
+
+/* Lưu tiến độ vào localStorage của trình duyệt.
+   Dữ liệu nằm trên máy người học, không gửi đi đâu cả.
+   Nếu trình duyệt chặn (chế độ ẩn danh, cookie tắt) → chạy trong bộ nhớ,
+   người học vẫn có thể bấm "Lưu tiến độ" để tải file JSON về. */
+let storageOK = true;
+function save() {
+  try { localStorage.setItem(SKEY, JSON.stringify(snapshot())); }
+  catch (e) {
+    if (storageOK) { storageOK = false; toast("Trình duyệt chặn lưu trữ — hãy dùng nút Lưu tiến độ"); }
+  }
+}
+function load() {
+  try {
+    const raw = localStorage.getItem(SKEY);
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    st.mem = d.mem || {}; st.xp = d.xp || 0; st.streak = d.streak || 0;
+    st.todayXp = d.todayXp || 0; st.now = d.now || Date.now();
+  } catch (e) { storageOK = false; }
+}
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(snapshot(), null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "vuon-tu-tien-do.json";
+  a.click();
+  toast("Đã tải file tiến độ về máy");
+}
+function importJSON(file) {
+  const fr = new FileReader();
+  fr.onload = () => {
+    try {
+      const d = JSON.parse(fr.result);
+      st.mem = d.mem || {}; st.xp = d.xp || 0; st.streak = d.streak || 0;
+      st.todayXp = d.todayXp || 0; st.now = d.now || Date.now();
+      save(); render(); toast("Đã khôi phục tiến độ");
+    } catch (e) { toast("File không hợp lệ"); }
+  };
+  fr.readAsText(file);
+}
+
+/* ---------- Toast ---------- */
+function toast(msg) {
+  st.toast = msg;
+  const t = $("#toast");
+  if (t) { t.textContent = msg; t.classList.add("show"); }
+  clearTimeout(st.toastTimer);
+  st.toastTimer = setTimeout(() => { const el = $("#toast"); if (el) el.classList.remove("show"); st.toast = null; }, 2200);
+}
+
+/* ---------- Ghi nhận kết quả vào FSRS ---------- */
+function record(itemId, ok) {
+  st.mem[itemId] = review(st.mem[itemId] || emptyMem(), ok, st.now);
+  save();
+}
+function addXp(n) { if (n <= 0) return; st.xp += n; st.todayXp += n; st.sessionXp += n; }
+
+/* ================================================================
+   ĐIỀU HƯỚNG
+   ================================================================ */
+function go(screen) {
+  st.screen = screen;
+  render();
+  try { if (window.scrollTo) window.scrollTo(0, 0); } catch (e) {}
+}
+
+function startLesson(topicId) {
+  const t = TOPIC_BY_ID[topicId];
+  st.topic = topicId; st.level = t.level;
+  st.queue = buildLesson(topicId, st.mem, st.now);
+  st.sessionTitle = t.name;
+  beginQueue();
+}
+function startReview() {
+  const q = buildReviewQueue(st.mem, st.now, 12);
+  if (!q.length) { toast("Chưa có mục nào cần ôn"); return; }
+  st.topic = null; st.level = null;
+  st.queue = q; st.sessionTitle = "Ôn tập thông minh";
+  beginQueue();
+}
+function beginQueue() {
+  st.idx = 0; st.sessionXp = 0; st.combo = 0;
+  st.gameState = {};
+  st.hearts = isKid() ? 99 : 5;
+  st.ex = buildExercise(st.queue[0], st.mem, isKid());
+  st.picked = null; st.result = null;
+  go("learn");
+}
+function checkAnswer() {
+  if (!st.ex || st.result) return;
+  const ex = st.ex;
+  let ok;
+  if (ex.type === "fill" || ex.type === "read") ok = st.picked === ex.item.a;
+  else ok = st.picked === ex.item.id;
+  grade(ok);
+}
+function grade(ok) {
+  record(st.ex.item.id, ok);
+  if (ok) {
+    st.combo++;
+    const gain = 10 + (st.combo % 3 === 0 ? 5 : 0);
+    addXp(gain);
+    if (st.ex.item.kind === "word") speak(st.ex.item.en);
+    if (st.combo % 3 === 0) toast("Chuỗi " + st.combo + " câu đúng · +5 XP");
+  } else {
+    st.combo = 0;
+    if (!isKid()) st.hearts--;
+  }
+  st.result = ok ? "ok" : "no";
+  render();
+}
+function nextExercise() {
+  if (!isKid() && st.hearts <= 0) return go("done");
+  const i = st.idx + 1;
+  if (i >= st.queue.length) return go("done");
+  st.idx = i;
+  st.ex = buildExercise(st.queue[i], st.mem, isKid());
+  st.picked = null; st.result = null;
+  render();
+}
+function travel(d) {
+  st.now += d * DAY;
+  st.streak = st.todayXp >= st.goal ? st.streak + d : 0;
+  toast(st.todayXp >= st.goal ? "Qua " + d + " ngày · chuỗi tiếp tục 🔥" : "Qua " + d + " ngày · chưa đạt mục tiêu, chuỗi về 0");
+  st.todayXp = 0;
+  save(); render();
+}
+
+/* ================================================================
+   RENDER
+   ================================================================ */
+function render() {
+  const app = $("#app");
+  if (!app) return;
+  let html = "";
+  switch (st.screen) {
+    case "map":     html = viewMap(); break;
+    case "topics":  html = viewTopics(); break;
+    case "learn":   html = viewLearn(); break;
+    case "done":    html = viewDone(); break;
+    case "garden":  html = viewGarden(); break;
+    case "games":   html = viewGames(); break;
+    case "gpick":   html = viewGamePick(); break;
+    case "gspeak":  html = viewGameSpeak(); break;
+    case "gcross":  html = viewGameCross(); break;
+    case "gmatch":  html = viewGameMatch(); break;
+    default:        html = viewMap();
+  }
+  app.innerHTML = html;
+  app.classList.remove("rise"); void app.offsetWidth; app.classList.add("rise");
+  if (st.screen === "gcross") wireCrossword();
+  if (st.screen === "learn" && st.ex && st.ex.type === "listen" && !st.result) speak(st.ex.item.en);
+  renderNav();
+}
+
+function renderNav() {
+  const nav = $("#nav");
+  if (!nav) return;
+  const inLesson = st.screen === "learn";
+  nav.style.display = inLesson ? "none" : "flex";
+  const tabs = [["map", "🗺️", "Học"], ["games", "🎮", "Trò chơi"], ["garden", "🌿", "Vườn"]];
+  nav.innerHTML = tabs.map(([s, i, n]) => {
+    const on = st.screen === s || (s === "map" && ["topics", "done"].indexOf(st.screen) >= 0) || (s === "games" && ["gpick", "gspeak", "gcross", "gmatch"].indexOf(st.screen) >= 0);
+    return '<button class="tab' + (on ? " on" : "") + '" data-act="tab" data-arg="' + s + '"><span>' + i + "</span>" + n + "</button>";
+  }).join("");
+}
+
+function statusBar(extra) {
+  const seeds = Object.keys(st.mem).length;
+  let h = '<div class="pills">';
+  h += pill("🔥", st.streak, "ngày", "lychee");
+  h += pill("⭐", st.xp, "XP", "mango");
+  h += pill("🌱", seeds, "mục", "leaf");
+  if (extra) h += extra;
+  h += "</div>";
+  return h;
+}
+const pill = (i, v, l, c) => '<div class="pill"><span>' + i + '</span><b class="' + c + '">' + v + '</b><i>' + l + "</i></div>";
+
+/* ---------- Bản đồ ---------- */
+function viewMap() {
+  const due = Object.keys(st.mem).filter((id) => retrievability(st.mem[id], st.now) < 0.9).length;
+  const pct = Math.min(100, (st.todayXp / st.goal) * 100);
+  let h = statusBar();
+
+  h += '<section class="card hero">' +
+    '<div class="eyebrow">Vườn từ · 100 chủ đề · Pre-A1 → B2</div>' +
+    "<h1>Mỗi từ là một cái cây.<br>Không tưới thì héo.</h1>" +
+    '<div class="goal"><div class="goal-row"><span>Mục tiêu hôm nay</span><b>' + st.todayXp + "/" + st.goal + ' XP</b></div>' +
+    '<div class="bar"><div class="fill" style="width:' + pct + "%;background:" + (pct >= 100 ? "var(--leaf)" : "var(--mango)") + '"></div></div></div>' +
+    "</section>";
+
+  if (due > 0)
+    h += '<button class="btn btn-lychee ping" data-act="review">🔁 Ôn tập thông minh · ' + due + " mục sắp quên</button>";
+
+  h += '<div class="levels">';
+  LEVELS.forEach((L) => {
+    const ts = TOPICS.filter((t) => t.level === L.id);
+    const done = ts.filter((t) => t.words.some((w, i) => st.mem["w" + t.id + "-" + i])).length;
+    h += '<button class="card level" data-act="level" data-arg="' + L.id + '">' +
+      '<div class="badge" style="background:' + L.color + '">' + L.id + "</div>" +
+      '<div class="lv-body"><div class="lv-name">' + L.name + ' <span>· ' + L.cefr + " · " + L.age + "</span></div>" +
+      '<div class="lv-desc">' + L.desc + "</div>" +
+      '<div class="bar sm"><div class="fill" style="width:' + (done / ts.length) * 100 + "%;background:" + L.color + '"></div></div></div>' +
+      '<div class="lv-count">' + done + "/" + ts.length + "</div></button>";
+  });
+  h += "</div>";
+
+  h += '<section class="card">' +
+    '<div class="eyebrow">Bảng điều khiển thuật toán</div>' +
+    "<p class=\"muted\">FSRS-lite chạy theo ngày thật. Tua thời gian để thấy trí nhớ suy giảm và các mục tự quay lại hàng đợi ôn.</p>" +
+    '<div class="row">' +
+    [1, 3, 7].map((d) => '<button class="btn btn-ghost" data-act="travel" data-arg="' + d + '">+' + d + " ngày</button>").join("") +
+    "</div>" +
+    '<div class="row" style="margin-top:8px">' +
+    '<button class="btn btn-ghost" data-act="export">⬇︎ Lưu tiến độ</button>' +
+    '<button class="btn btn-ghost" data-act="import">⬆︎ Khôi phục</button>' +
+    "</div>" +
+    '<input type="file" id="file" accept="application/json" hidden>' +
+    "</section>";
+  return h;
+}
+
+/* ---------- Danh sách chủ đề ---------- */
+function viewTopics() {
+  const L = lvl(st.level);
+  const ts = TOPICS.filter((t) => t.level === st.level);
+  let h = '<button class="back" data-act="tab" data-arg="map">← Bản đồ</button>';
+  h += '<section class="card" style="border-left:6px solid ' + L.color + '">' +
+    '<div class="eyebrow">Cấp ' + L.id + " · " + L.cefr + " · " + L.age + "</div>" +
+    "<h2>" + L.name + "</h2><p class=\"muted\">" +
+    (st.level <= 2
+      ? "Chỉ nghe · luyện phát âm · từ vựng. Không ngữ pháp trừu tượng — trẻ học qua âm thanh và hình ảnh. Không mất tim."
+      : "Nghe · phát âm · từ vựng · ngữ pháp · đọc hiểu.") +
+    "</p></section>";
+  h += '<div class="grid2">';
+  ts.forEach((t) => {
+    const done = t.words.filter((w, i) => st.mem["w" + t.id + "-" + i]).length;
+    const hasRead = READINGS.some((r) => r.topicId === t.id);
+    h += '<button class="card tile" data-act="topic" data-arg="' + t.id + '">' +
+      '<div class="tile-emoji">' + t.emoji + "</div>" +
+      '<div class="tile-name">' + esc(t.name) + "</div>" +
+      '<div class="tile-meta">' + done + "/" + t.words.length + " từ" + (hasRead ? " · 📖" : "") + "</div></button>";
+  });
+  h += "</div>";
+  return h;
+}
+
+/* ---------- Bài học ---------- */
+function viewLearn() {
+  const ex = st.ex, it = ex.item;
+  const pct = ((st.idx + (st.result ? 1 : 0)) / st.queue.length) * 100;
+  const kid = isKid();
+  const prompts = { viToEn: "Chọn từ tiếng Anh đúng", enToVi: "Từ này nghĩa là gì?", listen: "Nghe và chọn từ bạn nghe được", speak: "Nhấn micro và đọc to", fill: "Chọn đáp án đúng", read: "Đọc đoạn văn và trả lời" };
+
+  let h = '<div class="topbar">' +
+    '<button class="x" data-act="tab" data-arg="map" aria-label="Thoát">✕</button>' +
+    '<div class="bar"><div class="fill" style="width:' + pct + '%;background:var(--leaf)"></div></div>' +
+    (kid ? "" : '<span class="hearts">' + "❤️".repeat(Math.max(0, st.hearts)) + "</span>") +
+    "</div>";
+  h += '<div class="lesson-title">' + esc(st.sessionTitle) + " · " + (st.idx + 1) + "/" + st.queue.length + "</div>";
+
+  h += '<section class="card exercise' + (kid ? " kid" : "") + '">';
+  h += '<div class="eyebrow">' + prompts[ex.type] + "</div>";
+
+  if (ex.type === "read") {
+    h += '<div class="passage"><div class="passage-head"><span>' + esc(it.passage.title) + "</span>" +
+      '<button class="mini" data-act="say" data-arg="' + esc(it.passage.text) + '">🔊 Nghe</button></div>' +
+      "<p>" + esc(it.passage.text) + "</p>" +
+      '<div class="q">' + esc(it.q) + "</div></div>";
+  } else if (ex.type === "fill") {
+    const parts = it.q.split("___");
+    h += '<div class="gpoint">' + esc(it.point) + "</div>" +
+      '<div class="prompt-big">' + esc(parts[0]) + '<span class="blank">' + (st.result ? " " + esc(it.a) + " " : " ___ ") + "</span>" + esc(parts[1] || "") + "</div>";
+  } else if (ex.type === "viToEn") {
+    h += '<div class="big-emoji">' + it.emoji + '</div><div class="prompt-big">' + esc(it.vi) + "</div>";
+  } else if (ex.type === "enToVi") {
+    h += '<div class="big-emoji">' + it.emoji + '</div><button class="prompt-big linkish" data-act="say" data-arg="' + esc(it.en) + '">' + esc(it.en) + " 🔊</button>";
+  } else if (ex.type === "listen") {
+    h += '<div class="center"><button class="speaker" data-act="say" data-arg="' + esc(it.en) + '" aria-label="Phát lại">🔊</button></div>';
+  } else if (ex.type === "speak") {
+    h += viewSpeakBody(it);
+  }
+
+  if (ex.type !== "speak") {
+    h += '<div class="options">';
+    ex.options.forEach((o) => {
+      const isText = ex.type === "fill" || ex.type === "read";
+      const val = isText ? o : o.id;
+      const label = isText ? o : ex.type === "enToVi" ? o.vi : o.emoji + " " + o.en;
+      const correct = isText ? it.a : it.id;
+      let cls = "opt";
+      if (st.result) {
+        if (val === correct) cls += " right";
+        else if (st.picked === val) cls += " wrong";
+      } else if (st.picked === val) cls += " sel";
+      h += '<button class="' + cls + '" data-act="pick" data-arg="' + esc(val) + '"' + (st.result ? " disabled" : "") + ">" + esc(label) + "</button>";
+    });
+    h += "</div>";
+  }
+  h += "</section>";
+
+  if (st.result) {
+    const ok = st.result === "ok";
+    let why = "";
+    if (ex.type === "fill") why = esc(it.why);
+    else if (ex.type === "read") why = "Đáp án: <b>" + esc(it.a) + "</b>";
+    else why = "<b>" + esc(it.en) + "</b> = " + esc(it.vi);
+    h += '<div class="feedback ' + (ok ? "ok" : "no") + '"><div class="fb-title">' + (ok ? "Chuẩn luôn! 🌱" : "Chưa đúng") + "</div><div class=\"fb-body\">" + why + "</div></div>";
+  }
+
+  const ready = ex.type === "speak" ? false : st.picked !== null;
+  if (st.result)
+    h += '<button class="btn ' + (st.result === "ok" ? "btn-leaf" : "btn-lychee") + '" data-act="next">Tiếp tục</button>';
+  else if (ex.type !== "speak")
+    h += '<button class="btn btn-leaf" data-act="check"' + (ready ? "" : " disabled") + ">Kiểm tra</button>";
+  return h;
+}
+
+function viewSpeakBody(it) {
+  const s = st.gameState || {};
+  if (!hasASR())
+    return '<div class="notice">Trình duyệt này không hỗ trợ nhận diện giọng nói. Hãy dùng <b>Chrome</b> hoặc <b>Edge</b>.' +
+      '<button class="btn" style="margin-top:10px" data-act="speak-skip">Tôi đã đọc xong</button></div>';
+  return '<div class="big-emoji">' + it.emoji + "</div>" +
+    '<button class="prompt-big linkish" data-act="say" data-arg="' + esc(it.en) + '">' + esc(it.en) + " 🔊</button>" +
+    '<div class="muted center">' + esc(it.vi) + "</div>" +
+    '<div class="center" style="margin-top:16px">' +
+    '<button class="mic' + (s.listening ? " listening ping" : "") + '" data-act="mic">🎙️</button>' +
+    '<div class="mic-hint' + (s.listening ? " live" : "") + '">' + (s.listening ? "Đang nghe… đọc to lên!" : "Nhấn micro rồi đọc") + "</div></div>";
+}
+
+/* ---------- Kết thúc buổi học ---------- */
+function viewDone() {
+  const won = st.hearts > 0;
+  return statusBar() + '<section class="card center pad">' +
+    '<div style="font-size:56px">' + (won ? "🌻" : "🥀") + "</div>" +
+    "<h2>" + (won ? "Hoàn thành!" : "Hết tim") + "</h2>" +
+    '<p class="muted">' + esc(st.sessionTitle) + " · +" + st.sessionXp + " XP · " + Math.min(st.idx + 1, st.queue.length) + "/" + st.queue.length + " câu</p>" +
+    '<div class="notice" style="text-align:left;margin:14px 0">FSRS đã cập nhật độ bền trí nhớ cho từng mục. Bấm <b>Tua thời gian</b> ở bản đồ để xem chúng suy giảm và quay lại hàng đợi ôn.</div>' +
+    '<button class="btn" data-act="tab" data-arg="map">Về bản đồ</button></section>';
+}
+
+/* ---------- Vườn trí nhớ ---------- */
+function viewGarden() {
+  const rows = Object.keys(st.mem)
+    .map((id) => ({ id, item: ITEM_BY_ID[id], r: retrievability(st.mem[id], st.now), S: st.mem[id].S, D: st.mem[id].D, due: nextInterval(st.mem[id].S) }))
+    .filter((x) => x.item)
+    .sort((a, b) => a.r - b.r);
+
+  let h = statusBar();
+  h += '<section class="card"><div class="eyebrow">Vườn trí nhớ</div><h2>Sức khoẻ từng mục, ngay lúc này</h2>' +
+    '<p class="muted"><b>R</b> = xác suất bạn còn nhớ nếu bị hỏi ngay bây giờ. <b>S</b> = độ bền (số ngày để R rơi về 90%).</p></section>';
+
+  if (!rows.length) {
+    h += '<section class="card center pad"><p class="muted">Vườn còn trống. Học một bài rồi quay lại đây.</p>' +
+      '<button class="btn" data-act="tab" data-arg="map">Bắt đầu học</button></section>';
+    return h;
+  }
+
+  h += '<section class="card"><div class="plots">';
+  rows.forEach((r) => {
+    const g = Math.round(r.r * 100);
+    const label = (r.item.en || r.item.point || "Đọc hiểu") + " · R=" + g + "%";
+    h += '<div class="plot" title="' + esc(label) + '" style="background:color-mix(in srgb, var(--leaf) ' + g + '%, #F3D9DF);opacity:' + (0.4 + r.r * 0.6) + '">' + (r.item.emoji || "📐") + "</div>";
+  });
+  h += "</div></section>";
+
+  h += '<section class="card table-card"><table><thead><tr><th>Mục</th><th>R</th><th>S (ngày)</th><th>Khó</th><th>Ôn sau</th></tr></thead><tbody>';
+  rows.slice(0, 80).forEach((r) => {
+    h += "<tr><td><b>" + (r.item.emoji || "📐") + " " + esc(r.item.en || r.item.point || "Đọc hiểu") + "</b></td>" +
+      '<td class="' + (r.r < 0.85 ? "lychee" : "leaf") + '"><b>' + Math.round(r.r * 100) + "%</b></td>" +
+      "<td>" + r.S.toFixed(1) + "</td><td>" + r.D.toFixed(1) + "</td>" +
+      '<td class="muted">' + (r.due < 1 ? "hôm nay" : Math.round(r.due) + " ngày") + "</td></tr>";
+  });
+  h += "</tbody></table></section>";
+  return h;
+}
+
+/* ================================================================
+   TRÒ CHƠI
+   ================================================================ */
+const GAMES = [
+  { id: "gspeak", name: "Nhìn hình & phát âm", emoji: "🎙️", color: "var(--lychee)", desc: "Xem hình, đọc to, máy chấm điểm phát âm", note: hasASR() ? "Sẵn sàng" : "Cần Chrome / Edge" },
+  { id: "gcross", name: "Ô chữ", emoji: "🧩", color: "var(--mango)", desc: "Điền từ tiếng Anh theo nghĩa tiếng Việt", note: "Sinh tự động từ chủ đề" },
+  { id: "gmatch", name: "Lật thẻ ghép cặp", emoji: "🃏", color: "var(--violet)", desc: "Ghép từ tiếng Anh với nghĩa tiếng Việt", note: "Rèn trí nhớ nhanh" },
+];
+
+function viewGames() {
+  let h = statusBar();
+  h += '<section class="card"><div class="eyebrow">Sảnh trò chơi</div><h1 style="font-size:26px">Học bằng cách chơi.<br>Vẫn tính vào vườn.</h1>' +
+    '<p class="muted">Mọi kết quả đúng/sai đều đưa vào FSRS như một lần ôn tập thật.</p></section>';
+  h += '<div class="levels">';
+  GAMES.forEach((g) => {
+    h += '<button class="card level" data-act="game" data-arg="' + g.id + '">' +
+      '<div class="badge" style="background:' + g.color + ';font-size:24px">' + g.emoji + "</div>" +
+      '<div class="lv-body"><div class="lv-name">' + g.name + "</div>" +
+      '<div class="lv-desc">' + g.desc + "</div>" +
+      '<div class="lv-note" style="color:' + g.color + '">' + g.note + "</div></div>" +
+      '<div class="lv-count">→</div></button>';
+  });
+  h += "</div>";
+  return h;
+}
+
+function viewGamePick() {
+  const g = GAMES.find((x) => x.id === st.game);
+  // Ô chữ: chỉ hiện chủ đề THỰC SỰ dựng được lưới (đếm từ là chưa đủ —
+  // vẫn có chủ đề đủ từ nhưng các từ không giao nhau được, ví dụ "Chào hỏi").
+  const usable = st.game === "gcross" ? TOPICS.filter((t) => !!cwFor(t.id)) : TOPICS;
+  let h = '<button class="back" data-act="tab" data-arg="games">← Sảnh trò chơi</button>';
+  h += '<section class="card"><div style="font-size:30px">' + g.emoji + "</div><h2>Chọn chủ đề</h2>" +
+    '<p class="muted">' + g.desc + " · " + usable.length + " chủ đề khả dụng</p></section>";
+  h += '<div class="grid2">';
+  usable.forEach((t) => {
+    h += '<button class="card tile" data-act="gtopic" data-arg="' + t.id + '">' +
+      '<div class="tile-emoji">' + t.emoji + '</div><div class="tile-name">' + esc(t.name) + "</div>" +
+      '<div class="tile-meta">Cấp ' + t.level + " · " + t.words.length + " từ</div></button>";
+  });
+  h += "</div>";
+  return h;
+}
+
+/* ---------- Trò 1: Nhìn hình & phát âm ---------- */
+function startGameSpeak(topicId) {
+  const t = TOPIC_BY_ID[topicId];
+  st.topic = topicId;
+  st.gameState = {
+    deck: shuffle(t.words.map((w, i) => ({ key: "w" + t.id + "-" + i, en: w[0], vi: w[1], emoji: t.emoji }))),
+    i: 0, total: 0, best: 0, streak: 0, listening: false, scored: false, score: 0, heard: "",
+  };
+  go("gspeak");
+}
+function viewGameSpeak() {
+  const s = st.gameState, t = TOPIC_BY_ID[st.topic];
+  if (s.i >= s.deck.length) {
+    const avg = s.total / s.deck.length;
+    return '<section class="card center pad"><div style="font-size:54px">' + (avg >= 0.8 ? "🎉" : avg >= 0.6 ? "👍" : "💪") + "</div>" +
+      "<h2>Xong vòng phát âm</h2>" +
+      '<div class="score ' + (avg >= 0.7 ? "leaf" : "lychee") + '">' + Math.round(avg * 100) + "%</div>" +
+      '<p class="muted">Điểm trung bình · Cao nhất ' + Math.round(s.best * 100) + "%</p>" +
+      '<button class="btn" data-act="tab" data-arg="games">Về sảnh trò chơi</button></section>';
+  }
+  const it = s.deck[s.i];
+  let h = '<div class="topbar"><button class="x" data-act="tab" data-arg="games" aria-label="Thoát">✕</button>' +
+    '<div class="bar"><div class="fill" style="width:' + (s.i / s.deck.length) * 100 + '%;background:var(--leaf)"></div></div>' +
+    '<span class="hearts">' + (s.i + 1) + "/" + s.deck.length + "</span></div>";
+  h += '<div class="lesson-title">' + esc(t.name) + " · Nhìn hình & phát âm</div>";
+  h += '<section class="card exercise center">';
+  if (s.streak >= 2) h += '<div class="streak">🔥 Chuỗi ' + s.streak + "</div>";
+  h += '<div class="huge-emoji">' + it.emoji + "</div>";
+
+  if (!hasASR()) {
+    h += '<div class="notice">Trình duyệt không hỗ trợ nhận diện giọng nói. Hãy dùng <b>Chrome</b> hoặc <b>Edge</b>.</div>' +
+      '<button class="btn" style="margin-top:10px" data-act="gs-next">Bỏ qua từ này</button></section>';
+    return h;
+  }
+  if (s.scored) {
+    h += '<div class="score ' + (s.score >= 0.7 ? "leaf" : "lychee") + '">' + Math.round(s.score * 100) + "%</div>" +
+      '<div class="prompt-big">' + esc(it.en) + '</div><div class="muted">' + esc(it.vi) + "</div>" +
+      '<div class="heard">Máy nghe được: “' + esc(s.heard || "—") + "”</div>" +
+      '<div class="row" style="margin-top:14px">' +
+      '<button class="btn btn-ghost" data-act="say" data-arg="' + esc(it.en) + '">🔊 Nghe mẫu</button>' +
+      '<button class="btn btn-leaf" data-act="gs-next">Tiếp →</button></div>';
+  } else {
+    h += '<div class="muted">Từ này đọc thế nào?</div>' +
+      '<button class="hintlink" data-act="say" data-arg="' + esc(it.en) + '">🔊 Nghe gợi ý</button>' +
+      '<div><button class="mic' + (s.listening ? " listening ping" : "") + '" data-act="gs-mic">🎙️</button></div>' +
+      '<div class="mic-hint' + (s.listening ? " live" : "") + '">' + (s.listening ? "Đang nghe… đọc to lên!" : "Nhấn micro rồi đọc") + "</div>";
+  }
+  h += "</section>";
+  return h;
+}
+
+/* ---------- Trò 2: Ô chữ ---------- */
+const CW_CACHE = {};
+function cwFor(topicId) {
+  if (!(topicId in CW_CACHE)) {
+    const t = TOPIC_BY_ID[topicId];
+    CW_CACHE[topicId] = makeCrossword(t.words.map((w) => ({ en: w[0], vi: w[1] })));
+  }
+  return CW_CACHE[topicId];
+}
+function startGameCross(topicId) {
+  const puzzle = cwFor(topicId);
+  if (!puzzle) { toast("Chủ đề này không dựng được ô chữ"); return; }
+  st.topic = topicId;
+  st.gameState = { puzzle, cells: {}, checked: false, solved: [] };
+  go("gcross");
+}
+function viewGameCross() {
+  const s = st.gameState, t = TOPIC_BY_ID[st.topic];
+  const p = s.puzzle;
+  const cell = Math.max(24, Math.min(34, Math.floor(320 / p.W)));
+
+  let h = '<div class="topbar"><button class="x" data-act="tab" data-arg="games" aria-label="Thoát">✕</button>' +
+    '<div class="bar"><div class="fill" style="width:' + (s.checked ? 100 : 0) + '%;background:var(--leaf)"></div></div>' +
+    '<span class="hearts">' + p.clues.length + " từ</span></div>";
+  h += '<div class="lesson-title">' + esc(t.name) + " · Ô chữ</div>";
+
+  h += '<section class="card cw-wrap"><div class="cw" style="grid-template-columns:repeat(' + p.W + "," + cell + "px);--cw:" + cell + 'px">';
+  for (let r = 0; r < p.H; r++)
+    for (let c = 0; c < p.W; c++) {
+      const sol = p.grid[r][c];
+      const key = r + "," + c;
+      if (!sol) { h += '<div class="cw-void"></div>'; continue; }
+      const val = (s.cells[key] || "").toUpperCase();
+      const num = p.nums[key];
+      let cls = "cw-cell";
+      if (s.checked) cls += (s.cells[key] || "") === sol ? " right" : " wrong";
+      h += '<div class="' + cls + '">' + (num ? '<span class="cw-num">' + num + "</span>" : "") +
+        '<input maxlength="1" inputmode="text" autocapitalize="characters" data-cw="' + key + '" value="' + val + '"' + (s.checked ? " disabled" : "") + "></div>";
+    }
+  h += "</div></section>";
+
+  h += '<section class="card"><div class="eyebrow">Gợi ý</div>';
+  ["H", "V"].forEach((d) => {
+    const list = p.clues.filter((x) => x.dir === d);
+    if (!list.length) return;
+    h += '<div class="clue-group"><div class="clue-head">' + (d === "H" ? "Hàng ngang →" : "Hàng dọc ↓") + "</div>";
+    list.forEach((x) => {
+      const ok = s.solved.indexOf(x.w) >= 0;
+      h += '<div class="clue' + (s.checked ? (ok ? " ok" : " miss") : "") + '"><b>' + x.num + ".</b><span>" + esc(x.vi) +
+        ' <i>(' + x.w.length + " chữ)</i>" + (s.checked && !ok ? ' <b class="lychee">→ ' + x.w + "</b>" : "") + "</span></div>";
+    });
+    h += "</div>";
+  });
+  h += "</section>";
+
+  if (s.checked) {
+    const all = s.solved.length === p.clues.length;
+    h += '<section class="card center" style="padding:14px;' + (all ? "background:#E8F8F0" : "") + '"><b style="font-size:19px">' +
+      s.solved.length + "/" + p.clues.length + " từ đúng " + (all ? "🎉" : "") + "</b></section>" +
+      '<button class="btn" data-act="tab" data-arg="games">Về sảnh trò chơi</button>';
+  } else {
+    h += '<div class="row"><button class="btn btn-ghost" data-act="cw-reveal">Chịu thua</button>' +
+      '<button class="btn btn-leaf" data-act="cw-check" style="flex:2">Kiểm tra</button></div>';
+  }
+  return h;
+}
+function wireCrossword() {
+  const s = st.gameState;
+  document.querySelectorAll("[data-cw]").forEach((inp) => {
+    inp.addEventListener("input", (e) => {
+      const key = inp.getAttribute("data-cw");
+      const ch = String(e.target.value).slice(-1).toLowerCase();
+      if (ch && !/[a-z]/.test(ch)) { e.target.value = (s.cells[key] || "").toUpperCase(); return; }
+      s.cells[key] = ch;
+      e.target.value = ch.toUpperCase();
+      if (ch) {
+        const parts = key.split(",");
+        const r = +parts[0], c = +parts[1];
+        const nx = document.querySelector('[data-cw="' + r + "," + (c + 1) + '"]') || document.querySelector('[data-cw="' + (r + 1) + "," + c + '"]');
+        if (nx) nx.focus();
+      }
+    });
+  });
+}
+function crosswordCheck() {
+  const s = st.gameState, p = s.puzzle;
+  const solved = [];
+  p.clues.forEach((x) => {
+    const dr = x.dir === "V" ? 1 : 0, dc = x.dir === "H" ? 1 : 0;
+    let ok = true;
+    for (let i = 0; i < x.w.length; i++)
+      if ((s.cells[(x.r + dr * i) + "," + (x.c + dc * i)] || "") !== x.w[i]) ok = false;
+    if (ok) solved.push(x.w);
+    record("cw-" + st.topic + "-" + x.w, ok);
+  });
+  s.solved = solved; s.checked = true;
+  addXp(solved.length * 12);
+  if (solved.length === p.clues.length) speak("Excellent");
+  render();
+}
+function crosswordReveal() {
+  const s = st.gameState, p = s.puzzle;
+  for (let r = 0; r < p.H; r++)
+    for (let c = 0; c < p.W; c++)
+      if (p.grid[r][c]) s.cells[r + "," + c] = p.grid[r][c];
+  s.checked = true; s.solved = [];
+  render();
+}
+
+/* ---------- Trò 3: Lật thẻ ghép cặp ---------- */
+function startGameMatch(topicId) {
+  const t = TOPIC_BY_ID[topicId];
+  const pairs = t.words.slice(0, 6);
+  const deck = shuffle(pairs.reduce((acc, w, i) => acc.concat([
+    { uid: "e" + i, pair: i, face: w[0], side: "en" },
+    { uid: "v" + i, pair: i, face: w[1], side: "vi" },
+  ]), []));
+  st.topic = topicId;
+  st.gameState = { pairs, deck, open: [], matched: [], moves: 0, busy: false };
+  go("gmatch");
+}
+function viewGameMatch() {
+  const s = st.gameState, t = TOPIC_BY_ID[st.topic];
+  if (s.matched.length === s.pairs.length)
+    return '<section class="card center pad"><div style="font-size:54px">🎯</div><h2>Ghép xong!</h2>' +
+      '<p class="muted">' + s.moves + " lượt lật · " + s.pairs.length + " cặp</p>" +
+      '<button class="btn" data-act="tab" data-arg="games">Về sảnh trò chơi</button></section>';
+
+  let h = '<div class="topbar"><button class="x" data-act="tab" data-arg="games" aria-label="Thoát">✕</button>' +
+    '<div class="bar"><div class="fill" style="width:' + (s.matched.length / s.pairs.length) * 100 + '%;background:var(--leaf)"></div></div>' +
+    '<span class="hearts">' + s.moves + " lượt</span></div>";
+  h += '<div class="lesson-title">' + esc(t.name) + " · Ghép cặp</div>";
+  h += '<div class="cards">';
+  s.deck.forEach((c, i) => {
+    const open = s.open.some((o) => o.uid === c.uid);
+    const done = s.matched.indexOf(c.pair) >= 0;
+    const show = open || done;
+    h += '<button class="mcard' + (done ? " done" : open ? " open" : "") + (c.side === "en" ? " en" : "") + '" data-act="flip" data-arg="' + i + '"' + (done || s.busy ? " disabled" : "") + ">" +
+      (show ? esc(c.face) : '<span class="mcard-back">' + t.emoji + "</span>") + "</button>";
+  });
+  h += "</div>";
+  return h;
+}
+function flipCard(i) {
+  const s = st.gameState;
+  if (s.busy) return;
+  const c = s.deck[i];
+  if (s.matched.indexOf(c.pair) >= 0) return;
+  if (s.open.some((o) => o.uid === c.uid)) return;
+  if (s.open.length >= 2) return;
+  s.open.push(c);
+  if (s.open.length === 2) {
+    s.busy = true; s.moves++;
+    const a = s.open[0], b = s.open[1];
+    const ok = a.pair === b.pair;
+    render();
+    setTimeout(() => {
+      if (ok) { s.matched.push(a.pair); speak(s.pairs[a.pair][0]); addXp(10); }
+      record("mm-" + st.topic + "-" + a.pair, ok);
+      s.open = []; s.busy = false;
+      render();
+    }, ok ? 550 : 950);
+    return;
+  }
+  render();
+}
+
+/* ================================================================
+   NHẬN DIỆN GIỌNG NÓI
+   ================================================================ */
+function runASR(target, onDone) {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { onDone(null); return; }
+  let r;
+  try { r = new SR(); } catch (e) { onDone(null); return; }
+  r.lang = "en-US"; r.interimResults = false; r.maxAlternatives = 3;
+  r.onresult = (e) => {
+    const alts = [];
+    for (let i = 0; i < e.results[0].length; i++) alts.push(e.results[0][i].transcript);
+    let best = 0;
+    alts.forEach((t) => { best = Math.max(best, similarity(t, target)); });
+    onDone({ score: best, heard: alts[0] });
+  };
+  r.onerror = () => onDone(null);
+  try { r.start(); } catch (e) { onDone(null); }
+}
+
+/* ================================================================
+   XỬ LÝ SỰ KIỆN (uỷ quyền)
+   ================================================================ */
+function onClick(e) {
+  const btn = e.target.closest("[data-act]");
+  if (!btn) return;
+  const act = btn.getAttribute("data-act");
+  const arg = btn.getAttribute("data-arg");
+
+  switch (act) {
+    case "tab":
+      if (arg === "map") { st.level = null; st.topic = null; }
+      go(arg);
+      break;
+    case "level": st.level = +arg; go("topics"); break;
+    case "topic": startLesson(+arg); break;
+    case "review": startReview(); break;
+    case "pick": if (!st.result) { st.picked = arg; render(); } break;
+    case "check": checkAnswer(); break;
+    case "next": nextExercise(); break;
+    case "say": speak(arg, 0.75); break;
+    case "travel": travel(+arg); break;
+    case "export": exportJSON(); break;
+    case "import": { const f = $("#file"); if (f) f.click(); break; }
+    case "game": st.game = arg; go("gpick"); break;
+    case "gtopic":
+      if (st.game === "gspeak") startGameSpeak(+arg);
+      else if (st.game === "gcross") startGameCross(+arg);
+      else startGameMatch(+arg);
+      break;
+
+    case "mic": {
+      if (!st.gameState) st.gameState = {};
+      st.gameState.listening = true; render();
+      runASR(st.ex.item.en, (res) => {
+        st.gameState.listening = false;
+        if (!res) { toast("Không nghe được, thử lại"); render(); return; }
+        const ok = res.score >= 0.7;
+        toast("Phát âm: " + Math.round(res.score * 100) + "%");
+        grade(ok);
+      });
+      break;
+    }
+    case "speak-skip": grade(true); break;
+
+    case "gs-mic": {
+      const s = st.gameState;
+      const it = s.deck[s.i];
+      s.listening = true; render();
+      runASR(it.en, (res) => {
+        s.listening = false;
+        if (!res) { toast("Không nghe được, thử lại"); render(); return; }
+        const ok = res.score >= 0.7;
+        s.scored = true; s.score = res.score; s.heard = res.heard;
+        s.total += res.score; s.best = Math.max(s.best, res.score);
+        s.streak = ok ? s.streak + 1 : 0;
+        record(it.key, ok);
+        addXp(ok ? (res.score >= 0.9 ? 15 : 10) : 0);
+        render();
+      });
+      break;
+    }
+    case "gs-next": {
+      const s = st.gameState;
+      s.i++; s.scored = false; s.score = 0; s.heard = ""; s.listening = false;
+      render();
+      break;
+    }
+    case "cw-check": crosswordCheck(); break;
+    case "cw-reveal": crosswordReveal(); break;
+    case "flip": flipCard(+arg); break;
+  }
+}
+
+/* ================================================================
+   KHỞI ĐỘNG
+   ================================================================ */
+function boot() {
+  document.addEventListener("click", onClick);
+  document.addEventListener("change", (e) => {
+    if (e.target && e.target.id === "file" && e.target.files && e.target.files[0]) importJSON(e.target.files[0]);
+  });
+  load();
+  render();
+}
+/* Cửa sổ gỡ lỗi: mở console gõ VT.st để xem toàn bộ trạng thái, VT.mem() để xem bộ nhớ FSRS */
+if (typeof window !== "undefined")
+  window.VT = { st, ITEMS, TOPICS, LEVELS, retrievability, review, makeCrossword, render,
+                mem: () => st.mem, reset: () => { st.mem = {}; st.xp = 0; st.streak = 0; st.todayXp = 0; save(); render(); } };
+
+if (typeof document !== "undefined" && document.getElementById("app")) boot();
+
+
+/* Chạy ngoại tuyến (tuỳ chọn): cần file sw.js đặt cùng thư mục */
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("sw.js").catch(function () {});
+  });
+}
+</script>
+</body>
+</html>
