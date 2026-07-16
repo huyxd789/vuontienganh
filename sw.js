@@ -1,7 +1,7 @@
 /* Service Worker — cho phép dùng ngoại tuyến.
-   v3: sửa lỗi mất âm thanh trên Chrome/Edge (utterance bị garbage-collect).
-   Khi cập nhật index.html sau này, tăng version (v4, v5…) để buộc tải bản mới. */
-const CACHE = "vuon-tu-v3";
+   v4: sửa lỗi đọc chồng lệnh (nghe nhanh/xẹt xoẹt) + ưu tiên giọng offline.
+   Khi cập nhật index.html sau này, tăng version (v5, v6…) để buộc tải bản mới. */
+const CACHE = "vuon-tu-v4";
 const ASSETS = ["./", "./index.html"];
 
 self.addEventListener("install", (e) => {

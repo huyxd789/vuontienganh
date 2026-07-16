@@ -4,11 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E9EFFC">
-<meta name="description" content="Vườn từ — học tiếng Anh cho người Việt. 100 chủ đề, 5 cấp độ Pre-A1 đến B2, hơn 2300 từ, nhiều dạng bài tập và trò chơi, thuật toán lặp lại ngắt quãng FSRS.">
+<meta name="description" content="Vườn từ — học tiếng Anh cho người Việt.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Vườn từ">
 <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22V%C6%B0%E1%BB%9Dn%20t%E1%BB%AB%20%E2%80%94%20H%E1%BB%8Dc%20ti%E1%BA%BFng%20Anh%22%2C%22short_name%22%3A%22V%C6%B0%E1%BB%9Dn%20t%E1%BB%AB%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23E9EFFC%22%2C%22theme_color%22%3A%22%23E9EFFC%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/svg%2Bxml%2C%253Csvg%20xmlns%3D%2527http%3A//www.w3.org/2000/svg%2527%20viewBox%3D%25270%200%20100%20100%2527%253E%253Crect%20width%3D%2527100%2527%20height%3D%2527100%2527%20rx%3D%252722%2527%20fill%3D%2527%252317255A%2527/%253E%253Ctext%20y%3D%252772%2527%20x%3D%252750%2527%20font-size%3D%252760%2527%20text-anchor%3D%2527middle%2527%253E%25F0%259F%258C%25B1%253C/text%253E%253C/svg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image/svg%2Bxml%22%7D%5D%7D">
-<link rel="icon" href="data:image/svg+xml,%%3Csvg xmlns=%%27http://www.w3.org/2000/svg%%27 viewBox=%%270 0 100 100%%27%%3E%%3Ctext y=%%2780%%27 font-size=%%2790%%27%%3E%%F0%%9F%%8C%%B1%%3C/text%%3E%%3C/svg%%3E">
 <title>Vườn từ — Học tiếng Anh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1513,6 +1512,17 @@ function ensureVoicesReady(cb) {
   window.speechSynthesis.onvoiceschanged = fire;
   setTimeout(fire, 350); // phòng khi sự kiện voiceschanged không bắn (một số bản Edge/Chrome cũ)
 }
+/* Chọn giọng tiếng Anh tốt nhất hiện có: ưu tiên offline (localService)
+   để tránh giật/rè khi giọng online phụ thuộc mạng. */
+function pickEnglishVoice(voices) {
+  const enVoices = voices.filter((v) => /^en/i.test(v.lang));
+  return (
+    enVoices.find((v) => v.lang === "en-US" && v.localService) ||
+    enVoices.find((v) => v.localService) ||
+    enVoices.find((v) => v.lang === "en-US") ||
+    enVoices[0] || null
+  );
+}
 function speak(text, rate) {
   try {
     if (typeof window === "undefined" || !window.speechSynthesis) { toast("Trình duyệt không hỗ trợ đọc tiếng Anh"); return; }
@@ -1522,7 +1532,11 @@ function speak(text, rate) {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
       u.lang = "en-US"; u.rate = rate || 0.85;
-      const enVoice = voices.find((v) => v.lang === "en-US") || voices.find((v) => /^en/i.test(v.lang));
+      /* Ưu tiên giọng chạy OFFLINE trên máy (voice.localService === true).
+         Một số giọng "Online/Neural" chạy qua máy chủ đám mây ở nước ngoài —
+         khi mạng chập chờn, giọng online dễ bị giật, rè, hoặc tăng tốc bất
+         thường để "bắt kịp" (đúng triệu chứng nghe nhanh và xẹt xoẹt). */
+      const enVoice = pickEnglishVoice(voices);
       if (enVoice) u.voice = enVoice;
       _lastUtter = u; // giữ tham chiếu để không bị GC giữa chừng (lỗi phổ biến của Chrome)
       setTimeout(() => { try { window.speechSynthesis.speak(u); } catch (e) {} }, 30);
@@ -1719,7 +1733,14 @@ function render() {
   app.classList.remove("rise"); void app.offsetWidth; app.classList.add("rise");
   if (st.screen === "gcross") wireCrossword();
   if (st.screen === "learn" && st.ex && !st.result) {
-    if (st.ex.type === "listen" || st.ex.type === "dictation") speak(st.ex.item.en);
+    // Chỉ đọc MỘT LẦN cho mỗi câu hỏi mới — nếu không sẽ đọc lại mỗi khi render()
+    // chạy lại (ví dụ khi người học bấm chọn đáp án trước khi kiểm tra), khiến
+    // nhiều lệnh đọc xếp hàng nối đuôi nhau và nghe như bị dồn nhanh, giật.
+    const exKey = st.ex.item.id + ":" + st.ex.type;
+    if ((st.ex.type === "listen" || st.ex.type === "dictation") && st.lastSpokenKey !== exKey) {
+      st.lastSpokenKey = exKey;
+      speak(st.ex.item.en);
+    }
     if (st.ex.type === "dictation") wireDictation();
   }
   renderNav();
@@ -2352,12 +2373,16 @@ function sayDialogueLines(lines, i) {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
   if (i === 0) window.speechSynthesis.cancel();
   if (i >= lines.length) return;
-  var u;
-  try { u = new SpeechSynthesisUtterance(lines[i].t); } catch (e) { return; }
-  u.lang = "en-US"; u.rate = 0.9;
-  _lastUtter = u; // giữ tham chiếu để tránh Chrome/Edge dọn rác giữa chừng
-  u.onend = function () { setTimeout(function () { sayDialogueLines(lines, i + 1); }, 250); };
-  window.speechSynthesis.speak(u);
+  ensureVoicesReady(() => {
+    var u;
+    try { u = new SpeechSynthesisUtterance(lines[i].t); } catch (e) { return; }
+    u.lang = "en-US"; u.rate = 0.9;
+    const enVoice = pickEnglishVoice(window.speechSynthesis.getVoices());
+    if (enVoice) u.voice = enVoice;
+    _lastUtter = u; // giữ tham chiếu để tránh Chrome/Edge dọn rác giữa chừng
+    u.onend = function () { setTimeout(function () { sayDialogueLines(lines, i + 1); }, 250); };
+    window.speechSynthesis.speak(u);
+  });
 }
 function runASR(target, onDone) {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
