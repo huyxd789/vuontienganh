@@ -1495,14 +1495,38 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const isKid = () => st.level !== null && st.level <= 2;
 
-/* ---------- Giọng nói (bọc an toàn) ---------- */
+/* ---------- Giọng nói (bọc an toàn) ----------
+   QUAN TRỌNG: Chrome/Edge chỉ giữ tham chiếu YẾU tới SpeechSynthesisUtterance.
+   Nếu không có biến nào ở phạm vi ngoài giữ đối tượng này, trình duyệt có thể
+   dọn rác (garbage collect) nó TRƯỚC KHI đọc xong — kết quả là mất tiếng hoàn
+   toàn, không có lỗi gì cả. Đây là lỗi rất phổ biến, đã được báo cáo nhiều lần
+   trên chromium. Cách khắc phục: giữ utterance ở biến toàn cục (_lastUtter). */
+let _lastUtter = null;
+let _voicesReady = false;
+function ensureVoicesReady(cb) {
+  if (typeof window === "undefined" || !window.speechSynthesis) return cb();
+  const v = window.speechSynthesis.getVoices();
+  if (v && v.length > 0) { _voicesReady = true; return cb(); }
+  if (_voicesReady) return cb(); // đã từng sẵn sàng, một số trình duyệt trả rỗng tạm thời
+  let done = false;
+  const fire = () => { if (done) return; done = true; _voicesReady = true; cb(); };
+  window.speechSynthesis.onvoiceschanged = fire;
+  setTimeout(fire, 350); // phòng khi sự kiện voiceschanged không bắn (một số bản Edge/Chrome cũ)
+}
 function speak(text, rate) {
   try {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US"; u.rate = rate || 0.85;
-    window.speechSynthesis.speak(u);
+    if (typeof window === "undefined" || !window.speechSynthesis) { toast("Trình duyệt không hỗ trợ đọc tiếng Anh"); return; }
+    ensureVoicesReady(() => {
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices || voices.length === 0) { toast("Máy chưa có giọng đọc — vào Cài đặt Windows để thêm giọng tiếng Anh"); return; }
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = "en-US"; u.rate = rate || 0.85;
+      const enVoice = voices.find((v) => v.lang === "en-US") || voices.find((v) => /^en/i.test(v.lang));
+      if (enVoice) u.voice = enVoice;
+      _lastUtter = u; // giữ tham chiếu để không bị GC giữa chừng (lỗi phổ biến của Chrome)
+      setTimeout(() => { try { window.speechSynthesis.speak(u); } catch (e) {} }, 30);
+    });
   } catch (e) { /* trình duyệt không hỗ trợ */ }
 }
 function hasASR() {
@@ -2331,6 +2355,7 @@ function sayDialogueLines(lines, i) {
   var u;
   try { u = new SpeechSynthesisUtterance(lines[i].t); } catch (e) { return; }
   u.lang = "en-US"; u.rate = 0.9;
+  _lastUtter = u; // giữ tham chiếu để tránh Chrome/Edge dọn rác giữa chừng
   u.onend = function () { setTimeout(function () { sayDialogueLines(lines, i + 1); }, 250); };
   window.speechSynthesis.speak(u);
 }
